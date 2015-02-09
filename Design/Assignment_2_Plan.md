@@ -25,7 +25,8 @@ Proposed Technologies:
 
 Marking Scheme:
 	maximum 100%
-		25% - Clean Coding
-		25% - Github, source Control
-		25% - user interaction
-		25% - Voxel data structure - testing
+		30% - Clean Coding
+		20% - Github, source Control
+		30% - user interaction
+		20% - Voxel data structure - testing
+

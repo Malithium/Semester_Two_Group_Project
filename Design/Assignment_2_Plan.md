@@ -9,12 +9,13 @@ Project Pitch:
 
 Project Plan:
 	12 weeks: atleast 6 milestones Max time: 2 weeks Min Time: variable based on task 
-	Milestone 1: working SDL window, and do pitch
-	Milestone 2: textured Cube, and a diamond
-	Milestone 3: camera/controls (look around and move), look into collision detection
-	Milestone 4: implement collision detection and gravity
-	Milestone 5: build level, level design 
-	Milestone 6: Debug and finalize
+	
+	- Milestone 1: working SDL window, and do pitch
+	- Milestone 2: textured Cube, and a diamond
+	- Milestone 3: camera/controls (look around and move), look into collision detection
+	- Milestone 4: implement collision detection and gravity
+	- Milestone 5: build level, level design 
+	- Milestone 6: Debug and finalize
 
 	Side Goals: Oct trees, Diamond AI (A* algorithm)
 

@@ -48,13 +48,7 @@ int main(int argc, char *argv[])
 		std::cerr << "OpenGL 3.0 not available" << std::endl;
 	return -1;
 	}
-
- GLuint VertexArrayID;
- GLuint programID;
- GLuint MatrixID;
- GLuint vertexbuffer;
- GLuint colourbuffer;
-
+	
  static GLfloat g_colour_buffer_data[12*3*3];  // Colours of ground blocks
  static const GLfloat g_vertex_buffer_data[] = { 
 		-1.0f, -1.0f, 0.0f,
@@ -62,26 +56,29 @@ int main(int argc, char *argv[])
 		 0.0f,  1.0f, 0.0f,
 	};
 	
+	GLuint VertexArrayID;
 	glGenVertexArrays(1, &VertexArrayID);
 	glBindVertexArray(VertexArrayID);
 
-	programID = LoadShaders( "shaders/vertex.vs", "shaders/fragment.fs" );
+	Gluint programID = LoadShaders( "vertex.vs", "fragment.fs" );
 
 	// One color for each vertex. They were generated randomly.
 	for(int i = 0; i < 1*3; i)
 	{ 
-		g_colour_buffer_data[3*i0] = 0.140f;
-		g_colour_buffer_data[3*i1] = 0.059f;
-		g_colour_buffer_data[3*i2] = 0.038f;		
+		g_colour_buffer_data[3*i] = 0.140f;
+		g_colour_buffer_data[3*i] = 0.059f;
+		g_colour_buffer_data[3*i] = 0.038f;		
 	};
 
 	// Get a handle for our "MVP" uniform
-	MatrixID = glGetUniformLocation(programID, "MVP");
+	Gluint MatrixID = glGetUniformLocation(programID, "MVP");
 
+	GLuint vertexbuffer;
 	glGenBuffers(1, &vertexbuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
 
+	GLuint colourbuffer;
 	glGenBuffers(1, &colourbuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, colourbuffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(g_colour_buffer_data), g_colour_buffer_data, GL_STATIC_DRAW);
@@ -89,6 +86,7 @@ int main(int argc, char *argv[])
 	
 	//setup SDL windowEvent and game loop
 	SDL_Event windowEvent;
+	
 	while(true){
 		// Clear the screen
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -96,11 +94,11 @@ int main(int argc, char *argv[])
 	// Use our shader
 	glUseProgram(programID);
 	
-	glm::mat4 ProjectionMatrix = getProjectionMatrix();
-	glm::mat4 ViewMatrix = getViewMatrix();
-	glm::mat4 ModelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(x, y, z));
-	glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
-	glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+	//glm::mat4 ProjectionMatrix = getProjectionMatrix();
+	//glm::mat4 ViewMatrix = getViewMatrix();
+	//glm::mat4 ModelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+	//glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
+	//glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
 
 	// 1rst attribute buffer : vertices
 	glEnableVertexAttribArray(0);

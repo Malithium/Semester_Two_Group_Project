@@ -35,3 +35,12 @@
 		g_colour_buffer_data[3*i+1] = 0.186f;
 		g_colour_buffer_data[3*i+2] = 0.059f;		
 	};
+
+void cube(vec3 position)
+{
+	//glm::mat4 ProjectionMatrix = getProjectionMatrix();
+	//glm::mat4 ViewMatrix = getViewMatrix();
+	//glm::mat4 ModelMatrix = glm::translate(glm::mat4(1.0f), position);
+	//glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
+	//glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+}

@@ -1,4 +1,7 @@
 // Class to load the levels
+#include <vector>;
+
+using namespace glm;
 
 void levelLoader(int level)
 {
@@ -21,7 +24,10 @@ void levelOne()
 {
 	bool running = true; // Will determine if the level is still running
 	//Will hold vectors with information on cube placements (So will load the level)
-
+	std::vector<vec3>cubepositions((0.0f, 0.0f, 0.0f), (6.0f, 0.0f, 0.0f),(0.0f, 0.0f, 6.0f), (6.0f, 0.0f, 6.0f), 
+	(NULL, NULL, NULL), 
+	(NULL, NULL, NULL)); //No idea if this spacing will work
+	
 	do
 	{
 		
@@ -31,5 +37,12 @@ void levelOne()
 
 void levelTwo()
 {
-//Will hold vectors with information on cube placements (So will load the level)
+	bool running = true; // Will determine if the level is still running
+	//Will hold vectors with information on cube placements (So will load the level)
+
+	do
+	{
+		
+	}
+	while(level == true);
 }

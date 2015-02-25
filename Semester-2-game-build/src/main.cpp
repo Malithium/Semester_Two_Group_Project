@@ -25,8 +25,10 @@ int main(int argc, char *argv[])
 	loadShaders shader;	
 
 	//create SDL Window
-	SDL_Window* window = SDL_CreateWindow("OpenGL Window", 100, 100, 1600, 900, SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN);
-
+	SDL_Window* window = SDL_CreateWindow("OpenGL Window", 100, 100, 1600, 900, SDL_WINDOW_OPENGL);
+	
+	// " | SDL_WINDOW_FULLSCREEN" Will make it fullscreen - does what the tin says
+	
 	//create SDL Window context
 	SDL_GLContext context = SDL_GL_CreateContext(window);
 
@@ -97,7 +99,7 @@ int main(int argc, char *argv[])
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(element_buffer), element_buffer, GL_STATIC_DRAW);
 
-		// Get a handle for our "MVP" uniform
+	// Get a handle for our "MVP" uniform
 	GLuint MatrixID = glGetUniformLocation(programID, "MVP");		
 
 	glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
@@ -111,7 +113,7 @@ int main(int argc, char *argv[])
 		// Use our shader
 		glUseProgram(programID);
 
-		//MVP code
+		//MVP code - all this will be inside the camera class, and return an MVP
 		glm::mat4 ProjectionMatrix = glm::perspective(45.0f, 4.0f / 3.0f, 0.1f, 100.0f); 
 		glm::mat4 ViewMatrix = glm::lookAt(
 			glm::vec3(4,3,3),
@@ -121,6 +123,7 @@ int main(int argc, char *argv[])
 			
 		glm::mat4 ModelMatrix = glm::mat4(1.0f);
 		glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
+		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
 
 		// 1rst attribute buffer : vertices
 		glEnableVertexAttribArray(0);
@@ -134,7 +137,7 @@ int main(int argc, char *argv[])
 			(void*)0            // array buffer offset
 			);
 
-		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);	
+	
 		// Draw the triangle !
 		glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, (void*)0);
 

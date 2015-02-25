@@ -1,5 +1,8 @@
- static GLfloat g_colour_buffer_data[12*3*3];  // Colours of ground blocks
- 
+
+ // look into inheritance in C++
+@Override 
+void size()
+ { 
  // Vertex's for the cube
  static const GLfloat g_vertex_buffer_data[] = { 
 		-1.0f, -1.0f,  1.0f,
@@ -10,7 +13,7 @@
 		 1.0f, -1.0f, -1.0f,
 		 1.0f,  1.0f, -1.0f,
 		-1.0f,  1.0f, -1.0f
-	};
+ };
 
  // Connects the vertex's to make the cube 
  static const GLuint element_buffer[] = {
@@ -26,21 +29,13 @@
 		3, 7, 4,
 		1, 5, 6,
 		6, 2, 1
-};
-
-	// Will fill the colour buffer with shades of green
-	for(int i = 0; i < 12*3; i++)
-	{ 
-		g_colour_buffer_data[3*i+0] = 0.039f;
-		g_colour_buffer_data[3*i+1] = 0.186f;
-		g_colour_buffer_data[3*i+2] = 0.059f;		
-	};
-
-void cube(vec3 position)
-{
-	//glm::mat4 ProjectionMatrix = getProjectionMatrix();
-	//glm::mat4 ViewMatrix = getViewMatrix();
-	//glm::mat4 ModelMatrix = glm::translate(glm::mat4(1.0f), position);
-	//glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
-	//glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+ };
+ static GLfloat g_colour_buffer_data[12*3*3];  // Colours of ground blocks
+ // Will fill the colour buffer with shades of green
+ for(int i = 0; i < 12*3; i++)
+ { 
+	g_colour_buffer_data[3*i+0] = 0.039f;
+	g_colour_buffer_data[3*i+1] = 0.186f;
+	g_colour_buffer_data[3*i+2] = 0.059f;		
+ };
 }

@@ -1,9 +1,10 @@
 
 #include "level.h"
 
-void Level::runLevel(int lvl)
+bool Level::runLevel(int lvl, SDL_Window* window)
 {
-	bool running = true; // Will determine if the level is still running
+	bool running = true;   // Will determine if the level is still running
+	SDL_Event windowEvent; //setup SDL windowEvent and game loop
 	
 	// The method will fill the cubepositions vector, the IF statement is there for error checking
 	if(fillVector(lvl) == false) 
@@ -11,20 +12,20 @@ void Level::runLevel(int lvl)
 	   std::cout << "Problem with file input" << std::endl;
 	}
 	
-	do
-	{
+	do {
  	 //glm::mat4 MVP = player(); // The camera class
 	 blockPositions();  // Loads cubes onto screen
-		
+	 // Diamond stuff goes here
+	 if (SDL_PollEvent(&windowEvent))
+		{
+			if (windowEvent.type == SDL_KEYUP && windowEvent.key.keysym.sym == SDLK_ESCAPE) return false;
+		}
+	 SDL_GL_SwapWindow(window);
 	}
 	while(running == true);
 	
 	cubepositions.clear();
-	// I know this won't work atm but we need to sort it out later
-	//glDeleteBuffers(1, &vertexbuffer);
-	//glDeleteBuffers(1, &elementbuffer);
-	//glDeleteProgram(programID);
-	//glDeleteVertexArrays(1, &VertexArrayID);
+	return true;
 }
 
 bool Level::fillVector(int lvl)

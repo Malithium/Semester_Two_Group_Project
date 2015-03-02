@@ -11,5 +11,4 @@ class Cube {
      GLfloat colour_buffer[];
 	private:
 	  //Unsure atm if there are any private
-	
 };

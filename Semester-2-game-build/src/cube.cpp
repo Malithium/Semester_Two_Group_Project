@@ -32,15 +32,12 @@ void Cube::draw(vec3 position)
 
 	// This will identify our buffer
 	GLuint vertexbuffer;
-
 	// Generates 1 buffer, puts the resulting identifier in the buffer
 	glGenBuffers(1, &vertexbuffer);
-
 	// The following commands will talk about our buffer
 	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-
 	// Give our vertices to OpenGL.
-	glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(gertex_buffer), vertex_buffer, GL_STATIC_DRAW);
 
 	GLuint elementbuffer;
 	glGenBuffers(1, &elementbuffer);
@@ -53,6 +50,7 @@ void Cube::draw(vec3 position)
 	//---------------------------------//
 	// The drawing section of cube.cpp //
 	//---------------------------------//
+	
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	// Use our shaders
@@ -69,10 +67,18 @@ void Cube::draw(vec3 position)
 		0,                  // stride
 		(void*)0            // array buffer offset
 	);
-
 	
 	// Draws the triangles
 	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, (void*)0);
 
 	glDisableVertexAttribArray(0);
+	
+	//-------------------------------------//
+	// The destructive section of cube.cpp //
+	//-------------------------------------//
+	
+	glDeleteBuffers(1, &vertexbuffer);
+	glDeleteBuffers(1, &elementbuffer);
+	glDeleteProgram(programID);
+	glDeleteVertexArrays(1, &VertexArrayID);
 }

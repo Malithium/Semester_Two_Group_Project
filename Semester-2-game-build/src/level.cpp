@@ -13,7 +13,7 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 	}
 	
 	do {
- 	 //glm::mat4 MVP = player(); // The camera class
+ 	 Camera player.cameraControls(window, windowEvent) // The camera class
 	 blockPositions();  // Loads cubes onto screen
 	 // Diamond stuff goes here
 	 if (SDL_PollEvent(&windowEvent))

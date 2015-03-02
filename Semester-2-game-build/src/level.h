@@ -15,6 +15,8 @@
 #include "mediumCube.h"
 #include "smallCube.h"
 
+#include "camera.h"
+
 class Level  {
   public:
     bool runLevel(int lvl, SDL_Window* window);

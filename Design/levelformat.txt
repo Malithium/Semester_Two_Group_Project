@@ -1,0 +1,20 @@
+//Large Cubes here
+X
+Y
+Z
+X
+Y
+Z
+-1.0f//Medium Cubes here
+X
+Y
+Z
+X
+Y
+Z
+1.0f//Small Cubes here
+X
+Y
+Z-1.0f
+
+JSON // File format

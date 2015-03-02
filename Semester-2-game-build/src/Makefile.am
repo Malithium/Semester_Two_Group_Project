@@ -1,7 +1,7 @@
-EXTRA_DIST = 
+EXTRA_DIST = loadShaders.h level.h
 
 bin_PROGRAMS = shaderexample
-shaderexample_SOURCES = main.cpp 
+shaderexample_SOURCES = main.cpp loadShaders.cpp level.cpp
 
 AM_CPPFLAGS = -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES
 AM_CPPFLAGS += -std=c++11

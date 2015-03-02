@@ -1,15 +1,19 @@
 
+// Libraries for file input
 #include <fstream>
-// Library for file input
 #include <iostream>
+// Library to store the cube positions
+#include <vector>
 #include <string>
 
 #include <glm/glm.hpp>
 #include <glm/gtx/transform.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-// Library to load the levels
-#include <vector>
+#include "cube.h"
+#include "largeCube.h"
+#include "mediumCube.h"
+#include "smallCube.h"
 
 class Level  {
   public:

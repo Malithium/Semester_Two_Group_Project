@@ -2,21 +2,27 @@
 #include <cube.h>
 
 //This will be overwritten by individual cube sizes
-void size()
+virtual void Cube::vertexs()
+{ 
+// This should be overwitten, otherwise it will print a triangle
+	vertex_buffer[] = { 1.0f, 0.0f, 0.0f, -1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f };
+}
+
+virtual void Cube::elements()
 {
- GLfloat g_vertex_buffer_data[] = { 1.0f, 0.0f, 0.0f, -1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f };
- GLuint element_buffer[] = { 0, 1, 2 };
- GLfloat g_colour_buffer_data[] = { 0.039f, 0.186f, 0.059f };
- // All of these should be overwitten, otherwise it will print a triangle
+	// This should be overwitten, otherwise it will print a triangle
+	element_buffer[] = { 0, 1, 2 };
 }
 
 // The cube sizes will inherit from here
-void draw(vec3 position)
+void Cube::draw(vec3 position)
 {
 	//--------------------------------------//
 	// The initialising section of cube.cpp //
 	//--------------------------------------//
 
+	colour_buffer[] = { 0.039f, 0.186f, 0.059f };
+	
 	GLuint VertexArrayID;
 	glGenVertexArrays(1, &VertexArrayID);
 	glBindVertexArray(VertexArrayID);
@@ -45,7 +51,7 @@ void draw(vec3 position)
 	GLuint MatrixID = glGetUniformLocation(programID, "MVP");
 
 	//---------------------------------//
-	// For drawing section of cube.cpp //
+	// The drawing section of cube.cpp //
 	//---------------------------------//
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 

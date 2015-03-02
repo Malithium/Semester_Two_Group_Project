@@ -29,7 +29,7 @@ void Level::runLevel(int lvl)
 
 bool Level::fillVector(int lvl)
 {
-   std::ifstream input("levelOne.txt", std::ifstream::in);
+   std::ifstream input("levels/levelOne.json", std::ifstream::in);
    bool filled = false;
    if(cubepositions.empty())
    {
@@ -79,17 +79,17 @@ void Level::blockPositions()
      {
         case 0:
 	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2)); //Theory atm
-	//largeCube(pos);
+	LargeCube largeCube.draw(pos);
 	break;
 
 	case 1:
 	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2)); //Theory atm
-	//mediumCube(pos);
+	//MediumCube mediumCube.draw(pos);
 	break;
 
 	case 2:
 	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2)); //Theory atm
-	//smallCube(pos);
+	//SmallCube smallCube.draw(pos);
 	break;
      }
 

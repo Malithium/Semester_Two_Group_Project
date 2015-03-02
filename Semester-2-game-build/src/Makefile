@@ -96,7 +96,8 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_shaderexample_OBJECTS = main.$(OBJEXT) loadShaders.$(OBJEXT)
+am_shaderexample_OBJECTS = main.$(OBJEXT) loadShaders.$(OBJEXT) \
+	level.$(OBJEXT)
 shaderexample_OBJECTS = $(am_shaderexample_OBJECTS)
 shaderexample_LDADD = $(LDADD)
 AM_V_lt = $(am__v_lt_$(V))
@@ -300,8 +301,8 @@ target_alias =
 top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
-EXTRA_DIST = loadShaders.h
-shaderexample_SOURCES = main.cpp loadShaders.cpp
+EXTRA_DIST = loadShaders.h level.h
+shaderexample_SOURCES = main.cpp loadShaders.cpp level.cpp
 AM_CPPFLAGS = -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES -std=c++11 \
 	$(gl_CFLAGS) $(glew_CFLAGS) $(sdl2_CFLAGS) $(BOOST_CPPFLAGS)
 all: all-am
@@ -398,6 +399,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+include ./$(DEPDIR)/level.Po
 include ./$(DEPDIR)/loadShaders.Po
 include ./$(DEPDIR)/main.Po
 

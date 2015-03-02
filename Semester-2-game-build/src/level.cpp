@@ -1,14 +1,12 @@
 
 #include "level.h"
 
-using namespace glm;
-
-void Level::runlevel(int lvl)
+void Level::runLevel(int lvl)
 {
 	bool running = true; // Will determine if the level is still running
 	
 	// The method will fill the cubepositions vector, the IF statement is there for error checking
-	if(fillVector(lvl) = false) 
+	if(fillVector(lvl) == false) 
 	{
 	   std::cout << "Problem with file input" << std::endl;
 	}
@@ -16,10 +14,10 @@ void Level::runlevel(int lvl)
 	do
 	{
  	 //glm::mat4 MVP = player(); // The camera class
-	 blockpositions();  // Loads cubes onto screen
+	 blockPositions();  // Loads cubes onto screen
 		
 	}
-	while(level == true);
+	while(running == true);
 	
 	cubepositions.clear();
 	// I know this won't work atm but we need to sort it out later
@@ -31,17 +29,17 @@ void Level::runlevel(int lvl)
 
 bool Level::fillVector(int lvl)
 {
-   ifstream input;
+   std::ifstream input("levelOne.txt", std::ifstream::in);
    bool filled = false;
-   if(! cubepositions.empty())
+   if(cubepositions.empty())
    {
       cubepositions.clear(); // Fallback
    }
 
-   switch(level)
+   switch(lvl)
    { 
      case 1:
-     input = input("levelOne.txt", std::ifstream::in);
+     //input = input;
      filled = true;
      break;
 
@@ -49,14 +47,17 @@ bool Level::fillVector(int lvl)
    }
 
    int done = 0;
+   std::string line; 
+   std::string::size_type sz; // Allows for String to float conversion
    for(int i = 0; done < 3; i++)
    {
-      float line;
       getline(input, line);
-      cubepositions.push_back(line);
-      if(line == NULL)
+      float in = std::stof(line, &sz);
+      cubepositions.push_back(in);
+      if(line == "-1.0f")
       {
-        done++; // There should be two NULLs, to change cube size, and then a final NULL to signal the end of the file.
+	// There should be two -1.0fs, to change cube size, and then a final -1.0f to signal the end of the file.
+        done++;
       }
    }
    
@@ -64,11 +65,12 @@ bool Level::fillVector(int lvl)
 }
 
 void Level::blockPositions()
-{   
+{  
+   glm::vec3 pos;
    int j = 0;
    for(int i = 0; i < (cubepositions.size()-1); i += 3)
    {
-     if(cubepositions.at(i) == NULL)
+     if(cubepositions.at(i) == -1.0f)
      {
 	j++;
 	i++;	
@@ -76,23 +78,19 @@ void Level::blockPositions()
      switch(j)
      {
         case 0:
-	glm::vec3 pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2)); //Theory atm
+	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2)); //Theory atm
 	//largeCube(pos);
 	break;
 
 	case 1:
-	glm::vec3 pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2)); //Theory atm
+	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2)); //Theory atm
 	//mediumCube(pos);
 	break;
 
 	case 2:
-	glm::vec3 pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2)); //Theory atm
+	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2)); //Theory atm
 	//smallCube(pos);
 	break;
-
-	default:
-	std::cout << "Problem with Cube Positions" << std::endl;
-	break;	
      }
 
    }

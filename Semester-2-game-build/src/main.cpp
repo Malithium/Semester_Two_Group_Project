@@ -10,11 +10,10 @@
 
 #include <boost/program_options.hpp>
 #include <src/loadShaders.h>
+#include <src/level.h>
 
 int main(int argc, char *argv[])
 {
-
-		
 
 	//initialise SDL
 	SDL_Init(SDL_INIT_VIDEO);
@@ -22,7 +21,8 @@ int main(int argc, char *argv[])
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
 	
-	loadShaders shader;	
+	loadShaders shader;
+	Level load;	
 
 	//create SDL Window
 	SDL_Window* window = SDL_CreateWindow("OpenGL Window", 100, 100, 1600, 900, SDL_WINDOW_OPENGL);
@@ -106,6 +106,8 @@ int main(int argc, char *argv[])
 
 	//setup SDL windowEvent and game loop
 	SDL_Event windowEvent;
+	int lvl = 1; // Will increment per level
+	load.runLevel(lvl);
 	while (true){
 
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

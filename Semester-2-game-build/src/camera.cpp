@@ -79,16 +79,16 @@ void Camera::cameraControls(SDL_Window* window, SDL_Event &event){
 	if (event.type == SDL_KEYDOWN){
 		switch (event.key.keysym.sym){
 		case SDLK_w:
-			position += direction * dTime * speed;
+			position = glm::vec3(position.x + direction.x * dTime * speed, position.y, position.z + direction.z * dTime * speed);
 			break;
-		case SDLK_s:
-			position -= direction * dTime * speed;			
+		case SDLK_s:	
+			position = glm::vec3(position.x - direction.x * dTime * speed, position.y, position.z - direction.z * dTime * speed);
 			break;
 		case SDLK_d:
-			position += right * dTime * speed;
+			position = glm::vec3(position.x + right.x * dTime * speed, position.y, position.z + right.z * dTime * speed);
 			break;
 		case SDLK_a:
-			position -= right * dTime * speed;
+			position = glm::vec3(position.x - right.x * dTime * speed, position.y, position.z - right.z * dTime * speed);
 			break;
 		}
 

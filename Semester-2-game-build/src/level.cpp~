@@ -87,7 +87,7 @@ void Level::blockPositions()
      {
         case 0:
 	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2)); //Theory atm
-	asset_manager->AddAsset(std::make_shared<LargeCubeAsset>(pos));
+	asset_manager->AddAsset(std::make_shared<LargeCubeAsset>());
 	break;
 
 	case 1:

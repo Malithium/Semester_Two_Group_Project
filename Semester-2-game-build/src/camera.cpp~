@@ -97,4 +97,8 @@ void Camera::cameraControls(SDL_Window* window, SDL_Event &event){
 	float FoV = 45.0f;
 	projectionMatrix = glm::perspective(FoV, 4.0f / 3.0f, 0.1f, 100.0f);
 	viewMatrix = glm::lookAt(position, position + direction, up);
+
+
+	std::cout << verticalAngle << std::endl;
+	std::cout << horizontalAngle << std::endl;
 }

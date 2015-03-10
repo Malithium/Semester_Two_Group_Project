@@ -97,7 +97,8 @@ CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_shaderexample_OBJECTS = main.$(OBJEXT) loadShaders.$(OBJEXT) \
-	level.$(OBJEXT)
+	level.$(OBJEXT) camera.$(OBJEXT) cube.$(OBJEXT) \
+	gameAssetManager.$(OBJEXT)
 shaderexample_OBJECTS = $(am_shaderexample_OBJECTS)
 shaderexample_LDADD = $(LDADD)
 AM_V_lt = $(am__v_lt_$(V))
@@ -165,13 +166,13 @@ am__define_uniq_tagged_files = \
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/jglp10/H_Drive/GameDev/STGP/Semester-2-game-build/missing aclocal-1.13
+ACLOCAL = ${SHELL} /home/jglp10/Desktop/work/Semester-2-game-build/missing aclocal-1.13
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AR = ar
-AUTOCONF = ${SHELL} /home/jglp10/H_Drive/GameDev/STGP/Semester-2-game-build/missing autoconf
-AUTOHEADER = ${SHELL} /home/jglp10/H_Drive/GameDev/STGP/Semester-2-game-build/missing autoheader
-AUTOMAKE = ${SHELL} /home/jglp10/H_Drive/GameDev/STGP/Semester-2-game-build/missing automake-1.13
+AUTOCONF = ${SHELL} /home/jglp10/Desktop/work/Semester-2-game-build/missing autoconf
+AUTOHEADER = ${SHELL} /home/jglp10/Desktop/work/Semester-2-game-build/missing autoheader
+AUTOMAKE = ${SHELL} /home/jglp10/Desktop/work/Semester-2-game-build/missing automake-1.13
 AWK = gawk
 BOOST_CPPFLAGS = 
 BOOST_LDPATH = 
@@ -214,9 +215,9 @@ LIBS =  $(gl_LIBS) $(glew_LIBS) $(sdl2_LIBS) \
 	$(BOOST_THREAD_LIBS) $(BOOST_PROGRAM_OPTIONS_LIBS)
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
-LN_S = ln
+LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/jglp10/H_Drive/GameDev/STGP/Semester-2-game-build/missing makeinfo
+MAKEINFO = ${SHELL} /home/jglp10/Desktop/work/Semester-2-game-build/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /usr/bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -242,10 +243,10 @@ SET_MAKE =
 SHELL = /bin/sh
 STRIP = strip
 VERSION = 0.1
-abs_builddir = /home/jglp10/H_Drive/GameDev/STGP/Semester-2-game-build/src
-abs_srcdir = /home/jglp10/H_Drive/GameDev/STGP/Semester-2-game-build/src
-abs_top_builddir = /home/jglp10/H_Drive/GameDev/STGP/Semester-2-game-build
-abs_top_srcdir = /home/jglp10/H_Drive/GameDev/STGP/Semester-2-game-build
+abs_builddir = /home/jglp10/Desktop/work/Semester-2-game-build/src
+abs_srcdir = /home/jglp10/Desktop/work/Semester-2-game-build/src
+abs_top_builddir = /home/jglp10/Desktop/work/Semester-2-game-build
+abs_top_srcdir = /home/jglp10/Desktop/work/Semester-2-game-build
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
@@ -279,7 +280,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/jglp10/H_Drive/GameDev/STGP/Semester-2-game-build/install-sh
+install_sh = ${SHELL} /home/jglp10/Desktop/work/Semester-2-game-build/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -301,8 +302,8 @@ target_alias =
 top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
-EXTRA_DIST = loadShaders.h level.h
-shaderexample_SOURCES = main.cpp loadShaders.cpp level.cpp
+EXTRA_DIST = loadShaders.h level.h camera.h cube.h gameAssetManager.h gameAsset.h
+shaderexample_SOURCES = main.cpp loadShaders.cpp level.cpp camera.cpp cube.cpp gameAssetManager.cpp
 AM_CPPFLAGS = -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES -std=c++11 \
 	$(gl_CFLAGS) $(glew_CFLAGS) $(sdl2_CFLAGS) $(BOOST_CPPFLAGS)
 all: all-am
@@ -399,6 +400,9 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+include ./$(DEPDIR)/camera.Po
+include ./$(DEPDIR)/cube.Po
+include ./$(DEPDIR)/gameAssetManager.Po
 include ./$(DEPDIR)/level.Po
 include ./$(DEPDIR)/loadShaders.Po
 include ./$(DEPDIR)/main.Po

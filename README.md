@@ -2,9 +2,11 @@
 
 A simple 3D Platformer where you collect collectables to finish the level. 
 
-It will feature two levels, to begin with, and hopefully time won't constrain us from expanding it beyond this small design. The player will run around collecting diamonds, which will try and avoid the player using A* path-finding, however we will be using OpenGL to load in blocks of cubes to create interactive levels.
+11/02/2015 : It will feature two levels, to begin with, and hopefully time won't constrain us from expanding it beyond this small design. The player will run around collecting diamonds, which will try and avoid the player using A* path-finding, however we will be using OpenGL to load in blocks of cubes to create interactive levels.
 
-We will try to post new information after ever commit.
+11/03/2015 : The game will now include 5 tutorial levels, and once these are completed we hope to add an additional level with high difficulty. Core mechanics, so collecting diamonds and trasversing through the level are still the main goals, but we hope the level designs will provide the challenge to our game. Code wise we have transitioned from into calling cube assets (Of different sizes) in preparation for bounding boxes (Collision detection). We are facing difficulties with the camera, but I trust my colleague to have it working completely by the end of the month. 
+
+We will try to post new information the 11th of every month (Until the 30th of April).
 
 
 # Prerequisites #

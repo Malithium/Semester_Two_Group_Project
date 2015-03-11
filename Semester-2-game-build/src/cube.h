@@ -20,7 +20,7 @@ using namespace glm;
 
 class LargeCubeAsset : public GameAsset {
 	public:
-	  explicit LargeCubeAsset(vec3 pos);
+	  explicit LargeCubeAsset();
 	 ~LargeCubeAsset();
 	 virtual void Draw(GLuint);
 

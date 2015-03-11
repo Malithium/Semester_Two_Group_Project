@@ -5,7 +5,6 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 {
 	bool running = true;   // Will determine if the level is still running
 	SDL_Event windowEvent; // Setup SDL windowEvent for game loop
-	asset_manager = std::make_shared<GameAssetManager>();
 	Camera player;
 	
 	// The method will fill the cubepositions vector, the If statement is for error checking
@@ -15,9 +14,11 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 	   return false;
 	}
 
+	asset_manager = std::make_shared<GameAssetManager>();
+	blockPositions();  	// Fill vector with cube assets
+
 	do {
 	 player.cameraControls(window, windowEvent); // The camera class
-	 blockPositions();  	// Fill vector with cube assets
 	 asset_manager->Draw(); // Loads cubes onto screen
 	 // Diamond stuff goes here
 	 if (SDL_PollEvent(&windowEvent)) //Press Esc to close the game
@@ -87,7 +88,7 @@ void Level::blockPositions()
      {
         case 0:
 	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2)); //Theory atm
-	asset_manager->AddAsset(std::make_shared<LargeCubeAsset>(pos));
+	asset_manager->AddAsset(std::make_shared<LargeCubeAsset>());
 	break;
 
 	case 1:

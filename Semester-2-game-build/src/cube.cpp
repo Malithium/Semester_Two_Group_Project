@@ -1,9 +1,9 @@
 
 #include <cube.h>
 
-LargeCubeAsset::LargeCubeAsset(vec3 pos) {
+LargeCubeAsset::LargeCubeAsset() {
 
-	position = pos;
+	//position = pos;
 
  	static const GLfloat vertex_buffer[] = {
 		-3.0f, -1.0f,  3.0f,

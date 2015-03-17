@@ -38,7 +38,7 @@ glm::vec3 position = glm::vec3(0,0,0);
 
 void Camera::cameraControls(SDL_Window* window, SDL_Event &event){
 	float speed = 45.0f;
-	float mouseSpeed = 1.0f;
+	float mouseSpeed = 0.001f;
 	int xpos, ypos;
 	int midX, midY;
 	float dTime = deltaTime();
@@ -49,12 +49,6 @@ void Camera::cameraControls(SDL_Window* window, SDL_Event &event){
 	//divide the values by 2 in order to get the screens center
 	midX = midX / 2;
 	midY = midY / 2;
-
-	//get the x and y position of our mouse
-	SDL_GetMouseState(&xpos, &ypos);
-
-	//warp the mouse to the center of the screen
-	SDL_WarpMouseInWindow(window, midX, midY);
 
 	//disable the cursor so it is not visible;
 	SDL_ShowCursor(SDL_DISABLE);
@@ -92,6 +86,11 @@ void Camera::cameraControls(SDL_Window* window, SDL_Event &event){
 			break;
 		}
 
+	}
+	else if (event.type == SDL_MOUSEMOTION){
+		SDL_GetMouseState(&xpos, &ypos);
+		horizontalAngle += mouseSpeed * dTime * float(midX - xpos);
+		verticalAngle += mouseSpeed * dTime * float(midY - ypos);
 	}
 
 	float FoV = 45.0f;

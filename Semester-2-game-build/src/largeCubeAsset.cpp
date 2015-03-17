@@ -1,9 +1,7 @@
 
-#include <cube.h>
+#include <largeCubeAsset.h>
 
 LargeCubeAsset::LargeCubeAsset() {
-
-	//position = pos;
 
  	static const GLfloat vertex_buffer[] = {
 		-3.0f, -1.0f,  3.0f,
@@ -55,13 +53,15 @@ LargeCubeAsset::LargeCubeAsset() {
 LargeCubeAsset::~LargeCubeAsset() {
   	// Cleans up by deleting the buffers
 	glDeleteBuffers(1, &vertexbuffer);
-	glDeleteBuffers(1, &colourbuffer);;
+	glDeleteBuffers(1, &elementbuffer);
+	//glDeleteBuffers(1, &colourbuffer);;
 	glDeleteVertexArrays(1, &VertexArrayID);
 }
 
 void LargeCubeAsset::Draw(GLuint programID)
 {	
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	// Use our shaders
+	glUseProgram(programID);
 
 	// 1st attribute buffer : vertices
 	glEnableVertexAttribArray(0);
@@ -78,9 +78,6 @@ void LargeCubeAsset::Draw(GLuint programID)
 	// Prepare for the "MVP" uniform
 	MatrixID = glGetUniformLocation(programID, "MVP");
 
-	// Use our shaders
-	glUseProgram(programID);
-
 	mat4 ProjectionMatrix = player.getProjectionMatrix();
 	mat4 ViewMatrix = player.getViewMatrix();
 	mat4 ModelMatrix = glm::translate(glm::mat4(1.0f), position);
@@ -92,4 +89,9 @@ void LargeCubeAsset::Draw(GLuint programID)
 	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, (void*)0);
 
 	glDisableVertexAttribArray(0);
+}
+
+void LargeCubeAsset::NewPosition(vec3 pos)
+{
+	position = pos;
 }

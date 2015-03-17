@@ -1,5 +1,6 @@
 #ifndef GAMEASSETMANAGER_H
 #define GAMEASSETMANAGER_H
+#define GLM_FORCE_RADIANS
 
 #include <memory>
 #include <vector>
@@ -9,6 +10,11 @@
 #include <iostream>
 #include <src/loadShaders.h>
 #include <GL/gl.h>
+#include <GL/glew.h>
+
+#include <glm/glm.hpp>
+#include <glm/gtx/transform.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 #include "gameAsset.h"
 
@@ -23,6 +29,7 @@ class GameAssetManager {
 	 GameAssetManager();
 	 ~GameAssetManager();
 	 void AddAsset(std::shared_ptr<GameAsset>);
+	 void Move(int num, glm::vec3 pos);
 	 void Draw();
 	private:
 	 // The internal scene graph is a simple list.

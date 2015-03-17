@@ -34,7 +34,7 @@ float horizontalAngle = 0.0f;
 float verticalAngle = 0.0f;
 
 //our position vector
-glm::vec3 position = glm::vec3(0,0,0);
+glm::vec3 position = glm::vec3(0,2,0);
 
 void Camera::cameraControls(SDL_Window* window, SDL_Event &event){
 	float speed = 45.0f;
@@ -52,11 +52,12 @@ void Camera::cameraControls(SDL_Window* window, SDL_Event &event){
 
 	//disable the cursor so it is not visible;
 	SDL_ShowCursor(SDL_DISABLE);
-
-	//calculate the screens new angles based on the mouse's position 
-	horizontalAngle += mouseSpeed * dTime * float(midX - xpos);
-	verticalAngle += mouseSpeed * dTime * float(midY - ypos);
-
+	
+	if (event.type == SDL_MOUSEMOTION){
+		SDL_GetMouseState(&xpos, &ypos);
+		horizontalAngle += mouseSpeed * dTime * float(midX - xpos);
+		verticalAngle += mouseSpeed * dTime * float(midY - ypos);
+	}
 	//stops the camera from going upside down
 	if (verticalAngle < -0.6f){
 		verticalAngle = -0.6f;
@@ -69,28 +70,31 @@ void Camera::cameraControls(SDL_Window* window, SDL_Event &event){
 	glm::vec3 right = glm::vec3(sin(horizontalAngle) - 3.14f / 2, 0, cos(horizontalAngle) - 3.14f / 2);
 	glm::vec3 up = glm::cross(right, direction);
 
+	int y = position.y; // This will allow us to edit the y axis for jumping
+	
+	// Jump mechanix here
+
 	//detect wether the w,a,s,d keys have been pressed or are being held, and move the camera
 	if (event.type == SDL_KEYDOWN){
 		switch (event.key.keysym.sym){
 		case SDLK_w:
-			position = glm::vec3(position.x + direction.x * dTime * speed, position.y, position.z + direction.z * dTime * speed);
+			position += direction * dTime * speed; // Meh
+			position.y = y;
 			break;
 		case SDLK_s:	
-			position = glm::vec3(position.x - direction.x * dTime * speed, position.y, position.z - direction.z * dTime * speed);
+			position -= direction * dTime * speed; // A okay
+			position.y = y;
 			break;
 		case SDLK_d:
-			position = glm::vec3(position.x + right.x * dTime * speed, position.y, position.z + right.z * dTime * speed);
+			position += direction.x * dTime * speed; // A bit off
+			position.y = y;
 			break;
 		case SDLK_a:
-			position = glm::vec3(position.x - right.x * dTime * speed, position.y, position.z - right.z * dTime * speed);
+			position -= direction.x * dTime * speed; // A bit odd
+			position.y = y;
 			break;
 		}
 
-	}
-	else if (event.type == SDL_MOUSEMOTION){
-		SDL_GetMouseState(&xpos, &ypos);
-		horizontalAngle += mouseSpeed * dTime * float(midX - xpos);
-		verticalAngle += mouseSpeed * dTime * float(midY - ypos);
 	}
 
 	float FoV = 45.0f;

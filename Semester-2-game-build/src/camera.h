@@ -1,5 +1,6 @@
 #ifndef CAMERA_H
 #define CAMERA_H
+#define GLM_FORCE_RADIANS
 
 #include <SDL2/SDL.h>
 #include <glm/glm.hpp>

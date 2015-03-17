@@ -20,8 +20,8 @@ int main(int argc, char *argv[])
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
 	
-	int lvl = 1; // Will increment every level
-	Level load;	
+	Level load;
+	int lvl = 1; // Will increment every level	
 	
 	//create SDL Window
 	SDL_Window* window = SDL_CreateWindow("OpenGL Window", 100, 100, 1200, 800, SDL_WINDOW_OPENGL);
@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LESS);
 
-	//glClearColor(0.6f, 1.0f, 1.0f, 0.1f);
+	glClearColor(0.6f, 1.0f, 1.0f, 0.1f);
 	
 	while (true){
 		if(load.runLevel(lvl, window) == true)

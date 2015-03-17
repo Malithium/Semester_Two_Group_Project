@@ -863,9 +863,10 @@ main.o: main.cpp /usr/include/stdc-predef.h /usr/include/GL/glew.h \
  /usr/include/c++/4.9/fstream \
  /usr/include/x86_64-linux-gnu/c++/4.9/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/4.9/bits/c++io.h \
- /usr/include/c++/4.9/bits/fstream.tcc ../src/level.h ../src/cube.h \
- ../src/camera.h ../src/gameAsset.h ../src/gameAssetManager.h \
- ../src/gameAsset.h
+ /usr/include/c++/4.9/bits/fstream.tcc ../src/level.h \
+ ../src/diamondAsset.h ../src/camera.h ../src/gameAsset.h \
+ ../src/largeCubeAsset.h ../src/medCubeAsset.h ../src/smallCubeAsset.h \
+ ../src/gameAssetManager.h ../src/gameAsset.h
 
 /usr/include/stdc-predef.h:
 
@@ -2883,11 +2884,17 @@ main.o: main.cpp /usr/include/stdc-predef.h /usr/include/GL/glew.h \
 
 ../src/level.h:
 
-../src/cube.h:
+../src/diamondAsset.h:
 
 ../src/camera.h:
 
 ../src/gameAsset.h:
+
+../src/largeCubeAsset.h:
+
+../src/medCubeAsset.h:
+
+../src/smallCubeAsset.h:
 
 ../src/gameAssetManager.h:
 

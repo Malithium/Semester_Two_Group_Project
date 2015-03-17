@@ -3,7 +3,7 @@
 
 bool Level::runLevel(int lvl, SDL_Window* window)
 {
-	bool running = true;   // Will determine if the level is still running
+	bool running = true;   // Will determine if the level loop is still running
 	SDL_Event windowEvent; // Setup SDL windowEvent for game loop
 	Camera player;
 	
@@ -14,13 +14,19 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 	   return false;
 	}
 
-	asset_manager = std::make_shared<GameAssetManager>();
-	blockPositions();  	// Fill vector with cube assets
+	SDL_SetRelativeMouseMode(SDL_TRUE);
+
+	// Makes the asset_manager vector implement GameAssetManager functions
+	asset_manager = std::make_shared<GameAssetManager>(); 
+	blockPositions();  // Fills the vector with cube assets
 
 	do {
+	 glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	 player.cameraControls(window, windowEvent); // The camera class
 	 asset_manager->Draw(); // Loads cubes onto screen
+
 	 // Diamond stuff goes here
+
 	 if (SDL_PollEvent(&windowEvent)) //Press Esc to close the game
 	 {
 		if (windowEvent.type == SDL_KEYUP && windowEvent.key.keysym.sym == SDLK_ESCAPE) 
@@ -51,6 +57,22 @@ bool Level::fillVector(int lvl)
      name = "levels/levelOne.json";
      break;
 
+     case 2:
+     name = "levels/levelTwo.json";
+     break;
+
+     case 3:
+     name = "levels/levelThree.json";
+     break;
+
+     case 4:
+     name = "levels/levelFour.json";
+     break;
+
+     case 5:
+     name = "levels/levelFive.json";
+     break;
+
      // Continue for every level - 5 currently
    }
 
@@ -77,6 +99,7 @@ void Level::blockPositions()
 {  
    glm::vec3 pos;
    int j = 0;
+   int num = 0;
    for(int i = 0; i < (cubepositions.size()-1); i += 3)
    {
      while(cubepositions.at(i) == -1.0f && i != cubepositions.size())
@@ -84,21 +107,31 @@ void Level::blockPositions()
 	j++;
 	i++;	
      }
+     // This switch will add assets to the assetmanager, using the vector with cube positions to determine the size of each asset. See "levelFormat" in the level folder for more information on cube sizes.
      switch(j)
      {
         case 0:
-	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2)); //Theory atm
-	asset_manager->AddAsset(std::make_shared<LargeCubeAsset>());
+	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
+	// Adds a large cube asset to the asset vector
+	asset_manager->AddAsset(std::make_shared<LargeCubeAsset>()); 
+	// Transitions this cube by pos
+	asset_manager->Move(num, pos);
+	// Increment Num so that it moves onto the next cube
+	num++;
 	break;
 
 	case 1:
-	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2)); //Theory atm
-	//MediumCube mediumCube.draw(pos);
+	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2)); 
+	asset_manager->AddAsset(std::make_shared<MediumCubeAsset>());
+	asset_manager->Move(num, pos);
+	num++;
 	break;
 
 	case 2:
-	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2)); //Theory atm
-	//SmallCube smallCube.draw(pos);
+	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
+	asset_manager->AddAsset(std::make_shared<SmallCubeAsset>());
+	asset_manager->Move(num, pos);
+	num++;
 	break;
 
 	case 3:

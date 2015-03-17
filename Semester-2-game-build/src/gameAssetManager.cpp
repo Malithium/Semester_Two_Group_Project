@@ -30,6 +30,14 @@ void GameAssetManager::AddAsset(std::shared_ptr<GameAsset> the_asset) {
 }
 
 /**
+* Changes the vec3 of the CubeAsset, transitioning the cube
+*/
+void GameAssetManager::Move(int num, glm::vec3 pos)
+{
+    draw_list.at(num)->NewPosition(pos);
+}
+
+/**
 * Draws each GameAsset in the scene graph.
 */
 

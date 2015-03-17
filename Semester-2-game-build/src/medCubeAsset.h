@@ -1,5 +1,5 @@
-#ifndef CUBEASSET_H
-#define CUBEASSET_H
+#ifndef MEDIUMCUBEASSET_H
+#define MEDIUMCUBEASSET_H
 #define GLM_FORCE_RADIANS
 
 // Library to store the cube positions
@@ -18,11 +18,13 @@
 
 using namespace glm;
 
-class LargeCubeAsset : public GameAsset {
+
+class MediumCubeAsset : public GameAsset {
 	public:
-	  explicit LargeCubeAsset();
-	 ~LargeCubeAsset();
+	  explicit MediumCubeAsset();
+	 ~MediumCubeAsset();
 	 virtual void Draw(GLuint);
+	 virtual void NewPosition(vec3);
 
 	private:
 	 vec3 position;
@@ -31,4 +33,4 @@ class LargeCubeAsset : public GameAsset {
 	 GLuint vertexbuffer, elementbuffer, colourbuffer;
 };
 
-#endif //CUBEASSET_H
+#endif //MEDIUMCUBEASSET_H

@@ -15,7 +15,10 @@
 #include <glm/gtx/transform.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-#include <src/cube.h>
+#include <src/diamondAsset.h>
+#include <src/largeCubeAsset.h>
+#include <src/medCubeAsset.h>
+#include <src/smallCubeAsset.h>
 #include <src/gameAssetManager.h>
 #include <src/camera.h>
 

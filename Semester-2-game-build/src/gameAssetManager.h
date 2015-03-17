@@ -31,6 +31,7 @@ class GameAssetManager {
 	 void AddAsset(std::shared_ptr<GameAsset>);
 	 void Move(int num, glm::vec3 pos);
 	 void Draw();
+	 void Clear();
 	private:
 	 // The internal scene graph is a simple list.
 	 std::vector<std::shared_ptr<GameAsset>> draw_list;

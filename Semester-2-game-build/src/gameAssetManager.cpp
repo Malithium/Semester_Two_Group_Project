@@ -32,17 +32,22 @@ void GameAssetManager::AddAsset(std::shared_ptr<GameAsset> the_asset) {
 /**
 * Changes the vec3 of the CubeAsset, transitioning the cube
 */
-void GameAssetManager::Move(int num, glm::vec3 pos)
-{
+void GameAssetManager::Move(int num, glm::vec3 pos){
     draw_list.at(num)->NewPosition(pos);
 }
 
 /**
 * Draws each GameAsset in the scene graph.
 */
-
 void GameAssetManager::Draw() {
 	for(auto ga: draw_list) {
 		ga->Draw(programID);
 	}
+}
+
+/**
+* Empties the draw vector, allowing for the next levels cubes to load
+*/
+void GameAssetManager::Clear() {
+	draw_list.clear();
 }

@@ -49,8 +49,6 @@ int main(int argc, char *argv[])
 	glDisable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LESS);
-
-	glClearColor(0.6f, 1.0f, 1.0f, 0.1f);
 	
 	while (true){
 		if(load.runLevel(lvl, window) == true)

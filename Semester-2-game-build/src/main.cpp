@@ -20,15 +20,11 @@ int main(int argc, char *argv[])
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
 	
-	int lvl = 1; // Will increment every level
-	loadShaders shader;
-	Level load;	
-	
-	int X, Y;
-	SDL_GetWindowSize(window, &X, &Y);
+	Level load;
+	int lvl = 1; // Will increment every level	
 	
 	//create SDL Window
-	SDL_Window* window = SDL_CreateWindow("OpenGL Window", 100, 100, X, Y, SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN);
+	SDL_Window* window = SDL_CreateWindow("OpenGL Window", 100, 100, 1200, 800, SDL_WINDOW_OPENGL);
 	
 	//create SDL Window context
 	SDL_GLContext context = SDL_GL_CreateContext(window);
@@ -49,6 +45,12 @@ int main(int argc, char *argv[])
 		std::cerr << "OpenGL 3.0 not available" << std::endl;
 		return -1;
 	}
+
+	glDisable(GL_CULL_FACE);
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LESS);
+
+	glClearColor(0.6f, 1.0f, 1.0f, 0.1f);
 	
 	while (true){
 		if(load.runLevel(lvl, window) == true)
@@ -59,6 +61,7 @@ int main(int argc, char *argv[])
 		{
 			break;
 		}
+
 	}
 	SDL_GL_DeleteContext(context);
 	SDL_DestroyWindow(window);

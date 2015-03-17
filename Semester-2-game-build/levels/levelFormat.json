@@ -1,0 +1,26 @@
+//Large_Cubes
+0.0f 
+0.0f 
+0.0f 
+-1.0f
+//Medium_Cubes
+0.0f
+0.0f
+0.0f
+-1.0f
+//Small_Cubes
+0.0f
+0.0f
+0.0f
+-1.0f
+//Door_Position
+0.0f
+0.0f
+0.0f
+END
+
+Everything after END is information about the file/level.
+
+-1.0f signifys transition of cube sizes and into the final door position.
+
+This file is to allow external people to produce level designs for themselves, or to alter and allow them ti see the ingame changes.

@@ -34,7 +34,31 @@ void controls()
 	SDL_WarpMouseInWindow(window, midX, midY);
 	//Disables the cursor so it isn't visible;
 	SDL_ShowCursor(SDL_DISABLE);
-  
+ 
+	if(gravity == true)
+	{
+		y -= 0.05f; // An issue for later
+	}
+
+	// This section deals with jumping
+	if(jump != true && gravity != true && event.type == SDL_KEYDOWN) {
+		switch(event.key.keysym.sym) {
+			case SDLK_space:
+				jump = true;
+				break;
+		}
+	}
+	if(jump == true && stop != 6)  // IF statement needed to increase Y direction
+	{
+		position += vec3(0, 1, 0);
+		stop++;
+	}
+	else							//	Else used to stop jumping
+	{
+		jump = false;
+		stop = 0;
+	}
+
 	// This section deals with moving the character (W,A,S,D)
 	if (event.type == SDL_KEYDOWN){
 		switch (event.key.keysym.sym){

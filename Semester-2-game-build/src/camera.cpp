@@ -37,7 +37,7 @@ float verticalAngle = 0.0f;
 glm::vec3 position = glm::vec3(0,2,0);
 
 void Camera::cameraControls(SDL_Window* window, SDL_Event &event){
-	float speed = 45.0f;
+	float speed = 90.0f;
 	float mouseSpeed = 0.001f;
 	int xpos, ypos;
 	int midX, midY;

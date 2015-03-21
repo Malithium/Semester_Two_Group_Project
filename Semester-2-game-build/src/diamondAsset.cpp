@@ -21,16 +21,18 @@ DiamondAsset::DiamondAsset() {
 		3, 0, 4,
 		4, 5, 3,
 		4, 0, 1,
-		1, 5, 4,
+		1, 5, 4
  	};	
 
-//	static GLfloat colour_buffer[12*3*3];
-//	for(int i = 0; i < 12*3; i++)
-//	{
-//		colour_buffer[3*i+0] = 0.039f;
-//		colour_buffer[3*i+1] = 0.186f;
-//		colour_buffer[3*i+2] = 0.059f;
-//	};
+	static GLfloat colour_buffer[12*3*3];
+	for(int i = 0; i < 12*3; i++)
+	{
+		colour_buffer[3*i+0] = 0.185f;
+		colour_buffer[3*i+1] = 0.242f;
+		colour_buffer[3*i+2] = 0.255f;
+	};
+
+// http://colors.findthedata.com/q/68/10857/What-are-the-RGB-values-of-Diamond
 	
 	glGenVertexArrays(1, &VertexArrayID);
 	glBindVertexArray(VertexArrayID);
@@ -43,19 +45,22 @@ DiamondAsset::DiamondAsset() {
 	glGenBuffers(1, &elementbuffer);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(element_buffer), element_buffer, GL_STATIC_DRAW);
+
+	glGenBuffers(1, &colourbuffer);
+	glBindBuffer(GL_ARRAY_BUFFER, colourbuffer);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(colour_buffer), colour_buffer, GL_STATIC_DRAW);
 }
 
 DiamondAsset::~DiamondAsset() {
   	// Cleans up by deleting the buffers
 	glDeleteBuffers(1, &vertexbuffer);
-	//glDeleteBuffers(1, &colourbuffer);;
+	glDeleteBuffers(1, &elementbuffer);
+	glDeleteBuffers(1, &colourbuffer);;
 	glDeleteVertexArrays(1, &VertexArrayID);
 }
 
 void DiamondAsset::Draw(GLuint programID)
 {	
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
 	// Use our shaders
 	glUseProgram(programID);
 
@@ -63,11 +68,22 @@ void DiamondAsset::Draw(GLuint programID)
 	glEnableVertexAttribArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
 	glVertexAttribPointer(
-		0,                  // attribute 0. No particular reason for 0, but must match 	the layout in the shader.
+		0,                  // attribute 0. Must match the layout in the shader.
 		3,                  // size
 		GL_FLOAT,           // type
 		GL_FALSE,           // normalized?
 		0,                  // stridea
+		(void*)0            // array buffer offset
+	);
+
+	glEnableVertexAttribArray(1);
+	glBindBuffer(GL_ARRAY_BUFFER, colourbuffer);
+	glVertexAttribPointer(
+		1,                  // attribute 1. Must match the layout in the shader.
+		3,                  // size
+		GL_FLOAT,           // type
+		GL_FALSE,           // normalized?
+		0,                  // stride
 		(void*)0            // array buffer offset
 	);
 	
@@ -85,6 +101,7 @@ void DiamondAsset::Draw(GLuint programID)
 	glDrawElements(GL_TRIANGLES, 24, GL_UNSIGNED_INT, (void*)0);
 
 	glDisableVertexAttribArray(0);
+	glDisableVertexAttribArray(1);
 }
 
 void DiamondAsset::NewPosition(vec3 pos)

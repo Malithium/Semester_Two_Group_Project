@@ -136,6 +136,14 @@ void Level::blockPositions()
 	break;
 
 	case 3:
+	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
+	//  Diamond Issue #1: Cube or Diamond elements are incorrectly drawn
+	//asset_manager->AddAsset(std::make_shared<DiamondAsset>());
+	//asset_manager->Move(num, pos);
+	//num++;
+	break;
+
+	case 4:
 	//pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
 	
 	// For door position - probably won't be in this section of the code

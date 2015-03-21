@@ -9,7 +9,7 @@ GameAssetManager::GameAssetManager() {
 
 	loadShaders shader;
 	// Create and compile our GLSL program from the shaders
-	programID = shader.LoadShaders("shaders/vertex.vs", "shaders/FragmentShader.fragmentshader");
+	programID = shader.LoadShaders("shaders/vertex.vs", "shaders/fragment.fs");
 }
 
 /**

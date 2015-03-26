@@ -4,6 +4,7 @@
 bool Level::runLevel(int lvl, SDL_Window* window)
 {
 	bool running = true;   // Will determine if the level loop is still running
+	bool gravity = false;
 	SDL_Event windowEvent; // Setup SDL windowEvent for game loop
 	Camera player;
 	
@@ -21,16 +22,14 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 	blockPositions();  // Fills the vector with cube assets
 	glClearColor(0.6f, 1.0f, 1.0f, 0.1f); // Must add colour, once loading is done
 	do {
-	
-	
-	 // Diamond stuff goes here
 
 	 while (SDL_PollEvent(&windowEvent)) //Press Esc to exit the game
 	 {
- 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clears current frame, for next frame
-	 
+	 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clears current frame, for next frame
 	 	player.cameraControls(window, &windowEvent); // The camera class
-		asset_manager->Draw(); // Loads cubes onto screen
+	 	asset_manager->Draw(); // Draws assets onto screen
+
+	 // Diamond stuff goes here
 		if (windowEvent.type == SDL_KEYUP && windowEvent.key.keysym.sym == SDLK_ESCAPE) 
 		{
 			return false;
@@ -138,10 +137,9 @@ void Level::blockPositions()
 
 	case 3:
 	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
-	//  Diamond Issue #1: Cube or Diamond elements are incorrectly drawn
-	//asset_manager->AddAsset(std::make_shared<DiamondAsset>());
-	//asset_manager->Move(num, pos);
-	//num++;
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>());
+	asset_manager->Move(num, pos);
+	num++;
 	break;
 
 	case 4:

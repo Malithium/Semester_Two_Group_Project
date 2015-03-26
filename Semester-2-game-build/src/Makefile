@@ -96,8 +96,8 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_shaderexample_OBJECTS = main.$(OBJEXT) loadShaders.$(OBJEXT) \
-	level.$(OBJEXT) camera.$(OBJEXT) gameAssetManager.$(OBJEXT) \
+am_shaderexample_OBJECTS = main.$(OBJEXT) level.$(OBJEXT) \
+	camera.$(OBJEXT) gameAssetManager.$(OBJEXT) \
 	diamondAsset.$(OBJEXT) largeCubeAsset.$(OBJEXT) \
 	medCubeAsset.$(OBJEXT) smallCubeAsset.$(OBJEXT)
 shaderexample_OBJECTS = $(am_shaderexample_OBJECTS)
@@ -303,8 +303,8 @@ target_alias =
 top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
-EXTRA_DIST = loadShaders.h level.h camera.h gameAssetManager.h gameAsset.h diamondAsset.h largeCubeAsset.h medCubeAsset.h smallCubeAsset.h
-shaderexample_SOURCES = main.cpp loadShaders.cpp level.cpp camera.cpp gameAssetManager.cpp diamondAsset.cpp largeCubeAsset.cpp  medCubeAsset.cpp  smallCubeAsset.cpp
+EXTRA_DIST = level.h camera.h gameAssetManager.h gameAsset.h diamondAsset.h largeCubeAsset.h medCubeAsset.h smallCubeAsset.h
+shaderexample_SOURCES = main.cpp level.cpp camera.cpp gameAssetManager.cpp diamondAsset.cpp largeCubeAsset.cpp  medCubeAsset.cpp  smallCubeAsset.cpp
 AM_CPPFLAGS = -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES -std=c++11 \
 	$(gl_CFLAGS) $(glew_CFLAGS) $(sdl2_CFLAGS) $(BOOST_CPPFLAGS)
 all: all-am
@@ -406,7 +406,6 @@ include ./$(DEPDIR)/diamondAsset.Po
 include ./$(DEPDIR)/gameAssetManager.Po
 include ./$(DEPDIR)/largeCubeAsset.Po
 include ./$(DEPDIR)/level.Po
-include ./$(DEPDIR)/loadShaders.Po
 include ./$(DEPDIR)/main.Po
 include ./$(DEPDIR)/medCubeAsset.Po
 include ./$(DEPDIR)/smallCubeAsset.Po

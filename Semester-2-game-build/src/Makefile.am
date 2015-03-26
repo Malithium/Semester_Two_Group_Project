@@ -1,7 +1,7 @@
-EXTRA_DIST = loadShaders.h level.h camera.h gameAssetManager.h gameAsset.h diamondAsset.h largeCubeAsset.h medCubeAsset.h smallCubeAsset.h
+EXTRA_DIST = level.h camera.h gameAssetManager.h gameAsset.h diamondAsset.h largeCubeAsset.h medCubeAsset.h smallCubeAsset.h
  
 bin_PROGRAMS = shaderexample
-shaderexample_SOURCES = main.cpp loadShaders.cpp level.cpp camera.cpp gameAssetManager.cpp diamondAsset.cpp largeCubeAsset.cpp  medCubeAsset.cpp  smallCubeAsset.cpp
+shaderexample_SOURCES = main.cpp level.cpp camera.cpp gameAssetManager.cpp diamondAsset.cpp largeCubeAsset.cpp  medCubeAsset.cpp  smallCubeAsset.cpp
 
 AM_CPPFLAGS = -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES
 AM_CPPFLAGS += -std=c++11

@@ -3,14 +3,12 @@
 #include <GL/glew.h>
 #include <GL/gl.h>
 #include <SDL2/SDL.h>
-#include <glm/glm.hpp>
-#include <glm/gtx/transform.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <iostream>
+#include <iostream> 
 
 #include <boost/program_options.hpp>
-#include <src/loadShaders.h>
 #include <src/level.h>
+
+using namespace std;
 
 int main(int argc, char *argv[])
 {
@@ -21,11 +19,13 @@ int main(int argc, char *argv[])
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
 	
 	Level load;
-	int lvl = 1; // Will increment every level	
-	
+	int lvl = 1; // Will increment every level		
+
 	//create SDL Window
-	SDL_Window* window = SDL_CreateWindow("OpenGL Window", 100, 100, 1200, 800, SDL_WINDOW_OPENGL);
-	
+	SDL_Window* window = SDL_CreateWindow("Platformer", 100, 100, 1200, 800, SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN_DESKTOP);
+
+	//	
+
 	//create SDL Window context
 	SDL_GLContext context = SDL_GL_CreateContext(window);
 

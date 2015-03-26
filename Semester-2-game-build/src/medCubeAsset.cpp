@@ -32,10 +32,19 @@ MediumCubeAsset::MediumCubeAsset() {
 	static GLfloat colour_buffer[12*3*3];
 	for(int i = 0; i < 12*3; i++)
 	{
-		colour_buffer[3*i+0] = 0.0f;
+	  if( i == 0 || i == 1 || i == 4 ||i == 5)
+	  {
+		colour_buffer[3*i+0] = 0.140f;
+		colour_buffer[3*i+1] = 0.059f;
+		colour_buffer[3*i+2] = 0.038f;
+	  }
+	  else
+	  {
+		colour_buffer[3*i+0] = 0.039f;
 		colour_buffer[3*i+1] = 0.255f;
-		colour_buffer[3*i+2] = 0.0f;
-	};
+		colour_buffer[3*i+2] = 0.059f;
+	  }
+	}
 	
 	glGenVertexArrays(1, &VertexArrayID);
 	glBindVertexArray(VertexArrayID);

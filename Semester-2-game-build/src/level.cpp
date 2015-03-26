@@ -21,15 +21,16 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 	blockPositions();  // Fills the vector with cube assets
 	glClearColor(0.6f, 1.0f, 1.0f, 0.1f); // Must add colour, once loading is done
 	do {
-	 glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clears current frame, for next frame
-	 
-	 player.cameraControls(window, windowEvent); // The camera class
-	 asset_manager->Draw(); // Loads cubes onto screen
-
+	
+	
 	 // Diamond stuff goes here
 
-	 if (SDL_PollEvent(&windowEvent)) //Press Esc to exit the game
+	 while (SDL_PollEvent(&windowEvent)) //Press Esc to exit the game
 	 {
+ 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clears current frame, for next frame
+	 
+	 	player.cameraControls(window, &windowEvent); // The camera class
+		asset_manager->Draw(); // Loads cubes onto screen
 		if (windowEvent.type == SDL_KEYUP && windowEvent.key.keysym.sym == SDLK_ESCAPE) 
 		{
 			return false;

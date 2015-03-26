@@ -3,18 +3,6 @@
 	glm::mat4 viewMatrix;
 	glm::mat4 projectionMatrix;
 
-	//The variables we will be using to get the deltaTime
-	int currentTime = 0;
-	float d_time = 0.0f;
-	int previousTime = 0;
-
-float Camera::deltaTime(){
-	currentTime = SDL_GetTicks();
-	d_time = float(currentTime - previousTime)/1000;
-	previousTime = currentTime;
-	return d_time;
-}
-
 glm::mat4 Camera::getProjectionMatrix(){
 	return projectionMatrix;
 }
@@ -23,12 +11,6 @@ glm::mat4 Camera::getViewMatrix(){
 	return viewMatrix;
 }
 
-/*
-*
-*@bug 
-*for whatever reason, printing out the angle values fixes the lag issue
-*/
-
 //The angles we will be using
 float horizontalAngle = 0.0f;
 float verticalAngle = 0.0f;
@@ -36,13 +18,25 @@ float verticalAngle = 0.0f;
 //our position vector
 glm::vec3 position = glm::vec3(0,2,0);
 
-void Camera::cameraControls(SDL_Window* window, SDL_Event &event){
-	float speed = 90.0f;
+void Camera::cameraControls(SDL_Window* window, SDL_Event *event){
+	
+	static double lastTime = SDL_GetTicks();	
+	
+
+
+	double currentTime = SDL_GetTicks();
+	float dTime = float(currentTime - lastTime)/1000;
+
+	float speed = 3.0f;
 	float mouseSpeed = 0.001f;
 	int xpos, ypos;
 	int midX, midY;
-	float dTime = deltaTime();
-
+	//float dTime = deltaTime();
+	if(dTime > 0.150f)
+	{
+		dTime = 0.005f;
+	}
+	std::cout << dTime << std::endl;
 	//store the screen's size into these variables;
 	SDL_GetWindowSize(window, &midX, &midY);
 
@@ -52,32 +46,19 @@ void Camera::cameraControls(SDL_Window* window, SDL_Event &event){
 
 	//disable the cursor so it is not visible;
 	SDL_ShowCursor(SDL_DISABLE);
-	
-	if (event.type == SDL_MOUSEMOTION){
-		SDL_GetMouseState(&xpos, &ypos);
-		horizontalAngle += mouseSpeed * dTime * float(midX - xpos);
-		verticalAngle += mouseSpeed * dTime * float(midY - ypos);
-		event.type = SDL_IGNORE;
-	}
-	//stops the camera from going upside down
-	if (verticalAngle < -0.6f){
-		verticalAngle = -0.6f;
-	}
-	else if (verticalAngle > 0.6f){
-		verticalAngle = 0.6f;
-	}
+	SDL_WarpMouseInWindow(window,midX,midY);
 	
 	glm::vec3 direction(cos(verticalAngle) * sin(horizontalAngle), sin(verticalAngle), cos(verticalAngle) * cos(horizontalAngle));
-	glm::vec3 right = glm::vec3(sin(horizontalAngle) - 3.14f / 2, 0, cos(horizontalAngle) - 3.14f / 2);
-	glm::vec3 up = glm::cross(right, direction);
+	//glm::vec3 right = glm::vec3(sin(horizontalAngle) - 3.14f / 2, 0, cos(horizontalAngle) - 3.14f / 2);
+
 
 	int y = position.y; // This will allow us to edit the y axis for jumping
 	
 	// Jump mechanix here
 
 	//detect wether the w,a,s,d keys have been pressed or are being held, and move the camera
-	if (event.type == SDL_KEYDOWN){
-		switch (event.key.keysym.sym){
+	if (event->type == SDL_KEYDOWN){
+		switch (event->key.keysym.sym){
 		case SDLK_w:
 			position += direction * dTime * speed; // Meh
 			position.y = y;
@@ -86,19 +67,20 @@ void Camera::cameraControls(SDL_Window* window, SDL_Event &event){
 			position -= direction * dTime * speed; // A okay
 			position.y = y;
 			break;
-		case SDLK_d:
-			position += direction.x * dTime * speed; // A bit off
-			position.y = y;
-			break;
-		case SDLK_a:
-			position -= direction.x * dTime * speed; // A bit odd
-			position.y = y;
-			break;
 		}
 
 	}
 
+	else if (event->type == SDL_MOUSEMOTION){
+		SDL_GetMouseState(&xpos, &ypos);
+		horizontalAngle += mouseSpeed * dTime/2 * float(midX - xpos);
+		verticalAngle += mouseSpeed * dTime/2 * float(midY - ypos);
+		//event->type = SDL_IGNORE;
+	}	
+	
+		
 	float FoV = 45.0f;
 	projectionMatrix = glm::perspective(FoV, 4.0f / 3.0f, 0.1f, 100.0f);
-	viewMatrix = glm::lookAt(position, position + direction, up);
+	viewMatrix = glm::lookAt(position, position + direction, glm::vec3(0,1,0));
+	lastTime = currentTime;
 }

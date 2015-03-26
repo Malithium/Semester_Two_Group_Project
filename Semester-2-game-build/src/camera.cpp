@@ -57,6 +57,7 @@ void Camera::cameraControls(SDL_Window* window, SDL_Event &event){
 		SDL_GetMouseState(&xpos, &ypos);
 		horizontalAngle += mouseSpeed * dTime * float(midX - xpos);
 		verticalAngle += mouseSpeed * dTime * float(midY - ypos);
+		event.type = SDL_IGNORE;
 	}
 	//stops the camera from going upside down
 	if (verticalAngle < -0.6f){

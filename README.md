@@ -8,6 +8,9 @@ A simple 3D Platformer where you collect collectables to finish the level.
 
 We will try to post new information the 11th of every month (Until the 30th of April).
 
+27/03/2015 : Due to making progress alot faster than anticipated I thought I would give a brief update regarding where we currently are in regards to a finished product. We have created a system that generates levels based on vector positions stored in text files, effectively giving us the ability to load and unload levels. We have also made some major changes to the Camera class and it's condition is now satisfactory, this means the majority of work on the camera will be bug fixes and performance tweaks. 
+
+Our next goal is to create bounding boxes around our objects so that we can start implementing collision detection into our program. This will enable us to implement gravity, jumping, collectables, doors and allow us to properly transition between level's. After this feature has been implemented we have effectively met all of our core goals and can work towards finishing the game. As my colleague has more experience with drawing our objects to the screen I shall leave the task of creating bounding boxes to him, in return I will work on the math's involved with collision detection as I have more experience with the camera class where all the camera movement happens.
 
 # Prerequisites #
 

@@ -12,7 +12,7 @@ class Camera
 {
 
 public:
-	void cameraControls(SDL_Window* window, SDL_Event * event);
+	void cameraControls(SDL_Window* window);
 	glm::mat4 getProjectionMatrix();
 	glm::mat4 getViewMatrix();
 	void moveForward(float dTime);

@@ -42,7 +42,7 @@ void Camera::mouseMovement(float dtime){
 	verticalAngle += mouseSpeed * dtime / 2 * float(midY - ypos);
 }
 
-void Camera::cameraControls(SDL_Window* window, SDL_Event *event){
+void Camera::cameraControls(SDL_Window* window){
 	//store the screen's size into these variables;
 	SDL_GetWindowSize(window, &midX, &midY);
 

@@ -20,18 +20,17 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 	// Makes the asset_manager vector implement GameAssetManager functions
 	asset_manager = std::make_shared<GameAssetManager>();
 	blockPositions();  // Fills the vector with cube assets
-	glClearColor(0.6f, 1.0f, 1.0f, 0.1f); // Must add colour, once loading is done
+	glClearColor(0.6f, 1.0f, 1.0f, 0.1f); // Adds a sky blue colour to background, once loadings done
 	do {
+		
+		player.computeMatricesFromInputs(window); // The camera class
 
-		player.computeMatricesFromInputs(window, &windowEvent); // The camera class
-
-		while (SDL_PollEvent(&windowEvent)) //Press Esc to exit the game
+		while (SDL_PollEvent(&windowEvent))
 		{
-
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clears current frame, for next frame
+			// Collision should go here
 			event_handler.handleEvents(&windowEvent);
 			asset_manager->Draw(); // Draws assets onto screen
-
 		}
 		SDL_GL_SwapWindow(window);
 	} while (running == true);

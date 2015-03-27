@@ -1,4 +1,3 @@
-
 #include "level.h"
 
 bool Level::runLevel(int lvl, SDL_Window* window)
@@ -6,39 +5,37 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 	bool running = true;   // Will determine if the level loop is still running
 	bool gravity = false;
 	SDL_Event windowEvent; // Setup SDL windowEvent for game loop
-	Camera player;
-	
+	controls player;
+	events event_handler;
+
 	// The method will fill the cubepositions vector, the If statement is for error checking
-	if(fillVector(lvl) == false) 
+	if (fillVector(lvl) == false)
 	{
-	   std::cout << "Problem with file input" << std::endl;
-	   return false;
+		std::cout << "Problem with file input" << std::endl;
+		return false;
 	}
 
 	SDL_SetRelativeMouseMode(SDL_TRUE);
 
 	// Makes the asset_manager vector implement GameAssetManager functions
-	asset_manager = std::make_shared<GameAssetManager>(); 
+	asset_manager = std::make_shared<GameAssetManager>();
 	blockPositions();  // Fills the vector with cube assets
 	glClearColor(0.6f, 1.0f, 1.0f, 0.1f); // Must add colour, once loading is done
 	do {
 
-	 while (SDL_PollEvent(&windowEvent)) //Press Esc to exit the game
-	 {
-	 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clears current frame, for next frame
-	 	player.cameraControls(window, &windowEvent); // The camera class
-	 	asset_manager->Draw(); // Draws assets onto screen
+		player.computeMatricesFromInputs(window, &windowEvent); // The camera class
 
-	 // Diamond stuff goes here
-		if (windowEvent.type == SDL_KEYUP && windowEvent.key.keysym.sym == SDLK_ESCAPE) 
+		while (SDL_PollEvent(&windowEvent)) //Press Esc to exit the game
 		{
-			return false;
+
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clears current frame, for next frame
+			event_handler.handleEvents(&windowEvent);
+			asset_manager->Draw(); // Draws assets onto screen
+
 		}
-	 }
-	 SDL_GL_SwapWindow(window);
-	}
-	while(running == true);
-	
+		SDL_GL_SwapWindow(window);
+	} while (running == true);
+
 	glClearColor(1.0f, 1.0f, 1.0f, 0.0f); // This should make the screen go black
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	asset_manager->Clear();

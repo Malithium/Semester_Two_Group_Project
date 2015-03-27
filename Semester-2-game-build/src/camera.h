@@ -15,7 +15,9 @@ public:
 	void cameraControls(SDL_Window* window, SDL_Event * event);
 	glm::mat4 getProjectionMatrix();
 	glm::mat4 getViewMatrix();
-	float deltaTime();
+	void moveForward(float dTime);
+	void moveBackward(float dTime);
+	void mouseMovement(float dTime);
 	
 private:
 

@@ -29,13 +29,22 @@ SmallCubeAsset::SmallCubeAsset() {
 		6, 2, 1
  	};	
 
-//	static GLfloat colour_buffer[12*3*3];
-//	for(int i = 0; i < 12*3; i++)
-//	{
-//		colour_buffer[3*i+0] = 0.039f;
-//		colour_buffer[3*i+1] = 0.186f;
-//		colour_buffer[3*i+2] = 0.059f;
-//	};
+	static GLfloat colour_buffer[12*3*3];
+	for(int i = 0; i < 12*3; i++)
+	{
+	  if( i == 0 || i == 1 || i == 4 ||i == 5)
+	  {
+		colour_buffer[3*i+0] = 0.140f;
+		colour_buffer[3*i+1] = 0.059f;
+		colour_buffer[3*i+2] = 0.038f;
+	  }
+	  else
+	  {
+		colour_buffer[3*i+0] = 0.039f;
+		colour_buffer[3*i+1] = 0.255f;
+		colour_buffer[3*i+2] = 0.059f;
+	  }
+	}
 	
 	glGenVertexArrays(1, &VertexArrayID);
 	glBindVertexArray(VertexArrayID);
@@ -48,13 +57,17 @@ SmallCubeAsset::SmallCubeAsset() {
 	glGenBuffers(1, &elementbuffer);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(element_buffer), element_buffer, GL_STATIC_DRAW);
+
+	glGenBuffers(1, &colourbuffer);
+	glBindBuffer(GL_ARRAY_BUFFER, colourbuffer);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(colour_buffer), colour_buffer, GL_STATIC_DRAW);
 }
 
 SmallCubeAsset::~SmallCubeAsset() {
   	// Cleans up by deleting the buffers
 	glDeleteBuffers(1, &vertexbuffer);
 	glDeleteBuffers(1, &elementbuffer);
-	//glDeleteBuffers(1, &colourbuffer);;
+	glDeleteBuffers(1, &colourbuffer);;
 	glDeleteVertexArrays(1, &VertexArrayID);
 }
 
@@ -75,15 +88,24 @@ void SmallCubeAsset::Draw(GLuint programID)
 		(void*)0            // array buffer offset
 	);
 	
-	//std::cout << position.x << " " << position.z << std::endl;
-
+	glEnableVertexAttribArray(1);
+	glBindBuffer(GL_ARRAY_BUFFER, colourbuffer);
+	glVertexAttribPointer(
+		1,                  // attribute 1. Must match the layout in the shader.
+		3,                  // size
+		GL_FLOAT,           // type
+		GL_FALSE,           // normalized?
+		0,                  // stride
+		(void*)0            // array buffer offset
+	);
+	
 	// Prepare for the "MVP" uniform
 	MatrixID = glGetUniformLocation(programID, "MVP");
 
-	ProjectionMatrix = player.getProjectionMatrix();
-	ViewMatrix = player.getViewMatrix();
-	ModelMatrix = glm::translate(glm::mat4(1.0f), position); // This currently does not work
-	MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
+	mat4 ProjectionMatrix = player.getProjectionMatrix();
+	mat4 ViewMatrix = player.getViewMatrix();
+	mat4 ModelMatrix = glm::translate(glm::mat4(1.0f), position);
+	mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
 
 	glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
 
@@ -91,6 +113,7 @@ void SmallCubeAsset::Draw(GLuint programID)
 	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, (void*)0);
 
 	glDisableVertexAttribArray(0);
+	glDisableVertexAttribArray(1);
 }
 
 void SmallCubeAsset::NewPosition(vec3 pos)

@@ -1,43 +1,43 @@
-
 #include "level.h"
 
 bool Level::runLevel(int lvl, SDL_Window* window)
 {
 	bool running = true;   // Will determine if the level loop is still running
+	bool gravity = false;
 	SDL_Event windowEvent; // Setup SDL windowEvent for game loop
-	Camera player;
-	
+	controls player;
+	events event_handler;
+
 	// The method will fill the cubepositions vector, the If statement is for error checking
-	if(fillVector(lvl) == false) 
+	if (fillVector(lvl) == false)
 	{
-	   std::cout << "Problem with file input" << std::endl;
-	   return false;
+		std::cout << "Problem with file input" << std::endl;
+		return false;
 	}
 
 	SDL_SetRelativeMouseMode(SDL_TRUE);
 
 	// Makes the asset_manager vector implement GameAssetManager functions
-	asset_manager = std::make_shared<GameAssetManager>(); 
+	asset_manager = std::make_shared<GameAssetManager>();
 	blockPositions();  // Fills the vector with cube assets
-
+	glClearColor(0.6f, 1.0f, 1.0f, 0.1f); // Adds a sky blue colour to background, once loadings done
 	do {
-	 glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	 player.cameraControls(window, windowEvent); // The camera class
-	 asset_manager->Draw(); // Loads cubes onto screen
+		
+		player.computeMatricesFromInputs(window); // The camera class
 
-	 // Diamond stuff goes here
-
-	 if (SDL_PollEvent(&windowEvent)) //Press Esc to close the game
-	 {
-		if (windowEvent.type == SDL_KEYUP && windowEvent.key.keysym.sym == SDLK_ESCAPE) 
+		while (SDL_PollEvent(&windowEvent))
 		{
-			return false;
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clears current frame, for next frame
+			// Collision should go here
+			event_handler.handleEvents(&windowEvent);
+			asset_manager->Draw(); // Draws assets onto screen
 		}
-	 }
-	 SDL_GL_SwapWindow(window);
-	}
-	while(running == true);
-	
+		SDL_GL_SwapWindow(window);
+	} while (running == true);
+
+	glClearColor(1.0f, 1.0f, 1.0f, 0.0f); // This should make the screen go black
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	asset_manager->Clear();
 	cubepositions.clear(); // Empties the vector of positions
 	return true;
 }
@@ -46,10 +46,7 @@ bool Level::fillVector(int lvl)
 {
    std::string name; 
    bool filled = false;
-   if(cubepositions.empty())
-   {
-      cubepositions.clear(); // A fallback
-   }
+   cubepositions.clear(); // A fallback
 
    switch(lvl)
    { 
@@ -107,7 +104,7 @@ void Level::blockPositions()
 	j++;
 	i++;	
      }
-     // This switch will add assets to the assetmanager, using the vector with cube positions to determine the size of each asset. See "levelFormat" in the level folder for more information on cube sizes.
+     // This switch will add assets to the asset manager, using the vector with cube positions to determine the size of each asset. See "levelFormat" in the level folder for more information on cube sizes.
      switch(j)
      {
         case 0:
@@ -135,6 +132,13 @@ void Level::blockPositions()
 	break;
 
 	case 3:
+	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>());
+	asset_manager->Move(num, pos);
+	num++;
+	break;
+
+	case 4:
 	//pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
 	
 	// For door position - probably won't be in this section of the code

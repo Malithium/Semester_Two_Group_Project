@@ -863,8 +863,7 @@ level.o: level.cpp /usr/include/stdc-predef.h level.h \
  /usr/include/boost/program_options/variables_map.hpp \
  /usr/include/boost/program_options/version.hpp ../src/camera.h \
  ../src/gameAsset.h ../src/largeCubeAsset.h ../src/medCubeAsset.h \
- ../src/smallCubeAsset.h ../src/gameAssetManager.h ../src/loadShaders.h \
- ../src/gameAsset.h
+ ../src/smallCubeAsset.h ../src/gameAssetManager.h ../src/gameAsset.h
 
 /usr/include/stdc-predef.h:
 
@@ -2893,7 +2892,5 @@ level.h:
 ../src/smallCubeAsset.h:
 
 ../src/gameAssetManager.h:
-
-../src/loadShaders.h:
 
 ../src/gameAsset.h:

@@ -29,13 +29,22 @@ LargeCubeAsset::LargeCubeAsset() {
 		6, 2, 1
  	};	
 
-//	static GLfloat colour_buffer[12*3*3];
-//	for(int i = 0; i < 12*3; i++)
-//	{
-//		colour_buffer[3*i+0] = 0.039f;
-//		colour_buffer[3*i+1] = 0.186f;
-//		colour_buffer[3*i+2] = 0.059f;
-//	};
+	static GLfloat colour_buffer[12*3*3];
+	for(int i = 0; i < 12*3; i++)
+	{
+	  if( i == 0 || i == 1 || i == 4 ||i == 5)
+	  {
+		colour_buffer[3*i+0] = 0.140f;
+		colour_buffer[3*i+1] = 0.059f;
+		colour_buffer[3*i+2] = 0.038f;
+	  }
+	  else
+	  {
+		colour_buffer[3*i+0] = 0.039f;
+		colour_buffer[3*i+1] = 0.255f;
+		colour_buffer[3*i+2] = 0.059f;
+	  }
+	}
 	
 	glGenVertexArrays(1, &VertexArrayID);
 	glBindVertexArray(VertexArrayID);
@@ -48,13 +57,17 @@ LargeCubeAsset::LargeCubeAsset() {
 	glGenBuffers(1, &elementbuffer);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(element_buffer), element_buffer, GL_STATIC_DRAW);
+
+	glGenBuffers(1, &colourbuffer);
+	glBindBuffer(GL_ARRAY_BUFFER, colourbuffer);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(colour_buffer), colour_buffer, GL_STATIC_DRAW);
 }
 
 LargeCubeAsset::~LargeCubeAsset() {
   	// Cleans up by deleting the buffers
 	glDeleteBuffers(1, &vertexbuffer);
 	glDeleteBuffers(1, &elementbuffer);
-	//glDeleteBuffers(1, &colourbuffer);;
+	glDeleteBuffers(1, &colourbuffer);;
 	glDeleteVertexArrays(1, &VertexArrayID);
 }
 
@@ -74,6 +87,17 @@ void LargeCubeAsset::Draw(GLuint programID)
 		0,                  // stridea
 		(void*)0            // array buffer offset
 	);
+
+	glEnableVertexAttribArray(1);
+	glBindBuffer(GL_ARRAY_BUFFER, colourbuffer);
+	glVertexAttribPointer(
+		1,                  // attribute 1. Must match the layout in the shader.
+		3,                  // size
+		GL_FLOAT,           // type
+		GL_FALSE,           // normalized?
+		0,                  // stride
+		(void*)0            // array buffer offset
+	);
 	
 	// Prepare for the "MVP" uniform
 	MatrixID = glGetUniformLocation(programID, "MVP");
@@ -89,6 +113,7 @@ void LargeCubeAsset::Draw(GLuint programID)
 	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, (void*)0);
 
 	glDisableVertexAttribArray(0);
+	glDisableVertexAttribArray(1);
 }
 
 void LargeCubeAsset::NewPosition(vec3 pos)

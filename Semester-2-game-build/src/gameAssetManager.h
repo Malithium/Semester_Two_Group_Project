@@ -8,9 +8,8 @@
 #include <utility>
 #include <fstream>
 #include <iostream>
-#include <src/loadShaders.h>
-#include <GL/gl.h>
 #include <GL/glew.h>
+#include <GL/gl.h>
 
 #include <glm/glm.hpp>
 #include <glm/gtx/transform.hpp>
@@ -31,6 +30,8 @@ class GameAssetManager {
 	 void AddAsset(std::shared_ptr<GameAsset>);
 	 void Move(int num, glm::vec3 pos);
 	 void Draw();
+	 void Clear();
+	 GLuint LoadShaders(const char * vertex_file_path, const char * fragment_file_path);
 	private:
 	 // The internal scene graph is a simple list.
 	 std::vector<std::shared_ptr<GameAsset>> draw_list;

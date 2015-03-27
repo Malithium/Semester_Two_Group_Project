@@ -29,7 +29,7 @@ class DiamondAsset : public GameAsset {
 	 vec3 position;
 	 Camera player;
 	 GLuint VertexArrayID, MatrixID;
-	 GLuint vertexbuffer, elementbuffer, colourbuffer;
+	 GLuint vertexbuffers, elementbuffers, colourbuffer;
 };
 
 #endif //DIAMONDASSET_H

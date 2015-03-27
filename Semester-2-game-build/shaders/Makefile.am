@@ -1,1 +1,1 @@
-EXTRA_DIST=VertexShader.vertexshader FragmentShader.fragmentshader
+EXTRA_DIST=vertex.vs fragment.fs

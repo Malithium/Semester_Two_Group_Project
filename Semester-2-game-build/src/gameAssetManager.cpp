@@ -6,10 +6,8 @@
 */
 
 GameAssetManager::GameAssetManager() {
-
-	loadShaders shader;
 	// Create and compile our GLSL program from the shaders
-	programID = shader.LoadShaders("shaders/vertex.vs", "shaders/FragmentShader.fragmentshader");
+	programID = LoadShaders("shaders/vertex.vs", "shaders/fragment.fs");
 }
 
 /**
@@ -30,19 +28,78 @@ void GameAssetManager::AddAsset(std::shared_ptr<GameAsset> the_asset) {
 }
 
 /**
-* Changes the vec3 of the CubeAsset, transitioning the cube
+* Changes the vec3 of an asset, transitioning it
 */
-void GameAssetManager::Move(int num, glm::vec3 pos)
-{
+void GameAssetManager::Move(int num, glm::vec3 pos) {
     draw_list.at(num)->NewPosition(pos);
 }
 
 /**
 * Draws each GameAsset in the scene graph.
 */
-
 void GameAssetManager::Draw() {
 	for(auto ga: draw_list) {
 		ga->Draw(programID);
 	}
+}
+
+/**
+* Empties the draw vector, allowing for the next levels cubes to load
+*/
+void GameAssetManager::Clear() {
+	draw_list.clear();
+}
+
+
+/**
+* Reads in the shaders, to produce a ProgramID which points to the linked location
+*/
+GLuint GameAssetManager::LoadShaders(const char * vertex_file_path, const char * fragment_file_path) {
+
+	GLuint VertexShaderID = glCreateShader(GL_VERTEX_SHADER);
+	GLuint FragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);
+
+	std::string VertexShaderCode;
+	std::string FragmentShaderCode;
+	
+	/// Read the Vertex Shader code from the file
+	std::ifstream VertexShaderStream(vertex_file_path, std::ios::in);
+	if (VertexShaderStream.is_open())
+	{
+		std::string Line = "";
+		while (getline(VertexShaderStream, Line))
+			VertexShaderCode += "\n" + Line;
+		VertexShaderStream.close();
+	}
+
+	/// Read the Fragment Shader code from the file
+	std::ifstream FragmentShaderStream(fragment_file_path, std::ios::in);
+	if (FragmentShaderStream.is_open()){
+		std::string Line = "";
+		while (getline(FragmentShaderStream, Line))
+			FragmentShaderCode += "\n" + Line;
+		FragmentShaderStream.close();
+	}
+
+	/// Compile Vertex Shader
+	char const * VertexSourcePointer = VertexShaderCode.c_str();
+	glShaderSource(VertexShaderID, 1, &VertexSourcePointer, NULL);
+	glCompileShader(VertexShaderID);
+
+	/// Compile Fragment Shader
+	char const * FragmentSourcePointer = FragmentShaderCode.c_str();
+	glShaderSource(FragmentShaderID, 1, &FragmentSourcePointer, NULL);
+	glCompileShader(FragmentShaderID);
+
+	/// Link the program
+	GLuint ProgramID = glCreateProgram();
+	glAttachShader(ProgramID, VertexShaderID);
+	glAttachShader(ProgramID, FragmentShaderID);
+	glLinkProgram(ProgramID);
+
+	glDeleteShader(VertexShaderID);
+	glDeleteShader(FragmentShaderID);
+
+	return ProgramID;
+
 }

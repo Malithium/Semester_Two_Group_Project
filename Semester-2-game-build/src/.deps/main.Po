@@ -76,101 +76,10 @@ main.o: main.cpp /usr/include/stdc-predef.h /usr/include/GL/glew.h \
  /usr/local/include/SDL2/SDL_messagebox.h \
  /usr/local/include/SDL2/SDL_power.h /usr/local/include/SDL2/SDL_render.h \
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h \
- /usr/local/include/SDL2/SDL_version.h /usr/include/glm/glm.hpp \
- /usr/include/glm/detail/_fixes.hpp /usr/include/c++/4.9/cmath \
+ /usr/local/include/SDL2/SDL_version.h /usr/include/c++/4.9/iostream \
  /usr/include/x86_64-linux-gnu/c++/4.9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/4.9/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/4.9/bits/cpu_defines.h \
- /usr/include/c++/4.9/bits/cpp_type_traits.h \
- /usr/include/c++/4.9/ext/type_traits.h /usr/include/c++/4.9/climits \
- /usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed/syslimits.h \
- /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
- /usr/include/x86_64-linux-gnu/bits/local_lim.h \
- /usr/include/linux/limits.h \
- /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
- /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
- /usr/include/c++/4.9/cfloat \
- /usr/lib/gcc/x86_64-linux-gnu/4.9/include/float.h \
- /usr/include/c++/4.9/limits /usr/include/c++/4.9/cassert \
- /usr/include/assert.h /usr/include/glm/fwd.hpp \
- /usr/include/glm/detail/type_int.hpp /usr/include/glm/detail/setup.hpp \
- /usr/include/c++/4.9/cstdint /usr/include/glm/detail/type_float.hpp \
- /usr/include/glm/detail/type_vec.hpp \
- /usr/include/glm/detail/precision.hpp \
- /usr/include/glm/detail/type_int.hpp \
- /usr/include/glm/detail/type_mat.hpp /usr/include/glm/vec2.hpp \
- /usr/include/glm/detail/type_vec2.hpp \
- /usr/include/glm/detail/type_vec.hpp /usr/include/c++/4.9/cstddef \
- /usr/include/glm/detail/type_vec2.inl /usr/include/glm/vec3.hpp \
- /usr/include/glm/detail/type_vec3.hpp \
- /usr/include/glm/detail/type_vec3.inl /usr/include/glm/vec4.hpp \
- /usr/include/glm/detail/type_vec4.hpp \
- /usr/include/glm/detail/type_vec4.inl /usr/include/glm/mat2x2.hpp \
- /usr/include/glm/detail/type_mat2x2.hpp /usr/include/glm/fwd.hpp \
- /usr/include/glm/detail/type_vec2.hpp \
- /usr/include/glm/detail/type_mat.hpp \
- /usr/include/glm/detail/type_mat2x2.inl /usr/include/glm/mat2x3.hpp \
- /usr/include/glm/detail/type_mat2x3.hpp \
- /usr/include/glm/detail/type_vec3.hpp \
- /usr/include/glm/detail/type_mat2x3.inl /usr/include/glm/mat2x4.hpp \
- /usr/include/glm/detail/type_mat2x4.hpp \
- /usr/include/glm/detail/type_vec4.hpp \
- /usr/include/glm/detail/type_mat2x4.inl /usr/include/glm/mat3x2.hpp \
- /usr/include/glm/detail/type_mat3x2.hpp \
- /usr/include/glm/detail/type_mat3x2.inl /usr/include/glm/mat3x3.hpp \
- /usr/include/glm/detail/type_mat3x3.hpp \
- /usr/include/glm/detail/type_mat3x3.inl /usr/include/glm/mat3x4.hpp \
- /usr/include/glm/detail/type_mat3x4.hpp \
- /usr/include/glm/detail/type_mat3x4.inl /usr/include/glm/mat4x2.hpp \
- /usr/include/glm/detail/type_mat4x2.hpp \
- /usr/include/glm/detail/type_mat4x2.inl /usr/include/glm/mat4x3.hpp \
- /usr/include/glm/detail/type_mat4x3.hpp \
- /usr/include/glm/detail/type_mat4x3.inl /usr/include/glm/mat4x4.hpp \
- /usr/include/glm/detail/type_mat4x4.hpp \
- /usr/include/glm/detail/type_mat4x4.inl \
- /usr/include/glm/trigonometric.hpp \
- /usr/include/glm/detail/func_trigonometric.hpp \
- /usr/include/glm/detail/func_trigonometric.inl \
- /usr/include/glm/detail/_vectorize.hpp \
- /usr/include/glm/detail/type_vec1.hpp \
- /usr/include/glm/detail/type_vec1.inl /usr/include/glm/exponential.hpp \
- /usr/include/glm/detail/func_exponential.hpp \
- /usr/include/glm/detail/func_exponential.inl \
- /usr/include/glm/detail/func_vector_relational.hpp \
- /usr/include/glm/detail/func_vector_relational.inl \
- /usr/include/glm/common.hpp /usr/include/glm/detail/func_common.hpp \
- /usr/include/glm/detail/_fixes.hpp \
- /usr/include/glm/detail/func_common.inl /usr/include/glm/packing.hpp \
- /usr/include/glm/detail/func_packing.hpp \
- /usr/include/glm/detail/func_packing.inl \
- /usr/include/glm/detail/func_common.hpp \
- /usr/include/glm/detail/type_half.hpp \
- /usr/include/glm/detail/type_half.inl /usr/include/glm/geometric.hpp \
- /usr/include/glm/detail/func_geometric.hpp \
- /usr/include/glm/detail/func_geometric.inl \
- /usr/include/glm/detail/func_exponential.hpp \
- /usr/include/glm/detail/type_float.hpp /usr/include/glm/matrix.hpp \
- /usr/include/glm/detail/func_matrix.hpp \
- /usr/include/glm/detail/precision.hpp /usr/include/glm/detail/setup.hpp \
- /usr/include/glm/detail/type_mat.hpp /usr/include/glm/vec2.hpp \
- /usr/include/glm/vec3.hpp /usr/include/glm/vec4.hpp \
- /usr/include/glm/mat2x2.hpp /usr/include/glm/mat2x3.hpp \
- /usr/include/glm/mat2x4.hpp /usr/include/glm/mat3x2.hpp \
- /usr/include/glm/mat3x3.hpp /usr/include/glm/mat3x4.hpp \
- /usr/include/glm/mat4x2.hpp /usr/include/glm/mat4x3.hpp \
- /usr/include/glm/mat4x4.hpp /usr/include/glm/detail/func_matrix.inl \
- /usr/include/glm/geometric.hpp /usr/include/glm/vector_relational.hpp \
- /usr/include/glm/detail/func_vector_relational.hpp \
- /usr/include/glm/integer.hpp /usr/include/glm/detail/func_integer.hpp \
- /usr/include/glm/detail/func_integer.inl \
- /usr/include/glm/gtx/transform.hpp /usr/include/glm/glm.hpp \
- /usr/include/glm/gtc/matrix_transform.hpp /usr/include/glm/mat4x4.hpp \
- /usr/include/glm/vec2.hpp /usr/include/glm/vec3.hpp \
- /usr/include/glm/vec4.hpp /usr/include/glm/gtc/matrix_transform.inl \
- /usr/include/glm/geometric.hpp /usr/include/glm/trigonometric.hpp \
- /usr/include/glm/matrix.hpp /usr/include/glm/gtx/transform.inl \
- /usr/include/glm/gtc/matrix_transform.hpp /usr/include/c++/4.9/iostream \
  /usr/include/c++/4.9/ostream /usr/include/c++/4.9/ios \
  /usr/include/c++/4.9/iosfwd /usr/include/c++/4.9/bits/stringfwd.h \
  /usr/include/c++/4.9/bits/memoryfwd.h \
@@ -184,6 +93,8 @@ main.o: main.cpp /usr/include/stdc-predef.h /usr/include/GL/glew.h \
  /usr/include/c++/4.9/bits/char_traits.h \
  /usr/include/c++/4.9/bits/stl_algobase.h \
  /usr/include/c++/4.9/bits/functexcept.h \
+ /usr/include/c++/4.9/bits/cpp_type_traits.h \
+ /usr/include/c++/4.9/ext/type_traits.h \
  /usr/include/c++/4.9/ext/numeric_traits.h \
  /usr/include/c++/4.9/bits/stl_pair.h /usr/include/c++/4.9/bits/move.h \
  /usr/include/c++/4.9/bits/concept_check.h \
@@ -193,7 +104,7 @@ main.o: main.cpp /usr/include/stdc-predef.h /usr/include/GL/glew.h \
  /usr/include/c++/4.9/debug/debug.h \
  /usr/include/c++/4.9/bits/stl_iterator.h \
  /usr/include/c++/4.9/bits/ptr_traits.h \
- /usr/include/c++/4.9/bits/predefined_ops.h \
+ /usr/include/c++/4.9/bits/predefined_ops.h /usr/include/c++/4.9/cstdint \
  /usr/include/c++/4.9/bits/localefwd.h \
  /usr/include/x86_64-linux-gnu/c++/4.9/bits/c++locale.h \
  /usr/include/c++/4.9/clocale /usr/include/locale.h \
@@ -246,6 +157,7 @@ main.o: main.cpp /usr/include/stdc-predef.h /usr/include/GL/glew.h \
  /usr/include/boost/config/select_compiler_config.hpp \
  /usr/include/boost/config/compiler/gcc.hpp \
  /usr/include/boost/config/select_stdlib_config.hpp \
+ /usr/include/c++/4.9/cstddef \
  /usr/include/boost/config/no_tr1/utility.hpp \
  /usr/include/c++/4.9/utility /usr/include/c++/4.9/bits/stl_relops.h \
  /usr/include/boost/config/stdlib/libstdcpp3.hpp /usr/include/unistd.h \
@@ -278,6 +190,7 @@ main.o: main.cpp /usr/include/stdc-predef.h /usr/include/GL/glew.h \
  /usr/include/c++/4.9/bits/algorithmfwd.h \
  /usr/include/c++/4.9/bits/stl_heap.h \
  /usr/include/c++/4.9/bits/stl_tempbuf.h /usr/include/c++/4.9/random \
+ /usr/include/c++/4.9/cmath /usr/include/c++/4.9/limits \
  /usr/include/c++/4.9/bits/random.h \
  /usr/include/x86_64-linux-gnu/c++/4.9/bits/opt_random.h \
  /usr/lib/gcc/x86_64-linux-gnu/4.9/include/x86intrin.h \
@@ -436,6 +349,7 @@ main.o: main.cpp /usr/include/stdc-predef.h /usr/include/GL/glew.h \
  /usr/include/boost/function/detail/maybe_include.hpp \
  /usr/include/boost/function/function_template.hpp \
  /usr/include/boost/function/detail/prologue.hpp \
+ /usr/include/c++/4.9/cassert /usr/include/assert.h \
  /usr/include/boost/config/no_tr1/functional.hpp \
  /usr/include/c++/4.9/functional \
  /usr/include/boost/function/function_base.hpp \
@@ -448,6 +362,14 @@ main.o: main.cpp /usr/include/stdc-predef.h /usr/include/GL/glew.h \
  /usr/include/c++/4.9/backward/auto_ptr.h \
  /usr/include/boost/detail/sp_typeinfo.hpp /usr/include/boost/assert.hpp \
  /usr/include/boost/integer.hpp /usr/include/boost/integer_fwd.hpp \
+ /usr/include/c++/4.9/climits \
+ /usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed/syslimits.h \
+ /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
  /usr/include/boost/limits.hpp /usr/include/boost/cstdint.hpp \
  /usr/include/boost/integer_traits.hpp \
  /usr/include/boost/type_traits/has_trivial_copy.hpp \
@@ -582,7 +504,8 @@ main.o: main.cpp /usr/include/stdc-predef.h /usr/include/GL/glew.h \
  /usr/include/boost/type_traits/is_fundamental.hpp \
  /usr/include/boost/type_traits/has_right_shift.hpp \
  /usr/include/boost/math/special_functions/sign.hpp \
- /usr/include/boost/math/tools/config.hpp \
+ /usr/include/boost/math/tools/config.hpp /usr/include/c++/4.9/cfloat \
+ /usr/lib/gcc/x86_64-linux-gnu/4.9/include/float.h \
  /usr/include/boost/math/tools/user.hpp \
  /usr/include/boost/detail/fenv.hpp /usr/include/c++/4.9/fenv.h \
  /usr/include/fenv.h /usr/include/x86_64-linux-gnu/bits/fenv.h \
@@ -859,14 +782,92 @@ main.o: main.cpp /usr/include/stdc-predef.h /usr/include/GL/glew.h \
  /usr/include/boost/program_options/detail/parsers.hpp \
  /usr/include/boost/program_options/detail/convert.hpp \
  /usr/include/boost/program_options/variables_map.hpp \
- /usr/include/boost/program_options/version.hpp ../src/loadShaders.h \
+ /usr/include/boost/program_options/version.hpp ../src/level.h \
  /usr/include/c++/4.9/fstream \
  /usr/include/x86_64-linux-gnu/c++/4.9/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/4.9/bits/c++io.h \
- /usr/include/c++/4.9/bits/fstream.tcc ../src/level.h \
- ../src/diamondAsset.h ../src/camera.h ../src/gameAsset.h \
- ../src/largeCubeAsset.h ../src/medCubeAsset.h ../src/smallCubeAsset.h \
- ../src/gameAssetManager.h ../src/gameAsset.h
+ /usr/include/c++/4.9/bits/fstream.tcc /usr/include/glm/glm.hpp \
+ /usr/include/glm/detail/_fixes.hpp /usr/include/glm/fwd.hpp \
+ /usr/include/glm/detail/type_int.hpp /usr/include/glm/detail/setup.hpp \
+ /usr/include/glm/detail/type_float.hpp \
+ /usr/include/glm/detail/type_vec.hpp \
+ /usr/include/glm/detail/precision.hpp \
+ /usr/include/glm/detail/type_int.hpp \
+ /usr/include/glm/detail/type_mat.hpp /usr/include/glm/vec2.hpp \
+ /usr/include/glm/detail/type_vec2.hpp \
+ /usr/include/glm/detail/type_vec.hpp \
+ /usr/include/glm/detail/type_vec2.inl /usr/include/glm/vec3.hpp \
+ /usr/include/glm/detail/type_vec3.hpp \
+ /usr/include/glm/detail/type_vec3.inl /usr/include/glm/vec4.hpp \
+ /usr/include/glm/detail/type_vec4.hpp \
+ /usr/include/glm/detail/type_vec4.inl /usr/include/glm/mat2x2.hpp \
+ /usr/include/glm/detail/type_mat2x2.hpp /usr/include/glm/fwd.hpp \
+ /usr/include/glm/detail/type_vec2.hpp \
+ /usr/include/glm/detail/type_mat.hpp \
+ /usr/include/glm/detail/type_mat2x2.inl /usr/include/glm/mat2x3.hpp \
+ /usr/include/glm/detail/type_mat2x3.hpp \
+ /usr/include/glm/detail/type_vec3.hpp \
+ /usr/include/glm/detail/type_mat2x3.inl /usr/include/glm/mat2x4.hpp \
+ /usr/include/glm/detail/type_mat2x4.hpp \
+ /usr/include/glm/detail/type_vec4.hpp \
+ /usr/include/glm/detail/type_mat2x4.inl /usr/include/glm/mat3x2.hpp \
+ /usr/include/glm/detail/type_mat3x2.hpp \
+ /usr/include/glm/detail/type_mat3x2.inl /usr/include/glm/mat3x3.hpp \
+ /usr/include/glm/detail/type_mat3x3.hpp \
+ /usr/include/glm/detail/type_mat3x3.inl /usr/include/glm/mat3x4.hpp \
+ /usr/include/glm/detail/type_mat3x4.hpp \
+ /usr/include/glm/detail/type_mat3x4.inl /usr/include/glm/mat4x2.hpp \
+ /usr/include/glm/detail/type_mat4x2.hpp \
+ /usr/include/glm/detail/type_mat4x2.inl /usr/include/glm/mat4x3.hpp \
+ /usr/include/glm/detail/type_mat4x3.hpp \
+ /usr/include/glm/detail/type_mat4x3.inl /usr/include/glm/mat4x4.hpp \
+ /usr/include/glm/detail/type_mat4x4.hpp \
+ /usr/include/glm/detail/type_mat4x4.inl \
+ /usr/include/glm/trigonometric.hpp \
+ /usr/include/glm/detail/func_trigonometric.hpp \
+ /usr/include/glm/detail/func_trigonometric.inl \
+ /usr/include/glm/detail/_vectorize.hpp \
+ /usr/include/glm/detail/type_vec1.hpp \
+ /usr/include/glm/detail/type_vec1.inl /usr/include/glm/exponential.hpp \
+ /usr/include/glm/detail/func_exponential.hpp \
+ /usr/include/glm/detail/func_exponential.inl \
+ /usr/include/glm/detail/func_vector_relational.hpp \
+ /usr/include/glm/detail/func_vector_relational.inl \
+ /usr/include/glm/common.hpp /usr/include/glm/detail/func_common.hpp \
+ /usr/include/glm/detail/_fixes.hpp \
+ /usr/include/glm/detail/func_common.inl /usr/include/glm/packing.hpp \
+ /usr/include/glm/detail/func_packing.hpp \
+ /usr/include/glm/detail/func_packing.inl \
+ /usr/include/glm/detail/func_common.hpp \
+ /usr/include/glm/detail/type_half.hpp \
+ /usr/include/glm/detail/type_half.inl /usr/include/glm/geometric.hpp \
+ /usr/include/glm/detail/func_geometric.hpp \
+ /usr/include/glm/detail/func_geometric.inl \
+ /usr/include/glm/detail/func_exponential.hpp \
+ /usr/include/glm/detail/type_float.hpp /usr/include/glm/matrix.hpp \
+ /usr/include/glm/detail/func_matrix.hpp \
+ /usr/include/glm/detail/precision.hpp /usr/include/glm/detail/setup.hpp \
+ /usr/include/glm/detail/type_mat.hpp /usr/include/glm/vec2.hpp \
+ /usr/include/glm/vec3.hpp /usr/include/glm/vec4.hpp \
+ /usr/include/glm/mat2x2.hpp /usr/include/glm/mat2x3.hpp \
+ /usr/include/glm/mat2x4.hpp /usr/include/glm/mat3x2.hpp \
+ /usr/include/glm/mat3x3.hpp /usr/include/glm/mat3x4.hpp \
+ /usr/include/glm/mat4x2.hpp /usr/include/glm/mat4x3.hpp \
+ /usr/include/glm/mat4x4.hpp /usr/include/glm/detail/func_matrix.inl \
+ /usr/include/glm/geometric.hpp /usr/include/glm/vector_relational.hpp \
+ /usr/include/glm/detail/func_vector_relational.hpp \
+ /usr/include/glm/integer.hpp /usr/include/glm/detail/func_integer.hpp \
+ /usr/include/glm/detail/func_integer.inl \
+ /usr/include/glm/gtx/transform.hpp /usr/include/glm/glm.hpp \
+ /usr/include/glm/gtc/matrix_transform.hpp /usr/include/glm/mat4x4.hpp \
+ /usr/include/glm/vec2.hpp /usr/include/glm/vec3.hpp \
+ /usr/include/glm/vec4.hpp /usr/include/glm/gtc/matrix_transform.inl \
+ /usr/include/glm/geometric.hpp /usr/include/glm/trigonometric.hpp \
+ /usr/include/glm/matrix.hpp /usr/include/glm/gtx/transform.inl \
+ /usr/include/glm/gtc/matrix_transform.hpp ../src/diamondAsset.h \
+ ../src/camera.h ../src/gameAsset.h ../src/largeCubeAsset.h \
+ ../src/medCubeAsset.h ../src/smallCubeAsset.h ../src/gameAssetManager.h \
+ ../src/gameAsset.h
 
 /usr/include/stdc-predef.h:
 
@@ -1082,281 +1083,13 @@ main.o: main.cpp /usr/include/stdc-predef.h /usr/include/GL/glew.h \
 
 /usr/local/include/SDL2/SDL_version.h:
 
-/usr/include/glm/glm.hpp:
-
-/usr/include/glm/detail/_fixes.hpp:
-
-/usr/include/c++/4.9/cmath:
+/usr/include/c++/4.9/iostream:
 
 /usr/include/x86_64-linux-gnu/c++/4.9/bits/c++config.h:
 
 /usr/include/x86_64-linux-gnu/c++/4.9/bits/os_defines.h:
 
 /usr/include/x86_64-linux-gnu/c++/4.9/bits/cpu_defines.h:
-
-/usr/include/c++/4.9/bits/cpp_type_traits.h:
-
-/usr/include/c++/4.9/ext/type_traits.h:
-
-/usr/include/c++/4.9/climits:
-
-/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed/limits.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed/syslimits.h:
-
-/usr/include/limits.h:
-
-/usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
-
-/usr/include/x86_64-linux-gnu/bits/local_lim.h:
-
-/usr/include/linux/limits.h:
-
-/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
-
-/usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
-
-/usr/include/c++/4.9/cfloat:
-
-/usr/lib/gcc/x86_64-linux-gnu/4.9/include/float.h:
-
-/usr/include/c++/4.9/limits:
-
-/usr/include/c++/4.9/cassert:
-
-/usr/include/assert.h:
-
-/usr/include/glm/fwd.hpp:
-
-/usr/include/glm/detail/type_int.hpp:
-
-/usr/include/glm/detail/setup.hpp:
-
-/usr/include/c++/4.9/cstdint:
-
-/usr/include/glm/detail/type_float.hpp:
-
-/usr/include/glm/detail/type_vec.hpp:
-
-/usr/include/glm/detail/precision.hpp:
-
-/usr/include/glm/detail/type_int.hpp:
-
-/usr/include/glm/detail/type_mat.hpp:
-
-/usr/include/glm/vec2.hpp:
-
-/usr/include/glm/detail/type_vec2.hpp:
-
-/usr/include/glm/detail/type_vec.hpp:
-
-/usr/include/c++/4.9/cstddef:
-
-/usr/include/glm/detail/type_vec2.inl:
-
-/usr/include/glm/vec3.hpp:
-
-/usr/include/glm/detail/type_vec3.hpp:
-
-/usr/include/glm/detail/type_vec3.inl:
-
-/usr/include/glm/vec4.hpp:
-
-/usr/include/glm/detail/type_vec4.hpp:
-
-/usr/include/glm/detail/type_vec4.inl:
-
-/usr/include/glm/mat2x2.hpp:
-
-/usr/include/glm/detail/type_mat2x2.hpp:
-
-/usr/include/glm/fwd.hpp:
-
-/usr/include/glm/detail/type_vec2.hpp:
-
-/usr/include/glm/detail/type_mat.hpp:
-
-/usr/include/glm/detail/type_mat2x2.inl:
-
-/usr/include/glm/mat2x3.hpp:
-
-/usr/include/glm/detail/type_mat2x3.hpp:
-
-/usr/include/glm/detail/type_vec3.hpp:
-
-/usr/include/glm/detail/type_mat2x3.inl:
-
-/usr/include/glm/mat2x4.hpp:
-
-/usr/include/glm/detail/type_mat2x4.hpp:
-
-/usr/include/glm/detail/type_vec4.hpp:
-
-/usr/include/glm/detail/type_mat2x4.inl:
-
-/usr/include/glm/mat3x2.hpp:
-
-/usr/include/glm/detail/type_mat3x2.hpp:
-
-/usr/include/glm/detail/type_mat3x2.inl:
-
-/usr/include/glm/mat3x3.hpp:
-
-/usr/include/glm/detail/type_mat3x3.hpp:
-
-/usr/include/glm/detail/type_mat3x3.inl:
-
-/usr/include/glm/mat3x4.hpp:
-
-/usr/include/glm/detail/type_mat3x4.hpp:
-
-/usr/include/glm/detail/type_mat3x4.inl:
-
-/usr/include/glm/mat4x2.hpp:
-
-/usr/include/glm/detail/type_mat4x2.hpp:
-
-/usr/include/glm/detail/type_mat4x2.inl:
-
-/usr/include/glm/mat4x3.hpp:
-
-/usr/include/glm/detail/type_mat4x3.hpp:
-
-/usr/include/glm/detail/type_mat4x3.inl:
-
-/usr/include/glm/mat4x4.hpp:
-
-/usr/include/glm/detail/type_mat4x4.hpp:
-
-/usr/include/glm/detail/type_mat4x4.inl:
-
-/usr/include/glm/trigonometric.hpp:
-
-/usr/include/glm/detail/func_trigonometric.hpp:
-
-/usr/include/glm/detail/func_trigonometric.inl:
-
-/usr/include/glm/detail/_vectorize.hpp:
-
-/usr/include/glm/detail/type_vec1.hpp:
-
-/usr/include/glm/detail/type_vec1.inl:
-
-/usr/include/glm/exponential.hpp:
-
-/usr/include/glm/detail/func_exponential.hpp:
-
-/usr/include/glm/detail/func_exponential.inl:
-
-/usr/include/glm/detail/func_vector_relational.hpp:
-
-/usr/include/glm/detail/func_vector_relational.inl:
-
-/usr/include/glm/common.hpp:
-
-/usr/include/glm/detail/func_common.hpp:
-
-/usr/include/glm/detail/_fixes.hpp:
-
-/usr/include/glm/detail/func_common.inl:
-
-/usr/include/glm/packing.hpp:
-
-/usr/include/glm/detail/func_packing.hpp:
-
-/usr/include/glm/detail/func_packing.inl:
-
-/usr/include/glm/detail/func_common.hpp:
-
-/usr/include/glm/detail/type_half.hpp:
-
-/usr/include/glm/detail/type_half.inl:
-
-/usr/include/glm/geometric.hpp:
-
-/usr/include/glm/detail/func_geometric.hpp:
-
-/usr/include/glm/detail/func_geometric.inl:
-
-/usr/include/glm/detail/func_exponential.hpp:
-
-/usr/include/glm/detail/type_float.hpp:
-
-/usr/include/glm/matrix.hpp:
-
-/usr/include/glm/detail/func_matrix.hpp:
-
-/usr/include/glm/detail/precision.hpp:
-
-/usr/include/glm/detail/setup.hpp:
-
-/usr/include/glm/detail/type_mat.hpp:
-
-/usr/include/glm/vec2.hpp:
-
-/usr/include/glm/vec3.hpp:
-
-/usr/include/glm/vec4.hpp:
-
-/usr/include/glm/mat2x2.hpp:
-
-/usr/include/glm/mat2x3.hpp:
-
-/usr/include/glm/mat2x4.hpp:
-
-/usr/include/glm/mat3x2.hpp:
-
-/usr/include/glm/mat3x3.hpp:
-
-/usr/include/glm/mat3x4.hpp:
-
-/usr/include/glm/mat4x2.hpp:
-
-/usr/include/glm/mat4x3.hpp:
-
-/usr/include/glm/mat4x4.hpp:
-
-/usr/include/glm/detail/func_matrix.inl:
-
-/usr/include/glm/geometric.hpp:
-
-/usr/include/glm/vector_relational.hpp:
-
-/usr/include/glm/detail/func_vector_relational.hpp:
-
-/usr/include/glm/integer.hpp:
-
-/usr/include/glm/detail/func_integer.hpp:
-
-/usr/include/glm/detail/func_integer.inl:
-
-/usr/include/glm/gtx/transform.hpp:
-
-/usr/include/glm/glm.hpp:
-
-/usr/include/glm/gtc/matrix_transform.hpp:
-
-/usr/include/glm/mat4x4.hpp:
-
-/usr/include/glm/vec2.hpp:
-
-/usr/include/glm/vec3.hpp:
-
-/usr/include/glm/vec4.hpp:
-
-/usr/include/glm/gtc/matrix_transform.inl:
-
-/usr/include/glm/geometric.hpp:
-
-/usr/include/glm/trigonometric.hpp:
-
-/usr/include/glm/matrix.hpp:
-
-/usr/include/glm/gtx/transform.inl:
-
-/usr/include/glm/gtc/matrix_transform.hpp:
-
-/usr/include/c++/4.9/iostream:
 
 /usr/include/c++/4.9/ostream:
 
@@ -1390,6 +1123,10 @@ main.o: main.cpp /usr/include/stdc-predef.h /usr/include/GL/glew.h \
 
 /usr/include/c++/4.9/bits/functexcept.h:
 
+/usr/include/c++/4.9/bits/cpp_type_traits.h:
+
+/usr/include/c++/4.9/ext/type_traits.h:
+
 /usr/include/c++/4.9/ext/numeric_traits.h:
 
 /usr/include/c++/4.9/bits/stl_pair.h:
@@ -1411,6 +1148,8 @@ main.o: main.cpp /usr/include/stdc-predef.h /usr/include/GL/glew.h \
 /usr/include/c++/4.9/bits/ptr_traits.h:
 
 /usr/include/c++/4.9/bits/predefined_ops.h:
+
+/usr/include/c++/4.9/cstdint:
 
 /usr/include/c++/4.9/bits/localefwd.h:
 
@@ -1542,6 +1281,8 @@ main.o: main.cpp /usr/include/stdc-predef.h /usr/include/GL/glew.h \
 
 /usr/include/boost/config/select_stdlib_config.hpp:
 
+/usr/include/c++/4.9/cstddef:
+
 /usr/include/boost/config/no_tr1/utility.hpp:
 
 /usr/include/c++/4.9/utility:
@@ -1625,6 +1366,10 @@ main.o: main.cpp /usr/include/stdc-predef.h /usr/include/GL/glew.h \
 /usr/include/c++/4.9/bits/stl_tempbuf.h:
 
 /usr/include/c++/4.9/random:
+
+/usr/include/c++/4.9/cmath:
+
+/usr/include/c++/4.9/limits:
 
 /usr/include/c++/4.9/bits/random.h:
 
@@ -1956,6 +1701,10 @@ main.o: main.cpp /usr/include/stdc-predef.h /usr/include/GL/glew.h \
 
 /usr/include/boost/function/detail/prologue.hpp:
 
+/usr/include/c++/4.9/cassert:
+
+/usr/include/assert.h:
+
 /usr/include/boost/config/no_tr1/functional.hpp:
 
 /usr/include/c++/4.9/functional:
@@ -1983,6 +1732,24 @@ main.o: main.cpp /usr/include/stdc-predef.h /usr/include/GL/glew.h \
 /usr/include/boost/integer.hpp:
 
 /usr/include/boost/integer_fwd.hpp:
+
+/usr/include/c++/4.9/climits:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed/limits.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed/syslimits.h:
+
+/usr/include/limits.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
 
 /usr/include/boost/limits.hpp:
 
@@ -2273,6 +2040,10 @@ main.o: main.cpp /usr/include/stdc-predef.h /usr/include/GL/glew.h \
 /usr/include/boost/math/special_functions/sign.hpp:
 
 /usr/include/boost/math/tools/config.hpp:
+
+/usr/include/c++/4.9/cfloat:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.9/include/float.h:
 
 /usr/include/boost/math/tools/user.hpp:
 
@@ -2872,7 +2643,7 @@ main.o: main.cpp /usr/include/stdc-predef.h /usr/include/GL/glew.h \
 
 /usr/include/boost/program_options/version.hpp:
 
-../src/loadShaders.h:
+../src/level.h:
 
 /usr/include/c++/4.9/fstream:
 
@@ -2882,7 +2653,235 @@ main.o: main.cpp /usr/include/stdc-predef.h /usr/include/GL/glew.h \
 
 /usr/include/c++/4.9/bits/fstream.tcc:
 
-../src/level.h:
+/usr/include/glm/glm.hpp:
+
+/usr/include/glm/detail/_fixes.hpp:
+
+/usr/include/glm/fwd.hpp:
+
+/usr/include/glm/detail/type_int.hpp:
+
+/usr/include/glm/detail/setup.hpp:
+
+/usr/include/glm/detail/type_float.hpp:
+
+/usr/include/glm/detail/type_vec.hpp:
+
+/usr/include/glm/detail/precision.hpp:
+
+/usr/include/glm/detail/type_int.hpp:
+
+/usr/include/glm/detail/type_mat.hpp:
+
+/usr/include/glm/vec2.hpp:
+
+/usr/include/glm/detail/type_vec2.hpp:
+
+/usr/include/glm/detail/type_vec.hpp:
+
+/usr/include/glm/detail/type_vec2.inl:
+
+/usr/include/glm/vec3.hpp:
+
+/usr/include/glm/detail/type_vec3.hpp:
+
+/usr/include/glm/detail/type_vec3.inl:
+
+/usr/include/glm/vec4.hpp:
+
+/usr/include/glm/detail/type_vec4.hpp:
+
+/usr/include/glm/detail/type_vec4.inl:
+
+/usr/include/glm/mat2x2.hpp:
+
+/usr/include/glm/detail/type_mat2x2.hpp:
+
+/usr/include/glm/fwd.hpp:
+
+/usr/include/glm/detail/type_vec2.hpp:
+
+/usr/include/glm/detail/type_mat.hpp:
+
+/usr/include/glm/detail/type_mat2x2.inl:
+
+/usr/include/glm/mat2x3.hpp:
+
+/usr/include/glm/detail/type_mat2x3.hpp:
+
+/usr/include/glm/detail/type_vec3.hpp:
+
+/usr/include/glm/detail/type_mat2x3.inl:
+
+/usr/include/glm/mat2x4.hpp:
+
+/usr/include/glm/detail/type_mat2x4.hpp:
+
+/usr/include/glm/detail/type_vec4.hpp:
+
+/usr/include/glm/detail/type_mat2x4.inl:
+
+/usr/include/glm/mat3x2.hpp:
+
+/usr/include/glm/detail/type_mat3x2.hpp:
+
+/usr/include/glm/detail/type_mat3x2.inl:
+
+/usr/include/glm/mat3x3.hpp:
+
+/usr/include/glm/detail/type_mat3x3.hpp:
+
+/usr/include/glm/detail/type_mat3x3.inl:
+
+/usr/include/glm/mat3x4.hpp:
+
+/usr/include/glm/detail/type_mat3x4.hpp:
+
+/usr/include/glm/detail/type_mat3x4.inl:
+
+/usr/include/glm/mat4x2.hpp:
+
+/usr/include/glm/detail/type_mat4x2.hpp:
+
+/usr/include/glm/detail/type_mat4x2.inl:
+
+/usr/include/glm/mat4x3.hpp:
+
+/usr/include/glm/detail/type_mat4x3.hpp:
+
+/usr/include/glm/detail/type_mat4x3.inl:
+
+/usr/include/glm/mat4x4.hpp:
+
+/usr/include/glm/detail/type_mat4x4.hpp:
+
+/usr/include/glm/detail/type_mat4x4.inl:
+
+/usr/include/glm/trigonometric.hpp:
+
+/usr/include/glm/detail/func_trigonometric.hpp:
+
+/usr/include/glm/detail/func_trigonometric.inl:
+
+/usr/include/glm/detail/_vectorize.hpp:
+
+/usr/include/glm/detail/type_vec1.hpp:
+
+/usr/include/glm/detail/type_vec1.inl:
+
+/usr/include/glm/exponential.hpp:
+
+/usr/include/glm/detail/func_exponential.hpp:
+
+/usr/include/glm/detail/func_exponential.inl:
+
+/usr/include/glm/detail/func_vector_relational.hpp:
+
+/usr/include/glm/detail/func_vector_relational.inl:
+
+/usr/include/glm/common.hpp:
+
+/usr/include/glm/detail/func_common.hpp:
+
+/usr/include/glm/detail/_fixes.hpp:
+
+/usr/include/glm/detail/func_common.inl:
+
+/usr/include/glm/packing.hpp:
+
+/usr/include/glm/detail/func_packing.hpp:
+
+/usr/include/glm/detail/func_packing.inl:
+
+/usr/include/glm/detail/func_common.hpp:
+
+/usr/include/glm/detail/type_half.hpp:
+
+/usr/include/glm/detail/type_half.inl:
+
+/usr/include/glm/geometric.hpp:
+
+/usr/include/glm/detail/func_geometric.hpp:
+
+/usr/include/glm/detail/func_geometric.inl:
+
+/usr/include/glm/detail/func_exponential.hpp:
+
+/usr/include/glm/detail/type_float.hpp:
+
+/usr/include/glm/matrix.hpp:
+
+/usr/include/glm/detail/func_matrix.hpp:
+
+/usr/include/glm/detail/precision.hpp:
+
+/usr/include/glm/detail/setup.hpp:
+
+/usr/include/glm/detail/type_mat.hpp:
+
+/usr/include/glm/vec2.hpp:
+
+/usr/include/glm/vec3.hpp:
+
+/usr/include/glm/vec4.hpp:
+
+/usr/include/glm/mat2x2.hpp:
+
+/usr/include/glm/mat2x3.hpp:
+
+/usr/include/glm/mat2x4.hpp:
+
+/usr/include/glm/mat3x2.hpp:
+
+/usr/include/glm/mat3x3.hpp:
+
+/usr/include/glm/mat3x4.hpp:
+
+/usr/include/glm/mat4x2.hpp:
+
+/usr/include/glm/mat4x3.hpp:
+
+/usr/include/glm/mat4x4.hpp:
+
+/usr/include/glm/detail/func_matrix.inl:
+
+/usr/include/glm/geometric.hpp:
+
+/usr/include/glm/vector_relational.hpp:
+
+/usr/include/glm/detail/func_vector_relational.hpp:
+
+/usr/include/glm/integer.hpp:
+
+/usr/include/glm/detail/func_integer.hpp:
+
+/usr/include/glm/detail/func_integer.inl:
+
+/usr/include/glm/gtx/transform.hpp:
+
+/usr/include/glm/glm.hpp:
+
+/usr/include/glm/gtc/matrix_transform.hpp:
+
+/usr/include/glm/mat4x4.hpp:
+
+/usr/include/glm/vec2.hpp:
+
+/usr/include/glm/vec3.hpp:
+
+/usr/include/glm/vec4.hpp:
+
+/usr/include/glm/gtc/matrix_transform.inl:
+
+/usr/include/glm/geometric.hpp:
+
+/usr/include/glm/trigonometric.hpp:
+
+/usr/include/glm/matrix.hpp:
+
+/usr/include/glm/gtx/transform.inl:
+
+/usr/include/glm/gtc/matrix_transform.hpp:
 
 ../src/diamondAsset.h:
 

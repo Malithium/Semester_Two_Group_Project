@@ -6,9 +6,17 @@ A simple 3D Platformer where you collect collectables to finish the level.
 
 11/03/2015 : The game will now include 5 tutorial levels, and once these are completed we hope to add an additional level with high difficulty. Core mechanics, so collecting diamonds and trasversing through the level are still the main goals, but we hope the level designs will provide the challenge to our game. Code wise we have transitioned from into calling cube assets (Of different sizes) in preparation for bounding boxes (Collision detection). We are facing difficulties with the camera, but I trust my colleague to have it working completely by the end of the month. 
 
+<<<<<<< HEAD
 27/03/2015 : Due to making progress alot faster than anticipated I thought I would give a brief update regarding where we currently are in regards to a finished product. We have created a system that generates levels based on vector positions stored in text files, effectively giving us the ability to load and unload levels. We have also made some major changes to the Camera class and it's condition is now satisfactory, this means the majority of work on the camera will be bug fixes and performance tweaks. 
 
 Our next goal is to create bounding boxes around our objects so that we can start implementing collision detection into our program. This will enable us to implement gravity, jumping, collectables, doors and allow us to properly transition between level's. After this feature has been implemented we have effectively met all of our core goals and can work towards finishing the game. As my colleague has more experience with drawing our objects to the screen I shall leave the task of creating bounding boxes to him, in return I will work on the math's involved with collision detection as I have more experience with the camera class where all the camera movement happens.
+=======
+27/03/2015 : Due to making progress alot faster than anticipated I thought I would give a brief update regarding where we currently are in regards to a finished product. We have created a system that generates levels based on vector positions stored in text files, effectively giving us the ability to load and unload levels. We have also made some major changes to the Camera class and it's condition is now satisfactory, this means the majority of work on the camera will be bug fixes and performance tweaks.
+
+Our next goal is to create bounding boxes around our objects so that we can start implementing collision detection into our program. This will enable us to implement gravity, jumping, collectables, doors and allow us to properly transition between level's. After this feature has been implemented we have effectively met all of our core goals and can work towards finishing the game. As my colleague has more experience with drawing our objects to the screen I shall leave the task of creating bounding boxes to him, in return I will work on the math's involved with collision detection as I have more experience with the camera class where all the camera movement happens.
+
+We will try to post new information every month (Until the 30th of April).
+>>>>>>> origin/dev
 
 We will try to post new information the 11th of every month (Until the 30th of April).
 

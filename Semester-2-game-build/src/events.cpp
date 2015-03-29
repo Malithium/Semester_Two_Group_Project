@@ -1,6 +1,6 @@
 #include "events.h"
 
-void events::handleEvents(SDL_Event * event){
+void Events::handleEvents(SDL_Event * event){
 	static double lastTime = SDL_GetTicks();
 	double currentTime = SDL_GetTicks();
 	float dTime = float(currentTime - lastTime) / 1000;

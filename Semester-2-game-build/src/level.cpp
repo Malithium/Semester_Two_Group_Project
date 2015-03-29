@@ -5,8 +5,8 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 	bool running = true;   // Will determine if the level loop is still running
 	bool gravity = false;
 	SDL_Event windowEvent; // Setup SDL windowEvent for game loop
-	controls player;
-	events event_handler;
+	Camera player;
+	Events event_handler;
 
 	// The method will fill the cubepositions vector, the If statement is for error checking
 	if (fillVector(lvl) == false)
@@ -23,7 +23,7 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 	glClearColor(0.6f, 1.0f, 1.0f, 0.1f); // Adds a sky blue colour to background, once loadings done
 	do {
 		
-		player.computeMatricesFromInputs(window); // The camera class
+		player.cameraControls(window); // The camera class
 
 		while (SDL_PollEvent(&windowEvent))
 		{
@@ -114,28 +114,24 @@ void Level::blockPositions()
 	// Transitions this cube by pos
 	asset_manager->Move(num, pos);
 	// Increment Num so that it moves onto the next cube
-	num++;
 	break;
 
 	case 1:
 	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2)); 
 	asset_manager->AddAsset(std::make_shared<MediumCubeAsset>());
 	asset_manager->Move(num, pos);
-	num++;
 	break;
 
 	case 2:
 	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
 	asset_manager->AddAsset(std::make_shared<SmallCubeAsset>());
 	asset_manager->Move(num, pos);
-	num++;
 	break;
 
 	case 3:
 	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
 	asset_manager->AddAsset(std::make_shared<DiamondAsset>());
 	asset_manager->Move(num, pos);
-	num++;
 	break;
 
 	case 4:
@@ -144,5 +140,6 @@ void Level::blockPositions()
 	// For door position - probably won't be in this section of the code
 	break;
      }
+   num++;
    }
 }

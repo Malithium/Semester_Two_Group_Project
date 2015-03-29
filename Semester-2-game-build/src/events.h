@@ -4,12 +4,12 @@
 #include <SDL2/SDL.h>
 #include "camera.h"
 
-class events
+class Events
 {
 public:
 	void handleEvents(SDL_Event * event);
 private:
-	controls userInput;
+	Camera userInput;
 };
 
 #endif //LARGECUBEASSET_H

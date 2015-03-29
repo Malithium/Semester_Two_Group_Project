@@ -3,7 +3,7 @@
 
 DiamondAsset::DiamondAsset() {
 
-	// The 1.5f & -0.5f are designed to make the crystal tall/thin, rather than small/thick 
+	// The 1.25f & -0.25f are designed to make the crystal tall/thin, rather than small/thick 
  	static const GLfloat vertex_buffer[] = {
 		 0.0f,  1.25f, 0.0f,
 		 0.25f, 0.5f, -0.25f,
@@ -67,6 +67,8 @@ DiamondAsset::~DiamondAsset() {
 
 void DiamondAsset::Draw(GLuint programID)
 {	
+	 bbox = make_shared<Bounding>(Bounding(position, 0.5f, 1.5f, 0.5f));
+	
 	// Use our shaders
 	glUseProgram(programID);
 

@@ -21,6 +21,7 @@
 #include <src/smallCubeAsset.h>
 #include <src/gameAssetManager.h>
 #include <src/camera.h>
+#include <src/events.h>
 
 class Level  {
   public:

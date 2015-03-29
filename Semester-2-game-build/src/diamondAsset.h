@@ -15,6 +15,7 @@
 #include <boost/program_options.hpp>
 #include <src/camera.h>
 #include <src/gameAsset.h>
+#include <src/boundingBox.h>
 
 using namespace glm;
 
@@ -30,6 +31,7 @@ class DiamondAsset : public GameAsset {
 	 Camera player;
 	 GLuint VertexArrayID, MatrixID;
 	 GLuint vertexbuffers, elementbuffers, colourbuffer;
+	 std::shared_ptr<Bounding> bbox;
 };
 
 #endif //DIAMONDASSET_H

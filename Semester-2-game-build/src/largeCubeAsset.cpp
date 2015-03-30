@@ -73,6 +73,8 @@ LargeCubeAsset::~LargeCubeAsset() {
 
 void LargeCubeAsset::Draw(GLuint programID)
 {	
+	bbox = make_shared<Bounding>(Bounding(position, 6.0f, 2.0f, 6.0f));
+
 	// Use our shaders
 	glUseProgram(programID);
 

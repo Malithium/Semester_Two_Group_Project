@@ -12,12 +12,15 @@ class Camera
 {
 
 public:
-	void cameraControls(SDL_Window* window);
 	glm::mat4 getProjectionMatrix();
 	glm::mat4 getViewMatrix();
 	void moveForward(float dTime);
 	void moveBackward(float dTime);
 	void mouseMovement(float dTime);
+	void jumping(float dTime);
+	void falling(bool g);
+	void setJump();
+	void cameraControls(SDL_Window* window);
 	
 private:
 

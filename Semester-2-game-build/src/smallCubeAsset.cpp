@@ -73,6 +73,8 @@ SmallCubeAsset::~SmallCubeAsset() {
 
 void SmallCubeAsset::Draw(GLuint programID)
 {	
+	bbox = make_shared<Bounding>(Bounding(position, 2.0f, 2.0f, 2.0f));
+
 	// Use our shaders
 	glUseProgram(programID);
 

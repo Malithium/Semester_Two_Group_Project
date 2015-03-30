@@ -73,6 +73,8 @@ MediumCubeAsset::~MediumCubeAsset() {
 
 void MediumCubeAsset::Draw(GLuint programID)
 {	
+	bbox = make_shared<Bounding>(Bounding(position, 4.0f, 2.0f, 4.0f));
+
 	// Use our shaders
 	glUseProgram(programID);
 

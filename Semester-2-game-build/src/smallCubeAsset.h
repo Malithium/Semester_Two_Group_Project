@@ -13,6 +13,7 @@
 #include <boost/program_options.hpp>
 #include <src/camera.h>
 #include <src/gameAsset.h>
+#include <src/boundingBox.h>
 
 using namespace glm;
 
@@ -28,7 +29,7 @@ class SmallCubeAsset : public GameAsset {
 	 Camera player;
 	 GLuint VertexArrayID, MatrixID;
 	 GLuint vertexbuffer, elementbuffer, colourbuffer;
-	 mat4 ModelMatrix, ViewMatrix, ProjectionMatrix, MVP;
+	 std::shared_ptr<Bounding> bbox;
 };
 
 #endif //SMALLCUBEASSET_H

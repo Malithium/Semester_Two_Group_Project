@@ -2,7 +2,7 @@
 
 bool Level::runLevel(int lvl, SDL_Window* window)
 {
-	bool running = true;   // Will determine if the level loop is still running
+	running = true;   // Will determine if the level loop is still running
 	bool gravity = false;
 	SDL_Event windowEvent; // Setup SDL windowEvent for game loop
 	Camera player;
@@ -24,11 +24,12 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 	do {
 		
 		player.cameraControls(window); // The camera class
-
+		
 		while (SDL_PollEvent(&windowEvent))
 		{
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clears current frame, for next frame
-			// Collision should go here
+			gravity = collisionDetection();
+			player.falling(gravity); 
 			event_handler.handleEvents(&windowEvent);
 			asset_manager->Draw(); // Draws assets onto screen
 		}
@@ -137,9 +138,17 @@ void Level::blockPositions()
 	case 4:
 	//pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
 	
-	// For door position - probably won't be in this section of the code
+	// For door position
 	break;
      }
    num++;
    }
+}
+
+bool Level::collisionDetection()
+{
+	// if(player collides with door) running = false;
+	//  if(player collides with diamond asset_manager->Remove(int) //int needs to be diamond position - so something like 
+	//   if(player collides with boxes) return true 
+	return false;
 }

@@ -862,7 +862,8 @@ smallCubeAsset.o: smallCubeAsset.cpp /usr/include/stdc-predef.h \
  /usr/local/include/SDL2/SDL_messagebox.h \
  /usr/local/include/SDL2/SDL_power.h /usr/local/include/SDL2/SDL_render.h \
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h \
- /usr/local/include/SDL2/SDL_version.h ../src/gameAsset.h
+ /usr/local/include/SDL2/SDL_version.h ../src/gameAsset.h \
+ ../src/boundingBox.h
 
 /usr/include/stdc-predef.h:
 
@@ -2873,3 +2874,5 @@ smallCubeAsset.h:
 /usr/local/include/SDL2/SDL_version.h:
 
 ../src/gameAsset.h:
+
+../src/boundingBox.h:

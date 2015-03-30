@@ -29,6 +29,7 @@ class GameAssetManager {
 	 ~GameAssetManager();
 	 void AddAsset(std::shared_ptr<GameAsset>);
 	 void Move(int num, glm::vec3 pos);
+	 void Remove(int);
 	 void Draw();
 	 void Clear();
 	 GLuint LoadShaders(const char * vertex_file_path, const char * fragment_file_path);

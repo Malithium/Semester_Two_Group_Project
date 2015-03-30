@@ -10,6 +10,7 @@ void Events::handleEvents(SDL_Event * event){
 	{
 		dTime = 0.005f;
 	}
+
 	switch (event->type){
 	case SDL_QUIT:
 	case SDL_MOUSEMOTION:
@@ -23,11 +24,16 @@ void Events::handleEvents(SDL_Event * event){
 		case SDLK_s:
 			userInput.moveBackward(dTime);
 			break;
+		case SDLK_SPACE:
+			userInput.setJump();
+			break;
 		case SDLK_ESCAPE:
 			std::exit(1);
+			break;
 		}
 		break;
 	}
 	
+	userInput.jumping(dTime); // dTime made this complicated
 	lastTime = currentTime;
 }

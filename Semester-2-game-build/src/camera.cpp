@@ -6,6 +6,10 @@ glm::mat4 projectionMatrix;
 float horizontalAngle = 0.0f;
 float verticalAngle = 0.0f;
 
+//Jump variables
+bool jump, gravity;
+int stop = 0;
+
 //our position vector
 glm::vec3 position = glm::vec3(0, 2, 0);
 glm::vec3 direction;
@@ -16,7 +20,7 @@ float mouseSpeed = 0.0015f;
 int xpos, ypos;
 int midX, midY;
 
-int y = position.y; // This will allow us to edit the y axis for jumping
+int y; // This will allow us to edit the y axis for jumping
 
 glm::mat4 Camera::getProjectionMatrix(){
 	return projectionMatrix;
@@ -42,7 +46,46 @@ void Camera::mouseMovement(float dtime){
 	verticalAngle += mouseSpeed * dtime / 2 * float(midY - ypos);
 }
 
+void Camera::falling(bool g)
+{
+	gravity = g;
+
+	if(jump != true && gravity == true)
+	{
+	   position.y -= 0.5f;
+	}
+	if(position.y <= -10.0f)
+	{
+	   position = glm::vec3(0, 2, 0);
+	}
+}
+
+void Camera::setJump()
+{
+	if(jump != true && gravity != true)
+	{
+	   jump = true;
+	}
+}
+
+void Camera::jumping(float dTime)
+{
+	if(jump == true && stop != 12)  // if statement used to increase Y direction
+	{
+		position.y += 1.0f * dTime; // This isn't smooth enough
+		stop++;
+	}
+	else	// else used to stop jumping
+	{
+		jump = false;
+		stop = 0;
+	}
+}
+
 void Camera::cameraControls(SDL_Window* window){
+
+	y = position.y;
+
 	//store the screen's size into these variables;
 	SDL_GetWindowSize(window, &midX, &midY);
 

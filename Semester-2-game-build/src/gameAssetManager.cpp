@@ -34,6 +34,10 @@ void GameAssetManager::Move(int num, glm::vec3 pos) {
     draw_list.at(num)->NewPosition(pos);
 }
 
+void GameAssetManager::Remove(int num) {
+    draw_list.erase(draw_list.begin() + num); // Removes an object from vector
+}
+
 /**
 * Draws each GameAsset in the scene graph.
 */

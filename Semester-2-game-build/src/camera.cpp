@@ -72,7 +72,7 @@ void Camera::jumping(float dTime)
 {
 	if(jump == true && stop != 12)  // if statement used to increase Y direction
 	{
-		position.y += 1.0f * dTime; // This isn't smooth enough
+		position.y += 1.0f * dTime * speed; // This isn't smooth enough
 		stop++;
 	}
 	else	// else used to stop jumping

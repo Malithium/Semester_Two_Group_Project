@@ -67,7 +67,7 @@ DiamondAsset::~DiamondAsset() {
 
 void DiamondAsset::Draw(GLuint programID)
 {	
-	 bbox = make_shared<Bounding>(Bounding(position, 0.5f, 1.5f, 0.5f));
+	bbox = make_shared<Bounding>(Bounding(position, 0.5f, 1.5f, 0.5f));
 	
 	// Use our shaders
 	glUseProgram(programID);
@@ -115,4 +115,14 @@ void DiamondAsset::Draw(GLuint programID)
 void DiamondAsset::NewPosition(vec3 pos)
 {
 	position = pos;
+}
+
+bool DiamondAsset::Collides(const shared_ptr<Bounding> b)
+{
+	return bbox->CollidesWith(b);
+}
+
+std::shared_ptr<Bounding> DiamondAsset::GetBox()
+{
+	return bbox;
 }

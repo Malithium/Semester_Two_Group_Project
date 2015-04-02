@@ -1,11 +1,13 @@
-#ifndef SMALLCUBEASSET_H
-#define SMALLCUBEASSET_H
+#ifndef DOORASSET_H
+#define DOORASSET_H
 #define GLM_FORCE_RADIANS
 
 // Library to store the cube positions
+#include <vector>
 #include <string>
 #include <GL/glew.h>
 #include <GL/gl.h>
+#include <SDL2/SDL.h>
 #include <glm/glm.hpp>
 #include <glm/gtx/transform.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -17,12 +19,14 @@
 
 using namespace glm;
 
-class SmallCubeAsset : public GameAsset {
+class DoorAsset : public GameAsset {
 	public:
-	  explicit SmallCubeAsset();
-	 ~SmallCubeAsset();
+	  explicit DoorAsset();
+	 ~DoorAsset();
 	 virtual void Draw(GLuint);
 	 virtual void NewPosition(vec3);
+	 virtual bool Collides(const shared_ptr<Bounding> b);
+	 virtual std::shared_ptr<Bounding> GetBox();
 
 	private:
 	 vec3 position;
@@ -32,4 +36,4 @@ class SmallCubeAsset : public GameAsset {
 	 std::shared_ptr<Bounding> bbox;
 };
 
-#endif //SMALLCUBEASSET_H
+#endif //DOORASSET_H

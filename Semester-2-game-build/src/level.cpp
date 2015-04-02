@@ -5,7 +5,6 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 	running = true;   // Will determine if the level loop is still running
 	bool gravity = false;
 	SDL_Event windowEvent; // Setup SDL windowEvent for game loop
-	Camera player;
 	Events event_handler;
 
 	// The method will fill the cubepositions vector, the If statement is for error checking
@@ -22,25 +21,25 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 	blockPositions();  // Fills the vector with cube assets
 	glClearColor(0.6f, 1.0f, 1.0f, 0.1f); // Adds a sky blue colour to background, once loadings done
 	do {
-		
 		player.cameraControls(window); // The camera class
 		
-		while (SDL_PollEvent(&windowEvent))
+		while (SDL_PollEvent(&windowEvent) && running == true)
 		{
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clears current frame, for next frame
-			gravity = collisionDetection();
-			player.falling(gravity); 
-			event_handler.handleEvents(&windowEvent);
-			asset_manager->Draw(); // Draws assets onto screen
+			event_handler.handleEvents(&windowEvent); // Player input
+			gravity = collisionDetection();		  // Collision
+			player.falling(gravity); 		  // Gravity
+			asset_manager->Draw(); 			  // Draw 
 		}
+
 		SDL_GL_SwapWindow(window);
 	} while (running == true);
 
 	glClearColor(1.0f, 1.0f, 1.0f, 0.0f); // This should make the screen go black
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	asset_manager->Clear();
-	cubepositions.clear(); // Empties the vector of positions
-	return true;
+	asset_manager->Clear(); // Empties the vector of assets
+	cubepositions.clear();  // Empties the vector of positions
+	return true;		// Load the next level
 }
 
 bool Level::fillVector(int lvl)
@@ -111,44 +110,75 @@ void Level::blockPositions()
         case 0:
 	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
 	// Adds a large cube asset to the asset vector
-	asset_manager->AddAsset(std::make_shared<LargeCubeAsset>()); 
+	asset_manager->AddAsset(std::make_shared<CubeAsset>(3)); 
 	// Transitions this cube by pos
 	asset_manager->Move(num, pos);
-	// Increment Num so that it moves onto the next cube
+	// Add +1 to the amount of cubes
+	cubes++;
 	break;
 
 	case 1:
 	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2)); 
-	asset_manager->AddAsset(std::make_shared<MediumCubeAsset>());
+	asset_manager->AddAsset(std::make_shared<CubeAsset>(2));
 	asset_manager->Move(num, pos);
+	cubes++;
 	break;
 
 	case 2:
 	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
-	asset_manager->AddAsset(std::make_shared<SmallCubeAsset>());
+	asset_manager->AddAsset(std::make_shared<CubeAsset>(1));
 	asset_manager->Move(num, pos);
+	cubes++;
 	break;
 
 	case 3:
 	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
 	asset_manager->AddAsset(std::make_shared<DiamondAsset>());
 	asset_manager->Move(num, pos);
+	// Add +1 to the amount of diamonds
+	diamonds++;
 	break;
 
 	case 4:
-	//pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
-	
+	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
+	asset_manager->AddAsset(std::make_shared<DoorAsset>());
+	asset_manager->Move(num, pos);
 	// For door position
 	break;
      }
+   // Increment Num so that it moves onto the next cube
    num++;
    }
 }
 
 bool Level::collisionDetection()
 {
+	// Creates a bounding box to be redone every frame, as position is always updating
+	std::shared_ptr<Bounding> Pbbox = make_shared<Bounding>(Bounding(player.GetPos(), 2.0f, 2.0f, 2.0f));
+
+	// if(player collides with diamond) remove diamond 
+	for(int i = diamonds; i > 0; i--)
+	{
+	  if(asset_manager->Collision(i, Pbbox) == true)
+	  {
+		asset_manager->Remove((asset_manager->Size()-i+1)); // Add one for the door, which is the final asset
+	  }
+	}
+
 	// if(player collides with door) running = false;
-	//  if(player collides with diamond asset_manager->Remove(int) //int needs to be diamond position - so something like 
-	//   if(player collides with boxes) return true 
+	if(asset_manager->Collision(asset_manager->Size(), Pbbox) == true)
+	{
+		//running == false;
+	}
+
+	// if(player collides with boxes) gravity is false 
+	for(int i = 0; i < cubes; i++)
+	{
+	  if(asset_manager->Collision(i, Pbbox) == false)
+	  {
+		return true;
+	  }
+	}
+
 	return false;
 }

@@ -25,6 +25,8 @@ class DiamondAsset : public GameAsset {
 	 ~DiamondAsset();
 	 virtual void Draw(GLuint);
 	 virtual void NewPosition(vec3);
+	 virtual bool Collides(const shared_ptr<Bounding> b);
+	 virtual std::shared_ptr<Bounding> GetBox();
 
 	private:
 	 vec3 position;

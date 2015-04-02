@@ -1,20 +1,20 @@
 
-#include <largeCubeAsset.h>
+#include <DoorAsset.h>
 
-LargeCubeAsset::LargeCubeAsset() {
+DoorAsset::DoorAsset() {	
 
- 	static const GLfloat vertex_buffer[] = {
-		-3.0f, -1.0f,  3.0f,
-	 	 3.0f, -1.0f,  3.0f,
-		 3.0f,  1.0f,  3.0f,
-		-3.0f,  1.0f,  3.0f,
-		-3.0f, -1.0f, -3.0f,
-		 3.0f, -1.0f, -3.0f,
-		 3.0f,  1.0f, -3.0f,
-		-3.0f,  1.0f, -3.0f
- 	};
+	static GLfloat vertex_buffer[] = {
+		-0.1f, -1.0f,  0.75f,
+	 	 0.1f, -1.0f,  0.75f,
+		 0.1f,  1.5f,  0.75f,
+		-0.1f,  1.5f,  0.75f,
+		-0.1f, -1.0f, -0.75f,
+		 0.1f, -1.0f, -0.75f,
+		 0.1f,  1.5f, -0.75f,
+		-0.1f,  1.5f, -0.75f
+	};
 
- 	static const GLuint element_buffer[] = {
+	static const GLuint element_buffer[] = {
 		0, 1, 2,
 		2, 3, 0,
 		3, 2, 6,
@@ -27,23 +27,14 @@ LargeCubeAsset::LargeCubeAsset() {
 		3, 7, 4,
 		1, 5, 6,
 		6, 2, 1
- 	};	
+ 	};
 
 	static GLfloat colour_buffer[12*3*3];
 	for(int i = 0; i < 12*3; i++)
 	{
-	  if( i == 0 || i == 1 || i == 4 ||i == 5)
-	  {
-		colour_buffer[3*i+0] = 0.140f;
-		colour_buffer[3*i+1] = 0.059f;
-		colour_buffer[3*i+2] = 0.038f;
-	  }
-	  else
-	  {
-		colour_buffer[3*i+0] = 0.039f;
-		colour_buffer[3*i+1] = 0.255f;
-		colour_buffer[3*i+2] = 0.059f;
-	  }
+		colour_buffer[3*i+0] = 1.0f;
+		colour_buffer[3*i+1] = 1.0f;
+		colour_buffer[3*i+2] = 1.0f;
 	}
 	
 	glGenVertexArrays(1, &VertexArrayID);
@@ -63,7 +54,7 @@ LargeCubeAsset::LargeCubeAsset() {
 	glBufferData(GL_ARRAY_BUFFER, sizeof(colour_buffer), colour_buffer, GL_STATIC_DRAW);
 }
 
-LargeCubeAsset::~LargeCubeAsset() {
+DoorAsset::~DoorAsset() {
   	// Cleans up by deleting the buffers
 	glDeleteBuffers(1, &vertexbuffer);
 	glDeleteBuffers(1, &elementbuffer);
@@ -71,7 +62,7 @@ LargeCubeAsset::~LargeCubeAsset() {
 	glDeleteVertexArrays(1, &VertexArrayID);
 }
 
-void LargeCubeAsset::Draw(GLuint programID)
+void DoorAsset::Draw(GLuint programID)
 {	
 	bbox = make_shared<Bounding>(Bounding(position, 6.0f, 2.0f, 6.0f));
 
@@ -118,7 +109,17 @@ void LargeCubeAsset::Draw(GLuint programID)
 	glDisableVertexAttribArray(1);
 }
 
-void LargeCubeAsset::NewPosition(vec3 pos)
+void DoorAsset::NewPosition(vec3 pos)
 {
 	position = pos;
+}
+
+bool DoorAsset::Collides(const shared_ptr<Bounding> b)
+{
+	return bbox->CollidesWith(b);
+}
+
+std::shared_ptr<Bounding> DoorAsset::GetBox()
+{
+	return bbox;
 }

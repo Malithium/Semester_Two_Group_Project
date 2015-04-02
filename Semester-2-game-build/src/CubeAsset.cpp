@@ -1,20 +1,40 @@
 
-#include <smallCubeAsset.h>
+#include <CubeAsset.h>
 
-SmallCubeAsset::SmallCubeAsset() {
+CubeAsset::CubeAsset(int num) {	
 
- 	static const GLfloat vertex_buffer[] = {
-		-1.0f, -1.0f,  1.0f,
-	 	 1.0f, -1.0f,  1.0f,
-		 1.0f,  1.0f,  1.0f,
-		-1.0f,  1.0f,  1.0f,
-		-1.0f, -1.0f, -1.0f,
-		 1.0f, -1.0f, -1.0f,
-		 1.0f,  1.0f, -1.0f,
-		-1.0f,  1.0f, -1.0f
- 	};
+	static GLfloat vertex_buffer[3*8];
+	for(int i = 0; i < 8; i++)
+	{
+	  if( i == 0 || i == 3 || i == 4 ||i == 7) //Negative numbers for X vertexs
+	  {
+		vertex_buffer[3*i+0] = (-1.0f * num);
+	  }
+	  else
+	  {
+		vertex_buffer[3*i+0] = (1.0f * num);
+	  }
 
- 	static const GLuint element_buffer[] = {
+	  if( i == 0 || i == 1 || i == 4 ||i == 5) //Negative numbers for Y vertexs
+	  {
+		vertex_buffer[3*i+1] = -1.0f;
+	  }
+	  else
+	  {
+		vertex_buffer[3*i+1] = 1.0f;
+	  }
+
+	  if( i >= 4 ) //Negative numbers for Z vertexs
+	  {
+		vertex_buffer[3*i+2] = (-1.0f * num);
+	  }
+	  else
+	  {
+		vertex_buffer[3*i+2] = (1.0f * num);
+	  }
+	}
+
+	static const GLuint element_buffer[] = {
 		0, 1, 2,
 		2, 3, 0,
 		3, 2, 6,
@@ -27,7 +47,7 @@ SmallCubeAsset::SmallCubeAsset() {
 		3, 7, 4,
 		1, 5, 6,
 		6, 2, 1
- 	};	
+ 	};
 
 	static GLfloat colour_buffer[12*3*3];
 	for(int i = 0; i < 12*3; i++)
@@ -63,7 +83,7 @@ SmallCubeAsset::SmallCubeAsset() {
 	glBufferData(GL_ARRAY_BUFFER, sizeof(colour_buffer), colour_buffer, GL_STATIC_DRAW);
 }
 
-SmallCubeAsset::~SmallCubeAsset() {
+CubeAsset::~CubeAsset() {
   	// Cleans up by deleting the buffers
 	glDeleteBuffers(1, &vertexbuffer);
 	glDeleteBuffers(1, &elementbuffer);
@@ -71,9 +91,9 @@ SmallCubeAsset::~SmallCubeAsset() {
 	glDeleteVertexArrays(1, &VertexArrayID);
 }
 
-void SmallCubeAsset::Draw(GLuint programID)
+void CubeAsset::Draw(GLuint programID)
 {	
-	bbox = make_shared<Bounding>(Bounding(position, 2.0f, 2.0f, 2.0f));
+	bbox = make_shared<Bounding>(Bounding(position, 6.0f, 2.0f, 6.0f));
 
 	// Use our shaders
 	glUseProgram(programID);
@@ -89,7 +109,7 @@ void SmallCubeAsset::Draw(GLuint programID)
 		0,                  // stridea
 		(void*)0            // array buffer offset
 	);
-	
+
 	glEnableVertexAttribArray(1);
 	glBindBuffer(GL_ARRAY_BUFFER, colourbuffer);
 	glVertexAttribPointer(
@@ -118,8 +138,17 @@ void SmallCubeAsset::Draw(GLuint programID)
 	glDisableVertexAttribArray(1);
 }
 
-void SmallCubeAsset::NewPosition(vec3 pos)
+void CubeAsset::NewPosition(vec3 pos)
 {
-	// This works, have cout'd as proof
 	position = pos;
+}
+
+bool CubeAsset::Collides(const shared_ptr<Bounding> b)
+{
+	return bbox->CollidesWith(b);
+}
+
+std::shared_ptr<Bounding> CubeAsset::GetBox()
+{
+	return bbox;
 }

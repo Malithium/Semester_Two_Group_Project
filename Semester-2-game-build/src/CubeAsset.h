@@ -1,5 +1,5 @@
-#ifndef MEDIUMCUBEASSET_H
-#define MEDIUMCUBEASSET_H
+#ifndef CUBEASSET_H
+#define CUBEASSET_H
 #define GLM_FORCE_RADIANS
 
 // Library to store the cube positions
@@ -19,12 +19,14 @@
 
 using namespace glm;
 
-class MediumCubeAsset : public GameAsset {
+class CubeAsset : public GameAsset {
 	public:
-	  explicit MediumCubeAsset();
-	 ~MediumCubeAsset();
+	  explicit CubeAsset(int num);
+	 ~CubeAsset();
 	 virtual void Draw(GLuint);
 	 virtual void NewPosition(vec3);
+	 virtual bool Collides(const shared_ptr<Bounding> b);
+	 virtual std::shared_ptr<Bounding> GetBox();
 
 	private:
 	 vec3 position;
@@ -34,4 +36,4 @@ class MediumCubeAsset : public GameAsset {
 	 std::shared_ptr<Bounding> bbox;
 };
 
-#endif //MEDIUMCUBEASSET_H
+#endif //CUBEASSET_H

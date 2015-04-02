@@ -230,7 +230,8 @@ gameAssetManager.o: gameAssetManager.cpp /usr/include/stdc-predef.h \
  /usr/include/glm/vec4.hpp /usr/include/glm/gtc/matrix_transform.inl \
  /usr/include/glm/geometric.hpp /usr/include/glm/trigonometric.hpp \
  /usr/include/glm/matrix.hpp /usr/include/glm/gtx/transform.inl \
- /usr/include/glm/gtc/matrix_transform.hpp gameAsset.h
+ /usr/include/glm/gtc/matrix_transform.hpp ../src/boundingBox.h \
+ ../src/gameAsset.h
 
 /usr/include/stdc-predef.h:
 
@@ -856,4 +857,6 @@ gameAssetManager.h:
 
 /usr/include/glm/gtc/matrix_transform.hpp:
 
-gameAsset.h:
+../src/boundingBox.h:
+
+../src/gameAsset.h:

@@ -17,9 +17,12 @@ public:
 	void moveForward(float dTime);
 	void moveBackward(float dTime);
 	void mouseMovement(float dTime);
+
+	void setJump();
 	void jumping(float dTime);
 	void falling(bool g);
-	void setJump();
+
+	glm::vec3 GetPos();
 	void cameraControls(SDL_Window* window);
 	
 private:

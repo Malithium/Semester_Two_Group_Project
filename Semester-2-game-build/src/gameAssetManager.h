@@ -15,7 +15,8 @@
 #include <glm/gtx/transform.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-#include "gameAsset.h"
+#include <src/boundingBox.h>
+#include <src/gameAsset.h>
 
 /**
 * GameAssetManager is a container for GameAssets. It also provides utility
@@ -29,9 +30,11 @@ class GameAssetManager {
 	 ~GameAssetManager();
 	 void AddAsset(std::shared_ptr<GameAsset>);
 	 void Move(int num, glm::vec3 pos);
-	 void Remove(int);
+	 void Remove(int num);
+	 bool Collision(int n1, const shared_ptr<Bounding> b);
 	 void Draw();
 	 void Clear();
+	  int Size();
 	 GLuint LoadShaders(const char * vertex_file_path, const char * fragment_file_path);
 	private:
 	 // The internal scene graph is a simple list.

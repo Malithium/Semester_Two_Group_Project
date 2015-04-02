@@ -15,11 +15,12 @@
 #include <glm/gtx/transform.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-#include <src/diamondAsset.h>
-#include <src/largeCubeAsset.h>
-#include <src/medCubeAsset.h>
-#include <src/smallCubeAsset.h>
 #include <src/gameAssetManager.h>
+#include <src/diamondAsset.h>
+#include <src/CubeAsset.h>
+#include <src/DoorAsset.h>
+
+#include <src/boundingBox.h>
 #include <src/camera.h>
 #include <src/events.h>
 
@@ -32,7 +33,9 @@ class Level  {
     bool fillVector(int lvl);
     bool collisionDetection();
 
+    Camera player;
     bool running;
+    int cubes, diamonds;
     std::vector<float> cubepositions; // This vector will read in the XYZ from a .json document with the cube positions which makes the levels easier to edit and manage.
     std::shared_ptr<GameAssetManager> asset_manager;
 };

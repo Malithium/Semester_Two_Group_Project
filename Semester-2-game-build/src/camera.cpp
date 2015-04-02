@@ -82,7 +82,12 @@ void Camera::jumping(float dTime)
 	}
 }
 
-void Camera::cameraControls(SDL_Window* window){
+glm::vec3 Camera::GetPos() 
+{
+	return position;
+}
+
+void Camera::cameraControls(SDL_Window* window) {
 
 	y = position.y;
 

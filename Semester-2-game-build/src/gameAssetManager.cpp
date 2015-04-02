@@ -38,13 +38,17 @@ void GameAssetManager::Remove(int num) {
     draw_list.erase(draw_list.begin() + num); // Removes an object from vector
 }
 
+bool GameAssetManager::Collision(int n1, const shared_ptr<Bounding> b) {
+    return draw_list.at(n1)->Collides(b);
+}
+
 /**
 * Draws each GameAsset in the scene graph.
 */
 void GameAssetManager::Draw() {
 	for(auto ga: draw_list) {
 		ga->Draw(programID);
-	}
+	} 
 }
 
 /**
@@ -52,6 +56,10 @@ void GameAssetManager::Draw() {
 */
 void GameAssetManager::Clear() {
 	draw_list.clear();
+}
+
+int GameAssetManager::Size()  {
+	return (draw_list.size()-1);
 }
 
 
@@ -105,5 +113,4 @@ GLuint GameAssetManager::LoadShaders(const char * vertex_file_path, const char *
 	glDeleteShader(FragmentShaderID);
 
 	return ProgramID;
-
 }

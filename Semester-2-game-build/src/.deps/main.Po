@@ -864,10 +864,9 @@ main.o: main.cpp /usr/include/stdc-predef.h /usr/include/GL/glew.h \
  /usr/include/glm/vec4.hpp /usr/include/glm/gtc/matrix_transform.inl \
  /usr/include/glm/geometric.hpp /usr/include/glm/trigonometric.hpp \
  /usr/include/glm/matrix.hpp /usr/include/glm/gtx/transform.inl \
- /usr/include/glm/gtc/matrix_transform.hpp ../src/diamondAsset.h \
- ../src/camera.h ../src/gameAsset.h ../src/boundingBox.h \
- ../src/largeCubeAsset.h ../src/medCubeAsset.h ../src/smallCubeAsset.h \
- ../src/gameAssetManager.h ../src/gameAsset.h ../src/events.h \
+ /usr/include/glm/gtc/matrix_transform.hpp ../src/gameAssetManager.h \
+ ../src/boundingBox.h ../src/gameAsset.h ../src/diamondAsset.h \
+ ../src/camera.h ../src/CubeAsset.h ../src/DoorAsset.h ../src/events.h \
  ../src/camera.h
 
 /usr/include/stdc-predef.h:
@@ -2884,23 +2883,19 @@ main.o: main.cpp /usr/include/stdc-predef.h /usr/include/GL/glew.h \
 
 /usr/include/glm/gtc/matrix_transform.hpp:
 
+../src/gameAssetManager.h:
+
+../src/boundingBox.h:
+
+../src/gameAsset.h:
+
 ../src/diamondAsset.h:
 
 ../src/camera.h:
 
-../src/gameAsset.h:
+../src/CubeAsset.h:
 
-../src/boundingBox.h:
-
-../src/largeCubeAsset.h:
-
-../src/medCubeAsset.h:
-
-../src/smallCubeAsset.h:
-
-../src/gameAssetManager.h:
-
-../src/gameAsset.h:
+../src/DoorAsset.h:
 
 ../src/events.h:
 

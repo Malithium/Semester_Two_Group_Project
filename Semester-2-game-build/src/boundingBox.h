@@ -19,7 +19,9 @@ enum AXIS {X, Y, Z};
 class Bounding {
 	public:
 	  Bounding(const vec3, const float, const float, const float);
-	  ~Bounding();
+	  virtual ~Bounding();
+	  
+	  void SetCentre(vec3)
 	  bool CollidesWith(const shared_ptr<Bounding>);
 
 	private:

@@ -38,6 +38,7 @@ class Level  {
     int cubes, diamonds;
     std::vector<float> cubepositions; // This vector will read in the XYZ from a .json document with the cube positions which makes the levels easier to edit and manage.
     std::shared_ptr<GameAssetManager> asset_manager;
+	std::shared_ptr<Bounding> Pbbox;
 };
 
 #endif //LEVEL_H

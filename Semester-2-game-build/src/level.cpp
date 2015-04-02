@@ -19,6 +19,10 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 	// Makes the asset_manager vector implement GameAssetManager functions
 	asset_manager = std::make_shared<GameAssetManager>();
 	blockPositions();  // Fills the vector with cube assets
+	
+	// Creates a bounding box to be redone every frame, as position is always updating
+	Pbbox = make_shared<Bounding>(Bounding(player.GetPos(), 2.0f, 2.0f, 2.0f));
+	
 	glClearColor(0.6f, 1.0f, 1.0f, 0.1f); // Adds a sky blue colour to background, once loadings done
 	do {
 		player.cameraControls(window); // The camera class
@@ -153,9 +157,10 @@ void Level::blockPositions()
 
 bool Level::collisionDetection()
 {
-	// Creates a bounding box to be redone every frame, as position is always updating
-	std::shared_ptr<Bounding> Pbbox = make_shared<Bounding>(Bounding(player.GetPos(), 2.0f, 2.0f, 2.0f));
-
+	// Because the player moves, the centre needs to be reset
+	Pbbox->centre.reset();
+	Pbbox->centre = make_shared<glm::vec3>(player.GetPos());
+	
 	// if(player collides with diamond) remove diamond 
 	for(int i = diamonds; i > 0; i--)
 	{

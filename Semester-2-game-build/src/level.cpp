@@ -187,11 +187,11 @@ bool Level::collisionDetection()
 	// if(player collides with boxes) gravity is false 
 	for(int i = 0; i < cubes; i++)
 	{
-	  if(asset_manager->Collision(i, Pbbox) == false)
+	  if(asset_manager->Collision(i, Pbbox) == true)
 	  {
 		return false;
 	  }
 	}
 
-	return false;
+	return true;
 }

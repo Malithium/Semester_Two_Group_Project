@@ -11,7 +11,7 @@ bool jump, gravity;
 int stop = 0;
 
 //our position vector
-glm::vec3 position = glm::vec3(0, 2, 0);
+glm::vec3 position = glm::vec3(0, 2, 0); // Collision with (0, 0, 0) cube is an issue
 glm::vec3 direction;
 
 float speed = 3.0f;
@@ -52,7 +52,7 @@ void Camera::falling(bool g)
 
 	if(jump != true && gravity == true)
 	{
-	   position.y -= 0.5f;
+	   position.y -= 0.0015f;
 	}
 	if(position.y <= -10.0f)
 	{
@@ -66,6 +66,11 @@ void Camera::setJump()
 	{
 	   jump = true;
 	}
+}
+
+void Camera::resetPos()
+{
+	position = glm::vec3(0, 2, 0);
 }
 
 void Camera::jumping(float dTime)

@@ -29,7 +29,7 @@ class Level  {
     bool runLevel(int lvl, SDL_Window* window);
 
   private:
-    void blockPositions();
+    int blockPositions();
     bool fillVector(int lvl);
     bool collisionDetection();
 

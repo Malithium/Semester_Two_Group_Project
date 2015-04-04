@@ -4,6 +4,7 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 {
 	running = true;   // Will determine if the level loop is still running
 	bool gravity = false;
+
 	SDL_Event windowEvent; // Setup SDL windowEvent for game loop
 	Events event_handler;
 
@@ -18,10 +19,10 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 
 	// Makes the asset_manager vector implement GameAssetManager functions
 	asset_manager = std::make_shared<GameAssetManager>();
-	blockPositions();  // Fills the vector with cube assets
-	
+	diamonds = blockPositions();  // Fills the vector with cube assets
+
 	// Creates a bounding box to be redone every frame, as position is always updating
-	Pbbox = make_shared<Bounding>(Bounding(player.GetPos(), 2.0f, 2.0f, 2.0f));
+	Pbbox = make_shared<Bounding>(Bounding(player.GetPos(), 1.0f, 1.0f, 1.0f));
 	
 	glClearColor(0.6f, 1.0f, 1.0f, 0.1f); // Adds a sky blue colour to background, once loadings done
 	do {
@@ -41,6 +42,8 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 
 	glClearColor(1.0f, 1.0f, 1.0f, 0.0f); // This should make the screen go black
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	player.resetPos();
 	asset_manager->Clear(); // Empties the vector of assets
 	cubepositions.clear();  // Empties the vector of positions
 	return true;		// Load the next level
@@ -92,15 +95,17 @@ bool Level::fillVector(int lvl)
       float in = std::stof(line, &sz); //String to float conversion
       cubepositions.push_back(in);
    }
-   
+
    return filled;
 }
 
-void Level::blockPositions()
+int Level::blockPositions()
 {  
    glm::vec3 pos;
    int j = 0;
    int num = 0;
+   int d = 0;
+
    for(int i = 0; i < (cubepositions.size()-1); i += 3)
    {
      while(cubepositions.at(i) == -1.0f && i != cubepositions.size())
@@ -140,7 +145,7 @@ void Level::blockPositions()
 	asset_manager->AddAsset(std::make_shared<DiamondAsset>());
 	asset_manager->Move(num, pos);
 	// Add +1 to the amount of diamonds
-	diamonds++;
+	d++;
 	break;
 
 	case 4:
@@ -150,30 +155,33 @@ void Level::blockPositions()
 	// For door position
 	break;
      }
+
    // Increment Num so that it moves onto the next cube
    num++;
    }
+
+  return d;
 }
 
 bool Level::collisionDetection()
 {
 	// Because the player moves, the centre needs to be reset
-	Pbbox->centre.reset();
-	Pbbox->centre = make_shared<glm::vec3>(player.GetPos());
-	
+	Pbbox->SetCentre(player.GetPos());
+
 	// if(player collides with diamond) remove diamond 
 	for(int i = diamonds; i > 0; i--)
 	{
 	  if(asset_manager->Collision(i, Pbbox) == true)
 	  {
-		asset_manager->Remove((asset_manager->Size()-i+1)); // Add one for the door, which is the final asset
+		asset_manager->Remove((asset_manager->Size()-(i+1))); // Add one for the door, which is the final asset
+		i = 0;
 	  }
 	}
 
 	// if(player collides with door) running = false;
 	if(asset_manager->Collision(asset_manager->Size(), Pbbox) == true)
 	{
-		//running == false;
+		running = false;
 	}
 
 	// if(player collides with boxes) gravity is false 
@@ -181,7 +189,7 @@ bool Level::collisionDetection()
 	{
 	  if(asset_manager->Collision(i, Pbbox) == false)
 	  {
-		return true;
+		return false;
 	  }
 	}
 

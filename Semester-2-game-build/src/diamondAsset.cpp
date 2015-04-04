@@ -58,6 +58,7 @@ DiamondAsset::DiamondAsset() {
 }
 
 DiamondAsset::~DiamondAsset() {
+	bbox.reset();
   	// Cleans up by deleting the buffers
 	glDeleteBuffers(1, &vertexbuffers);
 	glDeleteBuffers(1, &elementbuffers);
@@ -67,8 +68,6 @@ DiamondAsset::~DiamondAsset() {
 
 void DiamondAsset::Draw(GLuint programID)
 {	
-	bbox = make_shared<Bounding>(Bounding(position, 0.5f, 1.5f, 0.5f));
-	
 	// Use our shaders
 	glUseProgram(programID);
 
@@ -120,6 +119,7 @@ void DiamondAsset::NewPosition(vec3 pos)
 bool DiamondAsset::Collides(const shared_ptr<Bounding> b)
 {
 	return bbox->CollidesWith(b);
+	bbox = make_shared<Bounding>(Bounding(position, 0.5f, 1.5f, 0.5f));
 }
 
 std::shared_ptr<Bounding> DiamondAsset::GetBox()

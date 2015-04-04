@@ -19,6 +19,7 @@ public:
 	void mouseMovement(float dTime);
 
 	void setJump();
+	void resetPos();
 	void jumping(float dTime);
 	void falling(bool g);
 

@@ -55,6 +55,7 @@ DoorAsset::DoorAsset() {
 }
 
 DoorAsset::~DoorAsset() {
+	bbox.reset();
   	// Cleans up by deleting the buffers
 	glDeleteBuffers(1, &vertexbuffer);
 	glDeleteBuffers(1, &elementbuffer);
@@ -64,8 +65,6 @@ DoorAsset::~DoorAsset() {
 
 void DoorAsset::Draw(GLuint programID)
 {	
-	bbox = make_shared<Bounding>(Bounding(position, 6.0f, 2.0f, 6.0f));
-
 	// Use our shaders
 	glUseProgram(programID);
 
@@ -112,6 +111,7 @@ void DoorAsset::Draw(GLuint programID)
 void DoorAsset::NewPosition(vec3 pos)
 {
 	position = pos;
+	bbox = make_shared<Bounding>(Bounding(position, 1.0f, 3.5f, 1.5f));
 }
 
 bool DoorAsset::Collides(const shared_ptr<Bounding> b)

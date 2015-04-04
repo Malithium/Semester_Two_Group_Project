@@ -2,6 +2,7 @@
 #define BOUNDINGBOX_H
 #define GLM_FORCE_RADIANS
 
+#include <iostream>
 #include <memory>
 #include <utility>
 #include <ostream>
@@ -14,20 +15,19 @@
 using namespace std;
 using namespace glm;
 
-enum AXIS {X, Y, Z};
-
 class Bounding {
 	public:
-	  Bounding(const vec3, const float, const float, const float);
+	  Bounding(const vec3, float, float, float);
 	  virtual ~Bounding();
-	  
-	  void SetCentre(vec3)
+	  float getWidth();
+	  float getHeight();
+	  float getLength();
+	  void SetCentre(vec3);
 	  bool CollidesWith(const shared_ptr<Bounding>);
+	  vec3 pos;
 
 	private:
-	  shared_ptr<vec3> centre, extent_x, extent_y, extent_z;
-
-	  vec3 projectOntoAxis(const Bounding &, enum AXIS);
+	  float width, height, length;
 
 };
 

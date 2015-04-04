@@ -29,8 +29,9 @@ class CubeAsset : public GameAsset {
 	 virtual std::shared_ptr<Bounding> GetBox();
 
 	private:
-	 vec3 position;
+	 vec3 pos;
 	 Camera player;
+	 int number;
 	 GLuint VertexArrayID, MatrixID;
 	 GLuint vertexbuffer, elementbuffer, colourbuffer;
 	 std::shared_ptr<Bounding> bbox;

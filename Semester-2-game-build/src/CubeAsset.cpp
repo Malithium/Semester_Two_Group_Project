@@ -33,6 +33,7 @@ CubeAsset::CubeAsset(int num) {
 		vertex_buffer[3*i+2] = (1.0f * num);
 	  }
 	}
+	number = num;
 
 	static const GLuint element_buffer[] = {
 		0, 1, 2,
@@ -84,6 +85,7 @@ CubeAsset::CubeAsset(int num) {
 }
 
 CubeAsset::~CubeAsset() {
+	bbox.reset();
   	// Cleans up by deleting the buffers
 	glDeleteBuffers(1, &vertexbuffer);
 	glDeleteBuffers(1, &elementbuffer);
@@ -93,8 +95,6 @@ CubeAsset::~CubeAsset() {
 
 void CubeAsset::Draw(GLuint programID)
 {	
-	bbox = make_shared<Bounding>(Bounding(position, 6.0f, 2.0f, 6.0f));
-
 	// Use our shaders
 	glUseProgram(programID);
 
@@ -126,7 +126,7 @@ void CubeAsset::Draw(GLuint programID)
 
 	mat4 ProjectionMatrix = player.getProjectionMatrix();
 	mat4 ViewMatrix = player.getViewMatrix();
-	mat4 ModelMatrix = glm::translate(glm::mat4(1.0f), position);
+	mat4 ModelMatrix = glm::translate(glm::mat4(1.0f), pos);
 	mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
 
 	glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
@@ -138,9 +138,12 @@ void CubeAsset::Draw(GLuint programID)
 	glDisableVertexAttribArray(1);
 }
 
-void CubeAsset::NewPosition(vec3 pos)
+void CubeAsset::NewPosition(vec3 position)
 {
-	position = pos;
+	pos = position;
+	
+	// The bounding box needs the cube to be translated before being drawn
+	bbox = make_shared<Bounding>(Bounding(pos, (3.0f*number), 2.0f, (3.0f*number)));
 }
 
 bool CubeAsset::Collides(const shared_ptr<Bounding> b)

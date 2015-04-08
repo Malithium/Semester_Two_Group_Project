@@ -118,8 +118,8 @@ void DiamondAsset::NewPosition(vec3 pos)
 
 bool DiamondAsset::Collides(const shared_ptr<Bounding> b)
 {
+	bbox = make_shared<Bounding>(Bounding(position, 0.5f, 1.5f, 0.5f)); //Needs to occur before returning
 	return bbox->CollidesWith(b);
-	bbox = make_shared<Bounding>(Bounding(position, 0.5f, 1.5f, 0.5f));
 }
 
 std::shared_ptr<Bounding> DiamondAsset::GetBox()

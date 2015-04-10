@@ -14,20 +14,23 @@ class Camera
 public:
 	glm::mat4 getProjectionMatrix();
 	glm::mat4 getViewMatrix();
-	void moveForward(float dTime);
-	void moveBackward(float dTime);
-	void mouseMovement(float dTime);
+	void moveForward();
+	void moveBackward();
+	void mouseMovement();
+
+	float deltaTime();
+	float fallingValue();
 
 	void setJump();
 	void resetPos();
-	void jumping(float dTime);
+	void jumping();
 	void falling(bool g);
 
+	bool inAir(bool air);
 	glm::vec3 GetPos();
 	void cameraControls(SDL_Window* window);
-	
-private:
 
+private:
 };
 
 #endif //CAMERA_H

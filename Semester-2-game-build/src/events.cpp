@@ -1,16 +1,25 @@
 #include "events.h"
 
 void Events::handleEvents(SDL_Event * event){
+	static double lastTime = SDL_GetTicks();
+	double currentTime = SDL_GetTicks();
+	float dTime = float(currentTime - lastTime) / 1000;
+	if (dTime > 0.150)
+		dTime = 0.005;
 	const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
-	
+	userInput.getDeltaTime(dTime);
 	switch (event->type){
 	case SDL_MOUSEMOTION:
-		userInput.mouseMovement();
+		userInput.mouseMovement(dTime);
 		break;
 	}
 	
-	 if (currentKeyStates[SDL_SCANCODE_W]){userInput.moveForward();}
-     if (currentKeyStates[SDL_SCANCODE_S]){ userInput.moveBackward();}
-	 if (currentKeyStates[SDL_SCANCODE_SPACE]){ userInput.jumping();}
+	 if (currentKeyStates[SDL_SCANCODE_W]){userInput.moveForward(dTime);}
+	 if (currentKeyStates[SDL_SCANCODE_S]){ userInput.moveBackward(dTime); }
+	 if (currentKeyStates[SDL_SCANCODE_SPACE]){ 
+		 userInput.setJump();
+	 }
 	 if (currentKeyStates[SDL_SCANCODE_ESCAPE]){ std::exit(1); }
+
+	 lastTime = currentTime;
 }

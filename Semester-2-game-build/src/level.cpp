@@ -27,16 +27,15 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 	glClearColor(0.6f, 1.0f, 1.0f, 0.1f); // Adds a sky blue colour to background, once loadings done
 	do {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clears current frame, for next frame
-	
-		player.cameraControls(window); // The camera class
-		gravity = collisionDetection();		  // Collision
-		player.setGravity(gravity);
-		asset_manager->Draw(); 			  // Draw
-		if (SDL_PollEvent(&windowEvent))
+		if (SDL_PollEvent(&windowEvent)) // Handles event input from mouse & keyboard
 		{
 				event_handler.handleEvents(&windowEvent); // Player input
 		}
-
+		player.cameraControls(window);   // The camera class
+		gravity = collisionDetection();	 // Collision detection
+		player.setGravity(gravity);		 // Gravity taking effect
+		asset_manager->Intelligence(cubes, diamonds); // Diamond AI
+		asset_manager->Draw(); 			 // Draws level onto screen
 		SDL_GL_SwapWindow(window);
 	} while (running == true);
 
@@ -168,15 +167,15 @@ bool Level::collisionDetection()
 	// Because the player moves, the centre needs to be reset
 	Pbbox->SetCentre(player.GetPos());
 
-	// if(player collides with diamond) remove diamond 
-	for(int i = diamonds; i > 0; i--)
-	{
-	  if(asset_manager->Collision(i, Pbbox) == true)
-	  {
-		asset_manager->Remove((asset_manager->Size()-(i+1))); // Add one for the door, which is the final asset
-		i = 0;
-	  }
-	}
+	// if(player collides with diamond) remove diamond. NOTE: Removed for testing
+		//for(int i = diamonds; i > 0; i--)
+		//{
+		//  if(asset_manager->Collision(i, Pbbox) == true)
+		//  {
+		//	asset_manager->Remove((asset_manager->Size()-(i+1))); // Add one for the door, which is the final asset
+		//	i = 0;
+		//  }
+		//}
 
 	// if(player collides with door) running = false;
 	if(asset_manager->Collision(asset_manager->Size(), Pbbox) == true)

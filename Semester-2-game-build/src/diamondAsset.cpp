@@ -66,7 +66,7 @@ DiamondAsset::~DiamondAsset() {
 	glDeleteVertexArrays(1, &VertexArrayID);
 }
 
-void DiamondAsset::Draw(GLuint programID)
+void DiamondAsset::Draw(GLuint programID, Camera player)
 {	
 	// Use our shaders
 	glUseProgram(programID);
@@ -114,12 +114,17 @@ void DiamondAsset::Draw(GLuint programID)
 void DiamondAsset::NewPosition(vec3 pos)
 {
 	position = pos;
-	bbox = make_shared<Bounding>(Bounding(position, 0.5f, 1.5f, 0.5f)); //Needs to occur before returning
+	bbox = make_shared<Bounding>(Bounding(position, 0.5f, 1.5f, 0.5f));
 }
 
 bool DiamondAsset::Collides(const shared_ptr<Bounding> b)
 {
 	return bbox->CollidesWith(b);
+}
+
+vec3 DiamondAsset::GetPos()
+{
+	return position;
 }
 
 std::shared_ptr<Bounding> DiamondAsset::GetBox()

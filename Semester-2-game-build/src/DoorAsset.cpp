@@ -63,7 +63,7 @@ DoorAsset::~DoorAsset() {
 	glDeleteVertexArrays(1, &VertexArrayID);
 }
 
-void DoorAsset::Draw(GLuint programID)
+void DoorAsset::Draw(GLuint programID, Camera player)
 {	
 	// Use our shaders
 	glUseProgram(programID);
@@ -117,6 +117,11 @@ void DoorAsset::NewPosition(vec3 pos)
 bool DoorAsset::Collides(const shared_ptr<Bounding> b)
 {
 	return bbox->CollidesWith(b);
+}
+
+vec3 DoorAsset::GetPos()
+{
+	return position;
 }
 
 std::shared_ptr<Bounding> DoorAsset::GetBox()

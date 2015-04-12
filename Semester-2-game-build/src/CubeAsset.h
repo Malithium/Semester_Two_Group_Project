@@ -23,14 +23,14 @@ class CubeAsset : public GameAsset {
 	public:
 	  explicit CubeAsset(int num);
 	 ~CubeAsset();
-	 virtual void Draw(GLuint);
+	 virtual void Draw(GLuint programID, Camera player);
 	 virtual void NewPosition(vec3);
 	 virtual bool Collides(const shared_ptr<Bounding> b);
+	 virtual vec3 GetPos();
 	 virtual std::shared_ptr<Bounding> GetBox();
 
 	private:
 	 vec3 pos;
-	 Camera player;
 	 int number;
 	 GLuint VertexArrayID, MatrixID;
 	 GLuint vertexbuffer, elementbuffer, colourbuffer;

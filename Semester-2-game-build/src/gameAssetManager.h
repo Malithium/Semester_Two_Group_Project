@@ -16,6 +16,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 #include <src/boundingBox.h>
+#include <src/camera.h>
 #include <src/gameAsset.h>
 
 /**
@@ -28,18 +29,23 @@ class GameAssetManager {
 	public:
 	 GameAssetManager();
 	 ~GameAssetManager();
+	 // The main methods needed to create and run the world
 	 void AddAsset(std::shared_ptr<GameAsset>);
-	 void Move(int num, glm::vec3 pos);
-	 void Remove(int num);
-	 bool Collision(int n1, const shared_ptr<Bounding> b);
 	 void Draw();
+	 void Move(int num, glm::vec3 pos);
+	 
+	 // Additional methods designed to help add functionality to the program
+	 bool Collision(int n1, const shared_ptr<Bounding> b);
 	 void Clear();
-	  int Size();
-	 GLuint LoadShaders(const char * vertex_file_path, const char * fragment_file_path);
+	 void Intelligence(int cubes, int diamonds);
+	 void Remove(int num);
+	 int Size();
 	private:
+	 GLuint LoadShaders(const char * vertex_file_path, const char * fragment_file_path);
 	 // The internal scene graph is a simple list.
 	 std::vector<std::shared_ptr<GameAsset>> draw_list;
 	 GLuint programID;
+	 Camera player;
 };
 
 #endif // GAMEASSETMANAGER_H

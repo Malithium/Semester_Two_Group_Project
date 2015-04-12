@@ -93,7 +93,7 @@ CubeAsset::~CubeAsset() {
 	glDeleteVertexArrays(1, &VertexArrayID);
 }
 
-void CubeAsset::Draw(GLuint programID)
+void CubeAsset::Draw(GLuint programID, Camera player)
 {	
 	// Use our shaders
 	glUseProgram(programID);
@@ -149,6 +149,11 @@ void CubeAsset::NewPosition(vec3 position)
 bool CubeAsset::Collides(const shared_ptr<Bounding> b)
 {
 	return bbox->CollidesWith(b);
+}
+
+vec3 CubeAsset::GetPos()
+{
+	return position;
 }
 
 std::shared_ptr<Bounding> CubeAsset::GetBox()

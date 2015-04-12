@@ -23,14 +23,14 @@ class DiamondAsset : public GameAsset {
 	public:
 	  explicit DiamondAsset();
 	 ~DiamondAsset();
-	 virtual void Draw(GLuint);
+	 virtual void Draw(GLuint programID, Camera player);
 	 virtual void NewPosition(vec3);
 	 virtual bool Collides(const shared_ptr<Bounding> b);
+	 virtual vec3 GetPos();
 	 virtual std::shared_ptr<Bounding> GetBox();
 
 	private:
 	 vec3 position;
-	 Camera player;
 	 GLuint VertexArrayID, MatrixID;
 	 GLuint vertexbuffers, elementbuffers, colourbuffer;
 	 std::shared_ptr<Bounding> bbox;

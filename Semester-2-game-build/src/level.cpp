@@ -26,15 +26,15 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 	
 	glClearColor(0.6f, 1.0f, 1.0f, 0.1f); // Adds a sky blue colour to background, once loadings done
 	do {
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); 
-		
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clears current frame, for next frame
+	
 		player.cameraControls(window); // The camera class
 		gravity = collisionDetection();		  // Collision
 		player.setGravity(gravity);
-		asset_manager->Draw(); 	
-		while (SDL_PollEvent(&windowEvent) && running == true)
+		asset_manager->Draw(); 			  // Draw
+		if (SDL_PollEvent(&windowEvent))
 		{
-			event_handler.handleEvents(&windowEvent);  
+				event_handler.handleEvents(&windowEvent); // Player input
 		}
 
 		SDL_GL_SwapWindow(window);

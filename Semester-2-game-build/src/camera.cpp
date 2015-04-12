@@ -15,7 +15,6 @@ float horizontalAngle = 0.0f;
 float verticalAngle = 0.0f;
 float decVelocity;
 
-float dTime = 0;
 float speed = 3.0f;
 float jumpspeed = 0.0018f;
 float fallingSpeed = 0.0018f;
@@ -36,10 +35,6 @@ glm::mat4 Camera::getViewMatrix(){
 	return viewMatrix;
 }
 
-void Camera::getDeltaTime(float dt){
-	dTime = dt;
-}
-
 void Camera::moveForward(float dTime){
 	position += glm::vec3(direction.x * dTime * speed, 0.0f, direction.z * dTime * speed);
 }
@@ -54,9 +49,13 @@ void Camera::mouseMovement(float dTime){
 	verticalAngle += mouseSpeed * dTime / 2 * float(midY - ypos);
 }
 
-void Camera::setJump()
+bool Camera::currentlyFalling(){
+	return gravity;
+}
+
+void Camera::setJump(bool j)
 {
-		jump = true;
+	jump = j;
 }
 
 void Camera::setGravity(bool g)
@@ -68,23 +67,20 @@ void Camera::resetPos(){
 	position = glm::vec3(0, 2, 0);
 }
 
-void Camera::jumping()
+void Camera::jumping(float dTime)
 {
 	if (position.y > y + 2)
 		jump = false;
 	if (jump == true){
 		if (dTime > 0.150)
 			dTime = 0.005;
-		position.y += ((startingVelocity*dTime) - (dTime * jumpspeed));
+		position.y += dTime * speed;
 	}
 }
 
 void Camera::falling()
 {
-	if (gravity == true)
-		if (dTime > 0.150)
-			dTime = 0.005;
-	position.y -= ((startingVelocity*dTime) - (dTime * fallingSpeed));
+	position.y -= 0.0010 * speed;
 }
 
 glm::vec3 Camera::GetPos()
@@ -93,20 +89,21 @@ glm::vec3 Camera::GetPos()
 }
 
 void Camera::cameraControls(SDL_Window* window) {
-	if (position.y > y + 2)
-		jump = false;
 	//store the screen's size into these variables;
 	SDL_GetWindowSize(window, &midX, &midY);
 	//divide the values by 2 in order to get the screens center
 	midX = midX / 2;
 	midY = midY / 2;
 	SDL_WarpMouseInWindow(window, midX, midY);
-	if (jump == true)
-		jumping();
+	
 	if (gravity == true && jump == false)
 		falling();
+		
 	if (position.y <= -10)
 		resetPos();
+
+	if (gravity == false)
+		y = position.y;
 	//disable the cursor so it is not visible;
 	SDL_ShowCursor(SDL_DISABLE);
 	//compute the spherical coordinates into cartesian coordinates.

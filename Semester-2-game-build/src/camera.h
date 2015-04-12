@@ -20,10 +20,11 @@ public:
 	void moveForward(float dt);
 	void moveBackward(float dt);
 	void mouseMovement(float dt);
-	void jumping();
+	void jumping(float dt);
 
-	void getDeltaTime(float dt);
-	void setJump();
+	bool currentlyFalling();
+
+	void setJump(bool j);
 	void setGravity(bool g);
 	void resetPos();
 
@@ -34,5 +35,6 @@ public:
 
 private:
 };
+
 
 #endif //CAMERA_H

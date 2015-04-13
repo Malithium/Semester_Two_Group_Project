@@ -6,8 +6,10 @@ void Events::handleEvents(SDL_Event * event){
 	float dTime = float(currentTime - lastTime) / 1000;
 	if (dTime > 0.150)
 		dTime = 0.005;
+
 	const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
 	bool gCheck = userInput.currentlyFalling();
+
 	switch (event->type){
 	case SDL_MOUSEMOTION:
 		userInput.mouseMovement(dTime);
@@ -18,7 +20,7 @@ void Events::handleEvents(SDL_Event * event){
 			userInput.setJump(false);
 		}
 	default:
-		userInput.falling();
+		//userInput.falling();
 		break;
 	}
 	

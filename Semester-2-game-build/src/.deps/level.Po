@@ -263,8 +263,8 @@ level.o: level.cpp /usr/include/stdc-predef.h level.h \
  /usr/include/glm/matrix.hpp /usr/include/glm/gtx/transform.inl \
  /usr/include/glm/gtc/matrix_transform.hpp ../src/gameAssetManager.h \
  /usr/include/GL/glew.h /usr/include/GL/glu.h /usr/include/GL/gl.h \
- ../src/boundingBox.h ../src/gameAsset.h ../src/diamondAsset.h \
- /usr/include/boost/program_options.hpp \
+ ../src/boundingBox.h ../src/camera.h ../src/gameAsset.h \
+ ../src/diamondAsset.h /usr/include/boost/program_options.hpp \
  /usr/include/boost/program_options/options_description.hpp \
  /usr/include/boost/program_options/config.hpp \
  /usr/include/boost/config.hpp /usr/include/boost/config/user.hpp \
@@ -862,8 +862,8 @@ level.o: level.cpp /usr/include/stdc-predef.h level.h \
  /usr/include/boost/program_options/detail/parsers.hpp \
  /usr/include/boost/program_options/detail/convert.hpp \
  /usr/include/boost/program_options/variables_map.hpp \
- /usr/include/boost/program_options/version.hpp ../src/camera.h \
- ../src/CubeAsset.h ../src/DoorAsset.h ../src/events.h ../src/camera.h
+ /usr/include/boost/program_options/version.hpp ../src/CubeAsset.h \
+ ../src/DoorAsset.h ../src/events.h ../src/camera.h
 
 /usr/include/stdc-predef.h:
 
@@ -1588,6 +1588,8 @@ level.h:
 /usr/include/GL/gl.h:
 
 ../src/boundingBox.h:
+
+../src/camera.h:
 
 ../src/gameAsset.h:
 
@@ -2886,8 +2888,6 @@ level.h:
 /usr/include/boost/program_options/variables_map.hpp:
 
 /usr/include/boost/program_options/version.hpp:
-
-../src/camera.h:
 
 ../src/CubeAsset.h:
 

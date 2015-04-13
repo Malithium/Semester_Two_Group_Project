@@ -1,0 +1,29 @@
+
+Check collision between all cubes and diamond FIRST. 
+If true then follow the logic below, else don't move.
+
+if(pos.x >= diamond.x - 2 && pos.x <= diamond.x)
+	diamond.x = player.x + 2;
+	setPos(diamond);
+
+else if(pos.x <= diamond.x + 2 && pos.x >= diamond.x)
+	diamond.x = player.x - 2;
+	setPos(diamond);
+
+if(pos.z >= diamond.z - 2 && pos.z <= diamond.z)
+	diamond.z = player.z + 2;
+	setPos(diamond);
+
+else if(pos.z <= diamond.z + 2 && pos.z >= diamond.z)
+	diamond.z = player.z - 2;
+	setPos(diamond);
+
+
+
+## Notes:
+
+-  Camera player moved from assets into GameAssetManager and passed into draw
+    method.
+-  New method in diamond asset to get their pos.
+-  AI must occur before DRAW and after COLLISION
+-  Move draw below EVENTS WHILE loop, in main level loop

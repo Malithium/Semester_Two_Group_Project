@@ -19,12 +19,11 @@ float speed = 3.0f;
 float jumpspeed = 0.0018f;
 float fallingSpeed = 0.0018f;
 float startingVelocity = 0.09;
-float mouseSpeed = 0.004f;
+float mouseSpeed = 0.0025f;
 
 int xpos, ypos;
 int midX, midY;
 int y = position.y;
-
 
 
 glm::mat4 Camera::getProjectionMatrix(){

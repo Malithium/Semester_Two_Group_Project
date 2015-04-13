@@ -55,6 +55,8 @@ DiamondAsset::DiamondAsset() {
 	glGenBuffers(1, &colourbuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, colourbuffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(colour_buffer), colour_buffer, GL_STATIC_DRAW);
+
+	bbox = make_shared<Bounding>(Bounding(position, 0.5f, 1.5f, 0.5f));
 }
 
 DiamondAsset::~DiamondAsset() {
@@ -114,7 +116,7 @@ void DiamondAsset::Draw(GLuint programID, Camera player)
 void DiamondAsset::NewPosition(vec3 pos)
 {
 	position = pos;
-	bbox = make_shared<Bounding>(Bounding(position, 0.5f, 1.5f, 0.5f));
+	bbox->SetCentre(pos);
 }
 
 bool DiamondAsset::Collides(const shared_ptr<Bounding> b)

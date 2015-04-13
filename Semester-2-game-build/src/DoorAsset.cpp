@@ -52,6 +52,8 @@ DoorAsset::DoorAsset() {
 	glGenBuffers(1, &colourbuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, colourbuffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(colour_buffer), colour_buffer, GL_STATIC_DRAW);
+
+	bbox = make_shared<Bounding>(Bounding(position, 1.0f, 3.5f, 1.5f));
 }
 
 DoorAsset::~DoorAsset() {
@@ -111,7 +113,7 @@ void DoorAsset::Draw(GLuint programID, Camera player)
 void DoorAsset::NewPosition(vec3 pos)
 {
 	position = pos;
-	bbox = make_shared<Bounding>(Bounding(position, 1.0f, 3.5f, 1.5f));
+	bbox->SetCentre(pos);
 }
 
 bool DoorAsset::Collides(const shared_ptr<Bounding> b)

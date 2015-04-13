@@ -82,6 +82,8 @@ CubeAsset::CubeAsset(int num) {
 	glGenBuffers(1, &colourbuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, colourbuffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(colour_buffer), colour_buffer, GL_STATIC_DRAW);
+
+	bbox = make_shared<Bounding>(Bounding(position, (3.0f*number), 2.0f, (3.0f*number)));
 }
 
 CubeAsset::~CubeAsset() {
@@ -126,7 +128,7 @@ void CubeAsset::Draw(GLuint programID, Camera player)
 
 	mat4 ProjectionMatrix = player.getProjectionMatrix();
 	mat4 ViewMatrix = player.getViewMatrix();
-	mat4 ModelMatrix = glm::translate(glm::mat4(1.0f), pos);
+	mat4 ModelMatrix = glm::translate(glm::mat4(1.0f), position);
 	mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
 
 	glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
@@ -138,12 +140,10 @@ void CubeAsset::Draw(GLuint programID, Camera player)
 	glDisableVertexAttribArray(1);
 }
 
-void CubeAsset::NewPosition(vec3 position)
+void CubeAsset::NewPosition(vec3 pos)
 {
-	pos = position;
-	
-	// The bounding box needs the cube to be translated before being drawn
-	bbox = make_shared<Bounding>(Bounding(pos, (3.0f*number), 2.0f, (3.0f*number)));
+	position = pos;
+	bbox->SetCentre(pos);
 }
 
 bool CubeAsset::Collides(const shared_ptr<Bounding> b)

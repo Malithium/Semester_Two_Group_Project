@@ -64,7 +64,7 @@ void GameAssetManager::Intelligence(int cubes, int diamonds) {
 	for(int i = diamonds; i != 0; i--)
 	{
 		// Add one to diamonds for the door asset
-		int n1 = (Size()-(diamonds+1));
+		int n1 = Size()-i;
 		glm::vec3 d = draw_list.at(n1)->GetPos();
 	
 	for(int y = 0; y < cubes; y++) 
@@ -72,32 +72,21 @@ void GameAssetManager::Intelligence(int cubes, int diamonds) {
 		// This loop makes sure that the diamond is colliding with a cube, before moving
 		move = Collision(y, draw_list.at(n1)->GetBox());
 		if(move == true)
-		{
 			y = cubes;
-		}
 	}
 	
 	 if(move == true)
 	 {
-		if(p.x >= d.x - 2 && p.x <= d.x)
+		if(p.x >= d.x - 2 && p.x <= d.x && p.z >= d.z - 2 && p.z <= d.z)
 		{
-			d.x = p.x + 2;
+			d.x = p.x + 1.5;
+			d.z = p.z + 1.5;
 			Move(n1,d);
 		}
-		else if(p.x <= d.x + 2 && p.x >= d.x)
+		else if(p.x <= d.x + 2 && p.x >= d.x && p.z <= d.z + 2 && p.z >= d.z)
 		{
-			d.x = p.x - 2;
-			Move(n1,d);
-		}
-
-		if(p.z >= d.z - 2 && p.z <= d.z)
-		{
-			d.z = p.z + 2;
-			Move(n1,d);
-		}
-		else if(p.z <= d.z + 2 && p.z >= d.z)
-		{
-			d.z = p.z - 2;
+			d.x = p.x - 1.5;
+			d.z = p.z - 1.5;
 			Move(n1,d);
 		}
 	 }

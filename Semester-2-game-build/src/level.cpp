@@ -29,20 +29,24 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clears current frame, for next frame
 		if (SDL_PollEvent(&windowEvent)) // Handles event input from mouse & keyboard
 		{
-				event_handler.handleEvents(&windowEvent); // Player input
+			event_handler.handleEvents(&windowEvent); // Player input
 		}
 		player.cameraControls(window);   // The camera class
+
 		gravity = collisionDetection();	 // Collision detection
-		player.setGravity(gravity);		 // Gravity taking effect
-		asset_manager->Intelligence(cubes, diamonds); // Diamond AI
+		player.setGravity(gravity);	 // Gravity taking effect
+
+		//asset_manager->Intelligence(cubes, diamonds); // Diamond AI
 		asset_manager->Draw(); 			 // Draws level onto screen
+
 		SDL_GL_SwapWindow(window);
 	} while (running == true);
 
 	glClearColor(1.0f, 1.0f, 1.0f, 0.0f); // This should make the screen go black
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	player.resetPos();
+	cubes = 0;		// Sets amount of level cubes to 0
+	player.resetPos();	// Resets player position to (0, 0, 0)
 	asset_manager->Clear(); // Empties the vector of assets
 	cubepositions.clear();  // Empties the vector of positions
 	return true;		// Load the next level
@@ -155,7 +159,7 @@ int Level::blockPositions()
 	break;
      }
 
-   // Increment Num so that it moves onto the next cube
+   // Increment Num so that it moves onto the next asset
    num++;
    }
 
@@ -167,20 +171,23 @@ bool Level::collisionDetection()
 	// Because the player moves, the centre needs to be reset
 	Pbbox->SetCentre(player.GetPos());
 
-	// if(player collides with diamond) remove diamond. NOTE: Removed for testing
-		//for(int i = diamonds; i > 0; i--)
-		//{
-		//  if(asset_manager->Collision(i, Pbbox) == true)
-		//  {
-		//	asset_manager->Remove((asset_manager->Size()-(i+1))); // Add one for the door, which is the final asset
-		//	i = 0;
-		//  }
-		//}
+	//if(player collides with diamond) remove diamond.
+	for(int i = diamonds; i != 0; i--)
+	{
+	  int l = asset_manager->Size();
+	  if(asset_manager->Collision((l-i), Pbbox) == true)
+	  {
+		asset_manager->Remove(l-i); // Add one for the door, which is the final asset
+		diamonds--;
+		l--;
+	  }
+	}
 
 	// if(player collides with door) running = false;
 	if(asset_manager->Collision(asset_manager->Size(), Pbbox) == true)
 	{
-		running = false;
+		if(diamonds == 0)
+			running = false;
 	}
 
 	// if(player collides with boxes) gravity is false 

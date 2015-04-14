@@ -10,7 +10,9 @@ A simple 3D Platformer where you collect collectables to finish the level.
 
 Our next goal is to create bounding boxes around our objects so that we can start implementing collision detection into our program. This will enable us to implement gravity, jumping, collectables, doors and allow us to properly transition between level's. After this feature has been implemented we have effectively met all of our core goals and can work towards finishing the game. As my colleague has more experience with drawing our objects to the screen I shall leave the task of creating bounding boxes to him, in return I will work on the math's involved with collision detection as I have more experience with the camera class where all the camera movement happens.
 
-We will try to post new information the 11th of every month (Until the 30th of April).
+14/04/2015 : With hardwork we have successfully created a fully functioning platformer, with multiple levels and shy collectables. We endured many bugs and coding errors, and still have several improvements we'd like to implement, but we're still proud to announce that it is functional. This was created using several machines, all using different operating systems (Ubuntu, Windows 7 and Fedora) and we will post instructions on how we tested our game until we've looked into creating an executable. Until then, feel free to explore our code, study our commits and use it however you see fit.   
+
+We will try to post new information every month (Until the 30th of April).
 
 # Prerequisites #
 

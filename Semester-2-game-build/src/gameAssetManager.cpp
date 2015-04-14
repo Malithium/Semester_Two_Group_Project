@@ -11,10 +11,8 @@ GameAssetManager::GameAssetManager() {
 }
 
 /**
-* Deletes a GameAssetManager, in particular it will clean up any modifications
-* to the OpenGL state.
+* Deletes the programID, the pointer to the shaders
 */
-
 GameAssetManager::~GameAssetManager() {
 	glDeleteProgram(programID);
 }
@@ -22,9 +20,17 @@ GameAssetManager::~GameAssetManager() {
 /**
 * Adds a GameAsset to the scene graph.
 */
-
 void GameAssetManager::AddAsset(std::shared_ptr<GameAsset> the_asset) {
 	draw_list.push_back(the_asset);
+}
+
+/**
+* Draws each GameAsset in the scene graph.
+*/
+void GameAssetManager::Draw() {
+	for(auto ga: draw_list) {
+		ga->Draw(programID, player);
+	} 
 }
 
 /**
@@ -35,12 +41,10 @@ void GameAssetManager::Move(int num, glm::vec3 pos) {
 }
 
 /**
-* Draws each GameAsset in the scene graph.
+* Checks if two objects are colliding
 */
-void GameAssetManager::Draw() {
-	for(auto ga: draw_list) {
-		ga->Draw(programID);
-	}
+bool GameAssetManager::Collision(int n1, const shared_ptr<Bounding> b) {
+    return draw_list.at(n1)->Collides(b);
 }
 
 /**
@@ -50,6 +54,59 @@ void GameAssetManager::Clear() {
 	draw_list.clear();
 }
 
+/**
+* Follows an algorithm which makes the diamond shy away from the player, causing
+* it to retreat in the opposite direction of the player.
+*/
+void GameAssetManager::Intelligence(int cubes, int diamonds) {
+	bool move = false;
+	glm::vec3 p = player.GetPos();
+	for(int i = diamonds; i != 0; i--)
+	{
+		// Add one to diamonds for the door asset
+		int n1 = Size()-i;
+		glm::vec3 d = draw_list.at(n1)->GetPos();
+	
+	for(int y = 0; y < cubes; y++) 
+	{
+		// This loop makes sure that the diamond is colliding with a cube, before moving
+		move = Collision(y, draw_list.at(n1)->GetBox());
+		if(move == true)
+			y = cubes;
+	}
+	
+	 if(move == true)
+	 {
+		if(p.x >= d.x - 2 && p.x <= d.x && p.z >= d.z - 2 && p.z <= d.z)
+		{
+			d.x = p.x + 2.0;
+			d.z = p.z + 2.0;
+			Move(n1,d);
+		}
+		else if(p.x <= d.x + 2 && p.x >= d.x && p.z <= d.z + 2 && p.z >= d.z)
+		{
+			d.x = p.x - 2.0;
+			d.z = p.z - 2.0;
+			Move(n1,d);
+		}
+	 }
+	 move = false;
+	}
+}
+
+/**
+* Removes an asset from the list
+*/
+void GameAssetManager::Remove(int num) {
+    draw_list.erase(draw_list.begin() + num); // Removes an object from vector
+}
+
+/**
+* Returns the size of the vector
+*/
+int GameAssetManager::Size()  {
+	return (draw_list.size()-1);
+}
 
 /**
 * Reads in the shaders, to produce a ProgramID which points to the linked location
@@ -101,5 +158,4 @@ GLuint GameAssetManager::LoadShaders(const char * vertex_file_path, const char *
 	glDeleteShader(FragmentShaderID);
 
 	return ProgramID;
-
 }

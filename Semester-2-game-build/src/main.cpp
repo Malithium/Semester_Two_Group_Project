@@ -22,9 +22,9 @@ int main(int argc, char *argv[])
 	int lvl = 1; // Will increment every level		
 
 	//create SDL Window
-	SDL_Window* window = SDL_CreateWindow("Platformer", 100, 100, 1200, 800, SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN_DESKTOP);
+	SDL_Window* window = SDL_CreateWindow("Platformer", 100, 100, 800, 600, SDL_WINDOW_OPENGL);
 
-	//	
+	// | SDL_WINDOW_FULLSCREEN_DESKTOP	
 
 	//create SDL Window context
 	SDL_GLContext context = SDL_GL_CreateContext(window);

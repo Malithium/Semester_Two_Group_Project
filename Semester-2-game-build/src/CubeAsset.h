@@ -1,5 +1,5 @@
-#ifndef MEDIUMCUBEASSET_H
-#define MEDIUMCUBEASSET_H
+#ifndef CUBEASSET_H
+#define CUBEASSET_H
 #define GLM_FORCE_RADIANS
 
 // Library to store the cube positions
@@ -15,22 +15,26 @@
 #include <boost/program_options.hpp>
 #include <src/camera.h>
 #include <src/gameAsset.h>
+#include <src/boundingBox.h>
 
 using namespace glm;
 
-
-class MediumCubeAsset : public GameAsset {
+class CubeAsset : public GameAsset {
 	public:
-	  explicit MediumCubeAsset();
-	 ~MediumCubeAsset();
-	 virtual void Draw(GLuint);
+	  explicit CubeAsset(int num);
+	 ~CubeAsset();
+	 virtual void Draw(GLuint programID, Camera player);
 	 virtual void NewPosition(vec3);
+	 virtual bool Collides(const shared_ptr<Bounding> b);
+	 virtual vec3 GetPos();
+	 virtual std::shared_ptr<Bounding> GetBox();
 
 	private:
 	 vec3 position;
-	 Camera player;
+	 int number;
 	 GLuint VertexArrayID, MatrixID;
 	 GLuint vertexbuffer, elementbuffer, colourbuffer;
+	 std::shared_ptr<Bounding> bbox;
 };
 
-#endif //MEDIUMCUBEASSET_H
+#endif //CUBEASSET_H

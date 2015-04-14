@@ -3,7 +3,7 @@
 
 DiamondAsset::DiamondAsset() {
 
-	// The 1.5f & -0.5f are designed to make the crystal tall/thin, rather than small/thick 
+	// The 1.25f & -0.25f are designed to make the crystal tall/thin, rather than small/thick 
  	static const GLfloat vertex_buffer[] = {
 		 0.0f,  1.25f, 0.0f,
 		 0.25f, 0.5f, -0.25f,
@@ -55,9 +55,12 @@ DiamondAsset::DiamondAsset() {
 	glGenBuffers(1, &colourbuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, colourbuffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(colour_buffer), colour_buffer, GL_STATIC_DRAW);
+
+	bbox = make_shared<Bounding>(Bounding(position, 0.5f, 1.5f, 0.5f));
 }
 
 DiamondAsset::~DiamondAsset() {
+	bbox.reset();
   	// Cleans up by deleting the buffers
 	glDeleteBuffers(1, &vertexbuffers);
 	glDeleteBuffers(1, &elementbuffers);
@@ -65,7 +68,7 @@ DiamondAsset::~DiamondAsset() {
 	glDeleteVertexArrays(1, &VertexArrayID);
 }
 
-void DiamondAsset::Draw(GLuint programID)
+void DiamondAsset::Draw(GLuint programID, Camera player)
 {	
 	// Use our shaders
 	glUseProgram(programID);
@@ -113,4 +116,20 @@ void DiamondAsset::Draw(GLuint programID)
 void DiamondAsset::NewPosition(vec3 pos)
 {
 	position = pos;
+	bbox->SetCentre(pos);
+}
+
+bool DiamondAsset::Collides(const shared_ptr<Bounding> b)
+{
+	return bbox->CollidesWith(b);
+}
+
+vec3 DiamondAsset::GetPos()
+{
+	return position;
+}
+
+std::shared_ptr<Bounding> DiamondAsset::GetBox()
+{
+	return bbox;
 }

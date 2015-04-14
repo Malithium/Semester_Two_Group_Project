@@ -1,20 +1,41 @@
 
-#include <smallCubeAsset.h>
+#include <CubeAsset.h>
 
-SmallCubeAsset::SmallCubeAsset() {
+CubeAsset::CubeAsset(int num) {	
 
- 	static const GLfloat vertex_buffer[] = {
-		-1.0f, -1.0f,  1.0f,
-	 	 1.0f, -1.0f,  1.0f,
-		 1.0f,  1.0f,  1.0f,
-		-1.0f,  1.0f,  1.0f,
-		-1.0f, -1.0f, -1.0f,
-		 1.0f, -1.0f, -1.0f,
-		 1.0f,  1.0f, -1.0f,
-		-1.0f,  1.0f, -1.0f
- 	};
+	static GLfloat vertex_buffer[3*8];
+	for(int i = 0; i < 8; i++)
+	{
+	  if( i == 0 || i == 3 || i == 4 ||i == 7) //Negative numbers for X vertexs
+	  {
+		vertex_buffer[3*i+0] = (-1.0f * num);
+	  }
+	  else
+	  {
+		vertex_buffer[3*i+0] = (1.0f * num);
+	  }
 
- 	static const GLuint element_buffer[] = {
+	  if( i == 0 || i == 1 || i == 4 ||i == 5) //Negative numbers for Y vertexs
+	  {
+		vertex_buffer[3*i+1] = -1.0f;
+	  }
+	  else
+	  {
+		vertex_buffer[3*i+1] = 1.0f;
+	  }
+
+	  if( i >= 4 ) //Negative numbers for Z vertexs
+	  {
+		vertex_buffer[3*i+2] = (-1.0f * num);
+	  }
+	  else
+	  {
+		vertex_buffer[3*i+2] = (1.0f * num);
+	  }
+	}
+	number = num;
+
+	static const GLuint element_buffer[] = {
 		0, 1, 2,
 		2, 3, 0,
 		3, 2, 6,
@@ -27,7 +48,7 @@ SmallCubeAsset::SmallCubeAsset() {
 		3, 7, 4,
 		1, 5, 6,
 		6, 2, 1
- 	};	
+ 	};
 
 	static GLfloat colour_buffer[12*3*3];
 	for(int i = 0; i < 12*3; i++)
@@ -61,9 +82,13 @@ SmallCubeAsset::SmallCubeAsset() {
 	glGenBuffers(1, &colourbuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, colourbuffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(colour_buffer), colour_buffer, GL_STATIC_DRAW);
+
+	float size = (2.0f * number) - 1.0f;
+	bbox = make_shared<Bounding>(Bounding(position, size, 2.0f, size));
 }
 
-SmallCubeAsset::~SmallCubeAsset() {
+CubeAsset::~CubeAsset() {
+	bbox.reset();
   	// Cleans up by deleting the buffers
 	glDeleteBuffers(1, &vertexbuffer);
 	glDeleteBuffers(1, &elementbuffer);
@@ -71,7 +96,7 @@ SmallCubeAsset::~SmallCubeAsset() {
 	glDeleteVertexArrays(1, &VertexArrayID);
 }
 
-void SmallCubeAsset::Draw(GLuint programID)
+void CubeAsset::Draw(GLuint programID, Camera player)
 {	
 	// Use our shaders
 	glUseProgram(programID);
@@ -87,7 +112,7 @@ void SmallCubeAsset::Draw(GLuint programID)
 		0,                  // stridea
 		(void*)0            // array buffer offset
 	);
-	
+
 	glEnableVertexAttribArray(1);
 	glBindBuffer(GL_ARRAY_BUFFER, colourbuffer);
 	glVertexAttribPointer(
@@ -116,8 +141,41 @@ void SmallCubeAsset::Draw(GLuint programID)
 	glDisableVertexAttribArray(1);
 }
 
-void SmallCubeAsset::NewPosition(vec3 pos)
+void CubeAsset::NewPosition(vec3 pos)
 {
-	// This works, have cout'd as proof
 	position = pos;
+	// Regarding issues with BB, moving the centre point to the top left corner fixes problems where the player would fall through the floor.
+	switch(number)
+	{
+		case 1:
+		bbox->SetCentre(pos);
+		break;
+		
+		case 2:
+		pos.x -= 1.0f;
+		pos.z -= 1.0f;
+		bbox->SetCentre(pos);
+		break;
+
+		case 3:
+		pos.x -= 2.0f;
+		pos.z -= 2.0f;
+		bbox->SetCentre(pos);
+		break;
+	}
+}
+
+bool CubeAsset::Collides(const shared_ptr<Bounding> b)
+{
+	return bbox->CollidesWith(b);
+}
+
+vec3 CubeAsset::GetPos()
+{
+	return position;
+}
+
+std::shared_ptr<Bounding> CubeAsset::GetBox()
+{
+	return bbox;
 }

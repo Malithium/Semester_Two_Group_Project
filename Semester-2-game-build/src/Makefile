@@ -97,9 +97,9 @@ CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_shaderexample_OBJECTS = main.$(OBJEXT) level.$(OBJEXT) \
-	camera.$(OBJEXT) gameAssetManager.$(OBJEXT) \
-	diamondAsset.$(OBJEXT) largeCubeAsset.$(OBJEXT) \
-	medCubeAsset.$(OBJEXT) smallCubeAsset.$(OBJEXT)
+	camera.$(OBJEXT) gameAssetManager.$(OBJEXT) events.$(OBJEXT) \
+	diamondAsset.$(OBJEXT) CubeAsset.$(OBJEXT) DoorAsset.$(OBJEXT) \
+	boundingBox.$(OBJEXT)
 shaderexample_OBJECTS = $(am_shaderexample_OBJECTS)
 shaderexample_LDADD = $(LDADD)
 AM_V_lt = $(am__v_lt_$(V))
@@ -303,8 +303,8 @@ target_alias =
 top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
-EXTRA_DIST = level.h camera.h gameAssetManager.h gameAsset.h diamondAsset.h largeCubeAsset.h medCubeAsset.h smallCubeAsset.h
-shaderexample_SOURCES = main.cpp level.cpp camera.cpp gameAssetManager.cpp diamondAsset.cpp largeCubeAsset.cpp  medCubeAsset.cpp  smallCubeAsset.cpp
+EXTRA_DIST = level.h camera.h gameAssetManager.h gameAsset.h events.h diamondAsset.h CubeAsset.h DoorAsset.h boundingBox.h
+shaderexample_SOURCES = main.cpp level.cpp camera.cpp gameAssetManager.cpp events.cpp diamondAsset.cpp CubeAsset.cpp DoorAsset.cpp boundingBox.cpp
 AM_CPPFLAGS = -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES -std=c++11 \
 	$(gl_CFLAGS) $(glew_CFLAGS) $(sdl2_CFLAGS) $(BOOST_CPPFLAGS)
 all: all-am
@@ -401,14 +401,15 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+include ./$(DEPDIR)/CubeAsset.Po
+include ./$(DEPDIR)/DoorAsset.Po
+include ./$(DEPDIR)/boundingBox.Po
 include ./$(DEPDIR)/camera.Po
 include ./$(DEPDIR)/diamondAsset.Po
+include ./$(DEPDIR)/events.Po
 include ./$(DEPDIR)/gameAssetManager.Po
-include ./$(DEPDIR)/largeCubeAsset.Po
 include ./$(DEPDIR)/level.Po
 include ./$(DEPDIR)/main.Po
-include ./$(DEPDIR)/medCubeAsset.Po
-include ./$(DEPDIR)/smallCubeAsset.Po
 
 .cpp.o:
 	$(AM_V_CXX)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\

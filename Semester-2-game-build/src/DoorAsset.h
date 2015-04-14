@@ -1,5 +1,5 @@
-#ifndef LARGECUBEASSET_H
-#define LARGECUBEASSET_H
+#ifndef DOORASSET_H
+#define DOORASSET_H
 #define GLM_FORCE_RADIANS
 
 // Library to store the cube positions
@@ -15,21 +15,25 @@
 #include <boost/program_options.hpp>
 #include <src/camera.h>
 #include <src/gameAsset.h>
+#include <src/boundingBox.h>
 
 using namespace glm;
 
-class LargeCubeAsset : public GameAsset {
+class DoorAsset : public GameAsset {
 	public:
-	  explicit LargeCubeAsset();
-	 ~LargeCubeAsset();
-	 virtual void Draw(GLuint);
+	  explicit DoorAsset();
+	 ~DoorAsset();
+	 virtual void Draw(GLuint programID, Camera player);
 	 virtual void NewPosition(vec3);
+	 virtual bool Collides(const shared_ptr<Bounding> b);
+	 virtual vec3 GetPos();
+	 virtual std::shared_ptr<Bounding> GetBox();
 
 	private:
 	 vec3 position;
-	 Camera player;
 	 GLuint VertexArrayID, MatrixID;
 	 GLuint vertexbuffer, elementbuffer, colourbuffer;
+	 std::shared_ptr<Bounding> bbox;
 };
 
-#endif //LARGECUBEASSET_H
+#endif //DOORASSET_H

@@ -862,7 +862,7 @@ medCubeAsset.o: medCubeAsset.cpp /usr/include/stdc-predef.h \
  /usr/include/boost/program_options/detail/convert.hpp \
  /usr/include/boost/program_options/variables_map.hpp \
  /usr/include/boost/program_options/version.hpp ../src/camera.h \
- ../src/gameAsset.h
+ ../src/gameAsset.h ../src/boundingBox.h
 
 /usr/include/stdc-predef.h:
 
@@ -2873,3 +2873,5 @@ medCubeAsset.h:
 ../src/camera.h:
 
 ../src/gameAsset.h:
+
+../src/boundingBox.h:

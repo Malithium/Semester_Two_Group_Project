@@ -19,7 +19,7 @@ float speed = 3.0f;
 float jumpspeed = 0.0018f;
 float fallingSpeed = 0.0018f;
 float startingVelocity = 0.09;
-float mouseSpeed = 0.0025f;
+float mouseSpeed = 0.0028f;
 
 int xpos, ypos;
 int midX, midY;
@@ -98,7 +98,7 @@ void Camera::cameraControls(SDL_Window* window) {
 	if (gravity == true && jump == false)
 		falling();
 		
-	if (position.y <= -10)
+	if (position.y <= -8)
 		resetPos();
 
 	if (gravity == false)

@@ -36,8 +36,8 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 		gravity = collisionDetection();	 // Collision detection
 		player.setGravity(gravity);	 // Gravity taking effect
 
-		//asset_manager->Intelligence(cubes, diamonds); // Diamond AI
-		asset_manager->Draw(); 			 // Draws level onto screen
+		asset_manager->Intelligence(cubes, diamonds); // Diamond AI
+		asset_manager->Draw(); 		 // Draws level onto screen
 
 		SDL_GL_SwapWindow(window);
 	} while (running == true);
@@ -80,7 +80,9 @@ bool Level::fillVector(int lvl)
      name = "levels/levelFive.json";
      break;
 
-     // Continue for every level - 5 currently
+     case 6:
+     name = "levels/levelEnd.json";
+     break;
    }
 
    std::ifstream input(name, std::ifstream::in);
@@ -168,7 +170,7 @@ int Level::blockPositions()
 
 bool Level::collisionDetection()
 {
-	// Because the player moves, the centre needs to be reset
+	// Because the player moves, the centre needs to be reset every frame
 	Pbbox->SetCentre(player.GetPos());
 
 	//if(player collides with diamond) remove diamond.

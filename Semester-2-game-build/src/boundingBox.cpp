@@ -42,7 +42,7 @@ bool Bounding::CollidesWith(const shared_ptr<Bounding> b) {
 
 	// http://www.gamefromscratch.com/post/2012/11/26/GameDev-math-recipes-Collision-detection-using-an-axis-aligned-bounding-box.aspx 
 
-	if(a_x <= (b_x + b->getWidth() ) && b_x <= (a_x + this->getWidth() ) &&
+     if(a_x <= (b_x + b->getWidth()  ) && b_x <= (a_x + this->getWidth()  ) &&
 	a_y <= (b_y + b->getHeight() ) && b_y <= (a_y + this->getHeight() ) && 
 	a_z <= (b_z + b->getLength() ) && b_z <= (a_z + this->getLength() ) )
 	{	

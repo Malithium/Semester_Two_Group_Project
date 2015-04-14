@@ -83,7 +83,8 @@ CubeAsset::CubeAsset(int num) {
 	glBindBuffer(GL_ARRAY_BUFFER, colourbuffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(colour_buffer), colour_buffer, GL_STATIC_DRAW);
 
-	bbox = make_shared<Bounding>(Bounding(position, (3.0f*number), 2.0f, (3.0f*number)));
+	float size = (2.0f * number) - 1.0f;
+	bbox = make_shared<Bounding>(Bounding(position, size, 2.0f, size));
 }
 
 CubeAsset::~CubeAsset() {
@@ -143,7 +144,25 @@ void CubeAsset::Draw(GLuint programID, Camera player)
 void CubeAsset::NewPosition(vec3 pos)
 {
 	position = pos;
-	bbox->SetCentre(pos);
+	// Regarding issues with BB, moving the centre point to the top left corner fixes problems where the player would fall through the floor.
+	switch(number)
+	{
+		case 1:
+		bbox->SetCentre(pos);
+		break;
+		
+		case 2:
+		pos.x -= 1.0f;
+		pos.z -= 1.0f;
+		bbox->SetCentre(pos);
+		break;
+
+		case 3:
+		pos.x -= 2.0f;
+		pos.z -= 2.0f;
+		bbox->SetCentre(pos);
+		break;
+	}
 }
 
 bool CubeAsset::Collides(const shared_ptr<Bounding> b)

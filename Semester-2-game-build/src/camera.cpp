@@ -77,9 +77,9 @@ void Camera::jumping(float dTime)
 	}
 }
 
-void Camera::falling()
+void Camera::falling(float dTime)
 {
-	position.y -= 0.0010 * speed;
+	position.y -= dTime * speed;
 }
 
 glm::vec3 Camera::GetPos()
@@ -88,16 +88,19 @@ glm::vec3 Camera::GetPos()
 }
 
 void Camera::cameraControls(SDL_Window* window) {
+	static double lastTime = SDL_GetTicks();
+	double currentTime = SDL_GetTicks();
+	float dTime = float(currentTime - lastTime) / 1000;
 	//store the screen's size into these variables;
 	SDL_GetWindowSize(window, &midX, &midY);
 	//divide the values by 2 in order to get the screens center
 	midX = midX / 2;
 	midY = midY / 2;
 	SDL_WarpMouseInWindow(window, midX, midY);
-	
+
 	if (gravity == true && jump == false)
-		falling();
-		
+		falling(dTime);
+
 	if (position.y <= -8)
 		resetPos();
 
@@ -111,4 +114,5 @@ void Camera::cameraControls(SDL_Window* window) {
 	float FoV = 45.0f;
 	projectionMatrix = glm::perspective(FoV, 4.0f / 3.0f, 0.1f, 100.0f);
 	viewMatrix = glm::lookAt(position, position + direction, glm::vec3(0, 1, 0));
+	lastTime = currentTime;
 }

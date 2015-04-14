@@ -28,13 +28,12 @@ public:
 	void setGravity(bool g);
 	void resetPos();
 
-	void falling();
+	void falling(float dTime);
 
 	glm::vec3 GetPos();
 	void cameraControls(SDL_Window* window);
 
 private:
 };
-
 
 #endif //CAMERA_H

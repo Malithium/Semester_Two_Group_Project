@@ -24,12 +24,13 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 	// Creates a bounding box to be redone every frame, as position is always updating
 	Pbbox = make_shared<Bounding>(Bounding(player.GetPos(), 1.0f, 1.0f, 1.0f));
 	
-	glClearColor(0.6f, 1.0f, 1.0f, 0.1f); // Adds a sky blue colour to background, once loadings done
+	glClearColor(0.6f, 1.0f, 1.0f, 0.1f); // Adds a sky blue colour to background, once loading is done
 	do {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clears current frame, for next frame
 		if (SDL_PollEvent(&windowEvent)) // Handles event input from mouse & keyboard
 		{
-			event_handler.handleEvents(&windowEvent); // Player input
+			bool end = event_handler.handleEvents(&windowEvent); // Player input
+			if(end == false){  return false;  }
 		}
 		player.cameraControls(window);   // The camera class
 

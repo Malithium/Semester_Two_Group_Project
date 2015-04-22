@@ -77,13 +77,13 @@ void GameAssetManager::Intelligence(int cubes, int diamonds) {
 	
 	 if(move == true)
 	 {
-		if(p.x >= d.x - 2 && p.x <= d.x && p.z >= d.z - 2 && p.z <= d.z)
+		if(p.x >= d.x - 3 && p.x <= d.x && p.z >= d.z - 3 && p.z <= d.z)
 		{
 			d.x = p.x + 2.0;
 			d.z = p.z + 2.0;
 			Move(n1,d);
 		}
-		else if(p.x <= d.x + 2 && p.x >= d.x && p.z <= d.z + 2 && p.z >= d.z)
+		else if(p.x <= d.x + 3 && p.x >= d.x && p.z <= d.z + 3 && p.z >= d.z)
 		{
 			d.x = p.x - 2.0;
 			d.z = p.z - 2.0;

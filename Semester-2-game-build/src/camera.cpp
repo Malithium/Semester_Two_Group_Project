@@ -19,7 +19,7 @@ float speed = 3.0f;
 float jumpspeed = 0.0018f;
 float fallingSpeed = 0.0018f;
 float startingVelocity = 0.09;
-float mouseSpeed = 0.0028f;
+float mouseSpeed = 0.0036f;
 
 int xpos, ypos;
 int midX, midY;

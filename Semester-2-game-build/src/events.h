@@ -7,7 +7,7 @@
 class Events
 {
 public:
-	void handleEvents(SDL_Event * event);
+	bool handleEvents(SDL_Event * event);
 private:
 	Camera userInput;
 };

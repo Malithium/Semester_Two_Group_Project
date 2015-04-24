@@ -96,6 +96,9 @@ CubeAsset::~CubeAsset() {
 	glDeleteVertexArrays(1, &VertexArrayID);
 }
 
+/**
+* Draws the cubes onto the screen
+*/
 void CubeAsset::Draw(GLuint programID, Camera player)
 {	
 	// Use our shaders
@@ -141,6 +144,9 @@ void CubeAsset::Draw(GLuint programID, Camera player)
 	glDisableVertexAttribArray(1);
 }
 
+/**
+* Sets a new translating position, as well as a switch to handle BB issue
+*/
 void CubeAsset::NewPosition(vec3 pos)
 {
 	position = pos;
@@ -165,16 +171,25 @@ void CubeAsset::NewPosition(vec3 pos)
 	}
 }
 
+/**
+* Returns true if two things are colliding
+*/
 bool CubeAsset::Collides(const shared_ptr<Bounding> b)
 {
 	return bbox->CollidesWith(b);
 }
 
+/**
+* Returns the cubes position
+*/
 vec3 CubeAsset::GetPos()
 {
 	return position;
 }
 
+/**
+* Obtains the assets BB
+*/
 std::shared_ptr<Bounding> CubeAsset::GetBox()
 {
 	return bbox;

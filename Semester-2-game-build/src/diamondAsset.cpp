@@ -68,6 +68,9 @@ DiamondAsset::~DiamondAsset() {
 	glDeleteVertexArrays(1, &VertexArrayID);
 }
 
+/**
+* Draws the diamonds onto the screen
+*/
 void DiamondAsset::Draw(GLuint programID, Camera player)
 {	
 	// Use our shaders
@@ -113,22 +116,34 @@ void DiamondAsset::Draw(GLuint programID, Camera player)
 	glDisableVertexAttribArray(1);
 }
 
+/**
+* Sets a new translating position
+*/
 void DiamondAsset::NewPosition(vec3 pos)
 {
 	position = pos;
 	bbox->SetCentre(pos);
 }
 
+/**
+* Returns true if two things are colliding
+*/
 bool DiamondAsset::Collides(const shared_ptr<Bounding> b)
 {
 	return bbox->CollidesWith(b);
 }
 
+/**
+* Returns the diamonds position
+*/
 vec3 DiamondAsset::GetPos()
 {
 	return position;
 }
 
+/**
+* Obtains the assets BB
+*/
 std::shared_ptr<Bounding> DiamondAsset::GetBox()
 {
 	return bbox;

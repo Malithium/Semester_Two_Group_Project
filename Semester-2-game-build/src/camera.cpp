@@ -25,47 +25,76 @@ int xpos, ypos;
 int midX, midY;
 int y = position.y;
 
-
+/**
+* Need for translating cubes from model to world space
+*/
 glm::mat4 Camera::getProjectionMatrix(){
 	return projectionMatrix;
 }
 
+/**
+* Need for translating cubes from model to world space
+*/
 glm::mat4 Camera::getViewMatrix(){
 	return viewMatrix;
 }
 
+/**
+* If W is pressed then camera moves forward, based on where the camera is facing. Y is moved by 0.0f (So it doesn't move)
+*/
 void Camera::moveForward(float dTime){
 	position += glm::vec3(direction.x * dTime * speed, 0.0f, direction.z * dTime * speed);
 }
 
+/**
+* If S is pressed then camera moves forward, based on where the camera is facing. Y is moved by 0.0f (So it doesn't move)
+*/
 void Camera::moveBackward(float dTime){
 	position -= glm::vec3(direction.x * dTime * speed, 0.0f, direction.z * dTime * speed);
 }
 
+/**
+* Uses the mouses position to determine where the camera is looking
+*/
 void Camera::mouseMovement(float dTime){
 	SDL_GetMouseState(&xpos, &ypos);
 	horizontalAngle += mouseSpeed * dTime / 2 * float(midX - xpos);
 	verticalAngle += mouseSpeed * dTime / 2 * float(midY - ypos);
 }
 
+/**
+* Returns the status of gravity
+*/
 bool Camera::currentlyFalling(){
 	return gravity;
 }
 
+/**
+* Sets jump to true or false
+*/
 void Camera::setJump(bool j)
 {
 	jump = j;
 }
 
+/**
+* Sets gravity to true or false
+*/
 void Camera::setGravity(bool g)
 {
 	gravity = g;
 }
 
+/**
+* Resets the position of the gravity
+*/
 void Camera::resetPos(){
 	position = glm::vec3(0, 2, 0);
 }
 
+/**
+* If jumping is true then Y is incremented by dTime * speed, but if it exceeds Y + 2 then stop jumping
+*/
 void Camera::jumping(float dTime)
 {
 	if (position.y > y + 2)
@@ -77,16 +106,26 @@ void Camera::jumping(float dTime)
 	}
 }
 
+/**
+* Y decrements by dTime * speed
+*/
 void Camera::falling(float dTime)
 {
 	position.y -= dTime * speed;
 }
 
+/**
+* Returns the cameras current position
+*/
 glm::vec3 Camera::GetPos()
 {
 	return position;
 }
 
+/**
+* Several things occur here, but its main purpose is to update the camera position and direction 
+*  as well as manage variables like jumping and gravity
+*/
 void Camera::cameraControls(SDL_Window* window) {
 	static double lastTime = SDL_GetTicks();
 	double currentTime = SDL_GetTicks();

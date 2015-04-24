@@ -65,6 +65,9 @@ DoorAsset::~DoorAsset() {
 	glDeleteVertexArrays(1, &VertexArrayID);
 }
 
+/**
+* Draws the door onto the screen
+*/
 void DoorAsset::Draw(GLuint programID, Camera player)
 {	
 	// Use our shaders
@@ -110,22 +113,34 @@ void DoorAsset::Draw(GLuint programID, Camera player)
 	glDisableVertexAttribArray(1);
 }
 
+/**
+* Sets a new translating position
+*/
 void DoorAsset::NewPosition(vec3 pos)
 {
 	position = pos;
 	bbox->SetCentre(pos);
 }
 
+/**
+* Returns true if two things are colliding
+*/
 bool DoorAsset::Collides(const shared_ptr<Bounding> b)
 {
 	return bbox->CollidesWith(b);
 }
 
+/**
+* Returns the doors position
+*/
 vec3 DoorAsset::GetPos()
 {
 	return position;
 }
 
+/**
+* Obtains the assets BB
+*/
 std::shared_ptr<Bounding> DoorAsset::GetBox()
 {
 	return bbox;

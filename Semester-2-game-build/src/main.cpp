@@ -10,6 +10,9 @@
 
 using namespace std;
 
+/**
+* The main method creates our SDL window, and begins our game loop, before then proceeding into the level loop
+*/
 int main(int argc, char *argv[])
 {
 	//initialise SDL

@@ -11,27 +11,41 @@ Bounding::Bounding(const vec3 centre, const float w, const float h, const float 
 Bounding::~Bounding() {
 }
 
+/**
+* Sets a new centre point
+*/
 void Bounding::SetCentre(vec3 v) {
   
   pos = v;
 }
 
+/**
+* Returns width
+*/
 float Bounding::getWidth()
 {
 	return width;
 }
 
+/**
+* Returns height
+*/
 float Bounding::getHeight()
 {
 	return height;
 }
 
+/**
+* Returns length
+*/
 float Bounding::getLength()
 {
 	return length;
 }
 
-
+/**
+* Returns true if two objects are colliding - uses an algorithm from commented link
+*/
 bool Bounding::CollidesWith(const shared_ptr<Bounding> b) {	
 	float a_x = this->pos.x;
 	float b_x = b->pos.x;

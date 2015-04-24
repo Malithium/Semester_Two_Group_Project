@@ -1,5 +1,8 @@
 #include "events.h"
 
+/**
+* Goes through individual key inputs to determine if they have been pressed, and then react accordingly.
+*/
 bool Events::handleEvents(SDL_Event * event){
 	static double lastTime = SDL_GetTicks();
 	double currentTime = SDL_GetTicks();

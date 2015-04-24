@@ -1,5 +1,10 @@
 #include "level.h"
 
+/**
+* This method runs the second loop within the game (The level loop). It begins by 
+*  filling a vector with cube positions, before then passing them into individual game
+*  assets. Finally it begins the loop, where it receives inputs, updates then draws.
+*/
 bool Level::runLevel(int lvl, SDL_Window* window)
 {
 	running = true;   // Will determine if the level loop is still running
@@ -53,6 +58,9 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 	return true;		// Load the next level
 }
 
+/**
+* Reads in x, y and z positions from individual .json positions - depending on int level
+*/
 bool Level::fillVector(int lvl)
 {
    std::string name; 
@@ -105,9 +113,11 @@ bool Level::fillVector(int lvl)
    return filled;
 }
 
+/**
+* Adds assets to the gameassetmanager, then translates them by vec3 positions from the cubepositons vector
+*/
 int Level::blockPositions()
 {  
-   glm::vec3 pos;
    int j = 0;
    int num = 0;
    int d = 0;
@@ -123,7 +133,7 @@ int Level::blockPositions()
      switch(j)
      {
         case 0:
-	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
+	glm::vec3 pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
 	// Adds a large cube asset to the asset vector
 	asset_manager->AddAsset(std::make_shared<CubeAsset>(3)); 
 	// Transitions this cube by pos
@@ -133,21 +143,21 @@ int Level::blockPositions()
 	break;
 
 	case 1:
-	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2)); 
+	glm::vec3 pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2)); 
 	asset_manager->AddAsset(std::make_shared<CubeAsset>(2));
 	asset_manager->Move(num, pos);
 	cubes++;
 	break;
 
 	case 2:
-	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
+	glm::vec3 pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
 	asset_manager->AddAsset(std::make_shared<CubeAsset>(1));
 	asset_manager->Move(num, pos);
 	cubes++;
 	break;
 
 	case 3:
-	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
+	glm::vec3 pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
 	asset_manager->AddAsset(std::make_shared<DiamondAsset>());
 	asset_manager->Move(num, pos);
 	// Add +1 to the amount of diamonds
@@ -155,7 +165,7 @@ int Level::blockPositions()
 	break;
 
 	case 4:
-	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
+	glm::vec3 pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
 	asset_manager->AddAsset(std::make_shared<DoorAsset>());
 	asset_manager->Move(num, pos);
 	// For door position
@@ -169,6 +179,10 @@ int Level::blockPositions()
   return d;
 }
 
+/**
+* Goes through loops, checking if the player collides with cubes, diamonds and the door. The return
+*  value determines what the boolean gravity is (True or False).
+*/
 bool Level::collisionDetection()
 {
 	// Because the player moves, the centre needs to be reset every frame

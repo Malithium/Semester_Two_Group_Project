@@ -1,0 +1,139 @@
+\hypertarget{classCamera}{\section{Camera Class Reference}
+\label{classCamera}\index{Camera@{Camera}}
+}
+
+
+{\ttfamily \#include $<$camera.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+glm\-::mat4 \hyperlink{classCamera_adf09522521723786b9f405c99d6594c7}{get\-Projection\-Matrix} ()
+\item 
+glm\-::mat4 \hyperlink{classCamera_a5569ca5967e01d3344fbf6aba36d9820}{get\-View\-Matrix} ()
+\item 
+void \hyperlink{classCamera_a3be70f5bbcb806eb902a82dbb17e6bc3}{move\-Forward} (float dt)
+\item 
+void \hyperlink{classCamera_a3aa8d25c1e36af10fac1f749a1bb420e}{move\-Backward} (float dt)
+\item 
+void \hyperlink{classCamera_a4ec8b9654ae4fa6274920891321899b7}{mouse\-Movement} (float dt)
+\item 
+void \hyperlink{classCamera_a4d12c50b0d5306860f4e1493374e6fc9}{jumping} (float dt)
+\item 
+bool \hyperlink{classCamera_a08f5ef4dc4d503d539635a6bd80bd095}{currently\-Falling} ()
+\item 
+void \hyperlink{classCamera_a6889ceabc0a2d71fa0eb83268d628b94}{set\-Jump} (bool j)
+\item 
+void \hyperlink{classCamera_aea3ceffb4ff1a209995820e20910f21f}{set\-Gravity} (bool g)
+\item 
+void \hyperlink{classCamera_a6165c2b248c2675194dd6505b0099cf2}{reset\-Pos} ()
+\item 
+void \hyperlink{classCamera_ace63ab83e5ec884fee9d2acad85dde03}{falling} (float d\-Time)
+\item 
+glm\-::vec3 \hyperlink{classCamera_ab779e5b58cc0cddcd0738a13d82aa523}{Get\-Pos} ()
+\item 
+void \hyperlink{classCamera_a0edb621b581804dcd1ed129082045f7e}{camera\-Controls} (S\-D\-L\-\_\-\-Window $\ast$window)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class uses the most mathmatics within our program, following the direction $\ast$ time $\ast$ speed algorithm to move the camera around the game. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classCamera_a0edb621b581804dcd1ed129082045f7e}{\index{Camera@{Camera}!camera\-Controls@{camera\-Controls}}
+\index{camera\-Controls@{camera\-Controls}!Camera@{Camera}}
+\subsubsection[{camera\-Controls}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\-::camera\-Controls (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Window $\ast$}]{window}
+\end{DoxyParamCaption}
+)}}\label{classCamera_a0edb621b581804dcd1ed129082045f7e}
+Several things occur here, but its main purpose is to update the camera position and direction as well as manage variables like jumping and gravity \hypertarget{classCamera_a08f5ef4dc4d503d539635a6bd80bd095}{\index{Camera@{Camera}!currently\-Falling@{currently\-Falling}}
+\index{currently\-Falling@{currently\-Falling}!Camera@{Camera}}
+\subsubsection[{currently\-Falling}]{\setlength{\rightskip}{0pt plus 5cm}bool Camera\-::currently\-Falling (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classCamera_a08f5ef4dc4d503d539635a6bd80bd095}
+Returns the status of gravity \hypertarget{classCamera_ace63ab83e5ec884fee9d2acad85dde03}{\index{Camera@{Camera}!falling@{falling}}
+\index{falling@{falling}!Camera@{Camera}}
+\subsubsection[{falling}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\-::falling (
+\begin{DoxyParamCaption}
+\item[{float}]{d\-Time}
+\end{DoxyParamCaption}
+)}}\label{classCamera_ace63ab83e5ec884fee9d2acad85dde03}
+Y decrements by d\-Time $\ast$ speed \hypertarget{classCamera_ab779e5b58cc0cddcd0738a13d82aa523}{\index{Camera@{Camera}!Get\-Pos@{Get\-Pos}}
+\index{Get\-Pos@{Get\-Pos}!Camera@{Camera}}
+\subsubsection[{Get\-Pos}]{\setlength{\rightskip}{0pt plus 5cm}glm\-::vec3 Camera\-::\-Get\-Pos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classCamera_ab779e5b58cc0cddcd0738a13d82aa523}
+Returns the cameras current position \hypertarget{classCamera_adf09522521723786b9f405c99d6594c7}{\index{Camera@{Camera}!get\-Projection\-Matrix@{get\-Projection\-Matrix}}
+\index{get\-Projection\-Matrix@{get\-Projection\-Matrix}!Camera@{Camera}}
+\subsubsection[{get\-Projection\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}glm\-::mat4 Camera\-::get\-Projection\-Matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classCamera_adf09522521723786b9f405c99d6594c7}
+Need for translating cubes from model to world space \hypertarget{classCamera_a5569ca5967e01d3344fbf6aba36d9820}{\index{Camera@{Camera}!get\-View\-Matrix@{get\-View\-Matrix}}
+\index{get\-View\-Matrix@{get\-View\-Matrix}!Camera@{Camera}}
+\subsubsection[{get\-View\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}glm\-::mat4 Camera\-::get\-View\-Matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classCamera_a5569ca5967e01d3344fbf6aba36d9820}
+Need for translating cubes from model to world space \hypertarget{classCamera_a4d12c50b0d5306860f4e1493374e6fc9}{\index{Camera@{Camera}!jumping@{jumping}}
+\index{jumping@{jumping}!Camera@{Camera}}
+\subsubsection[{jumping}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\-::jumping (
+\begin{DoxyParamCaption}
+\item[{float}]{d\-Time}
+\end{DoxyParamCaption}
+)}}\label{classCamera_a4d12c50b0d5306860f4e1493374e6fc9}
+If jumping is true then Y is incremented by d\-Time $\ast$ speed, but if it exceeds Y + 2 then stop jumping \hypertarget{classCamera_a4ec8b9654ae4fa6274920891321899b7}{\index{Camera@{Camera}!mouse\-Movement@{mouse\-Movement}}
+\index{mouse\-Movement@{mouse\-Movement}!Camera@{Camera}}
+\subsubsection[{mouse\-Movement}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\-::mouse\-Movement (
+\begin{DoxyParamCaption}
+\item[{float}]{d\-Time}
+\end{DoxyParamCaption}
+)}}\label{classCamera_a4ec8b9654ae4fa6274920891321899b7}
+Uses the mouses position to determine where the camera is looking \hypertarget{classCamera_a3aa8d25c1e36af10fac1f749a1bb420e}{\index{Camera@{Camera}!move\-Backward@{move\-Backward}}
+\index{move\-Backward@{move\-Backward}!Camera@{Camera}}
+\subsubsection[{move\-Backward}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\-::move\-Backward (
+\begin{DoxyParamCaption}
+\item[{float}]{d\-Time}
+\end{DoxyParamCaption}
+)}}\label{classCamera_a3aa8d25c1e36af10fac1f749a1bb420e}
+If S is pressed then camera moves forward, based on where the camera is facing. Y is moved by 0.\-0f (So it doesn't move) \hypertarget{classCamera_a3be70f5bbcb806eb902a82dbb17e6bc3}{\index{Camera@{Camera}!move\-Forward@{move\-Forward}}
+\index{move\-Forward@{move\-Forward}!Camera@{Camera}}
+\subsubsection[{move\-Forward}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\-::move\-Forward (
+\begin{DoxyParamCaption}
+\item[{float}]{d\-Time}
+\end{DoxyParamCaption}
+)}}\label{classCamera_a3be70f5bbcb806eb902a82dbb17e6bc3}
+If W is pressed then camera moves forward, based on where the camera is facing. Y is moved by 0.\-0f (So it doesn't move) \hypertarget{classCamera_a6165c2b248c2675194dd6505b0099cf2}{\index{Camera@{Camera}!reset\-Pos@{reset\-Pos}}
+\index{reset\-Pos@{reset\-Pos}!Camera@{Camera}}
+\subsubsection[{reset\-Pos}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\-::reset\-Pos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classCamera_a6165c2b248c2675194dd6505b0099cf2}
+Resets the position of the gravity \hypertarget{classCamera_aea3ceffb4ff1a209995820e20910f21f}{\index{Camera@{Camera}!set\-Gravity@{set\-Gravity}}
+\index{set\-Gravity@{set\-Gravity}!Camera@{Camera}}
+\subsubsection[{set\-Gravity}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\-::set\-Gravity (
+\begin{DoxyParamCaption}
+\item[{bool}]{g}
+\end{DoxyParamCaption}
+)}}\label{classCamera_aea3ceffb4ff1a209995820e20910f21f}
+Sets gravity to true or false \hypertarget{classCamera_a6889ceabc0a2d71fa0eb83268d628b94}{\index{Camera@{Camera}!set\-Jump@{set\-Jump}}
+\index{set\-Jump@{set\-Jump}!Camera@{Camera}}
+\subsubsection[{set\-Jump}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\-::set\-Jump (
+\begin{DoxyParamCaption}
+\item[{bool}]{j}
+\end{DoxyParamCaption}
+)}}\label{classCamera_a6889ceabc0a2d71fa0eb83268d628b94}
+Sets jump to true or false 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/camera.\-h\item 
+src/camera.\-cpp\end{DoxyCompactItemize}

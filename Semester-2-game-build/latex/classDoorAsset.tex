@@ -1,0 +1,90 @@
+\hypertarget{classDoorAsset}{\section{Door\-Asset Class Reference}
+\label{classDoorAsset}\index{Door\-Asset@{Door\-Asset}}
+}
+
+
+{\ttfamily \#include $<$Door\-Asset.\-h$>$}
+
+Inheritance diagram for Door\-Asset\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classDoorAsset}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classDoorAsset_a6b8f73d8bdb9e4e174716ff7231b5fce}{Draw} (G\-Luint program\-I\-D, \hyperlink{classCamera}{Camera} player)
+\item 
+virtual void \hyperlink{classDoorAsset_a50a91283e458295ddd01530f212b366a}{New\-Position} (vec3)
+\item 
+virtual bool \hyperlink{classDoorAsset_ae8fc662305af16640ab6e97cfce29360}{Collides} (const shared\-\_\-ptr$<$ \hyperlink{classBounding}{Bounding} $>$ b)
+\item 
+virtual vec3 \hyperlink{classDoorAsset_ae6f877068ee869b5e9e20eb7d75babba}{Get\-Pos} ()
+\item 
+virtual std\-::shared\-\_\-ptr$<$ \hyperlink{classBounding}{Bounding} $>$ \hyperlink{classDoorAsset_aacd295e8f653de1465c6febd923f439c}{Get\-Box} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This \hyperlink{classGameAsset}{Game\-Asset} is the door which the player will use to transition between the levels. Its design is extremely similar to the cube, except that it is rectangular instead of cuboid. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classDoorAsset_ae8fc662305af16640ab6e97cfce29360}{\index{Door\-Asset@{Door\-Asset}!Collides@{Collides}}
+\index{Collides@{Collides}!DoorAsset@{Door\-Asset}}
+\subsubsection[{Collides}]{\setlength{\rightskip}{0pt plus 5cm}bool Door\-Asset\-::\-Collides (
+\begin{DoxyParamCaption}
+\item[{const shared\-\_\-ptr$<$ {\bf Bounding} $>$}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classDoorAsset_ae8fc662305af16640ab6e97cfce29360}
+Returns true if two things are colliding 
+
+Implements \hyperlink{classGameAsset}{Game\-Asset}.
+
+\hypertarget{classDoorAsset_a6b8f73d8bdb9e4e174716ff7231b5fce}{\index{Door\-Asset@{Door\-Asset}!Draw@{Draw}}
+\index{Draw@{Draw}!DoorAsset@{Door\-Asset}}
+\subsubsection[{Draw}]{\setlength{\rightskip}{0pt plus 5cm}void Door\-Asset\-::\-Draw (
+\begin{DoxyParamCaption}
+\item[{G\-Luint}]{program\-I\-D, }
+\item[{{\bf Camera}}]{player}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classDoorAsset_a6b8f73d8bdb9e4e174716ff7231b5fce}
+Draws the door onto the screen 
+
+Implements \hyperlink{classGameAsset}{Game\-Asset}.
+
+\hypertarget{classDoorAsset_aacd295e8f653de1465c6febd923f439c}{\index{Door\-Asset@{Door\-Asset}!Get\-Box@{Get\-Box}}
+\index{Get\-Box@{Get\-Box}!DoorAsset@{Door\-Asset}}
+\subsubsection[{Get\-Box}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf Bounding} $>$ Door\-Asset\-::\-Get\-Box (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classDoorAsset_aacd295e8f653de1465c6febd923f439c}
+Obtains the assets B\-B 
+
+Implements \hyperlink{classGameAsset}{Game\-Asset}.
+
+\hypertarget{classDoorAsset_ae6f877068ee869b5e9e20eb7d75babba}{\index{Door\-Asset@{Door\-Asset}!Get\-Pos@{Get\-Pos}}
+\index{Get\-Pos@{Get\-Pos}!DoorAsset@{Door\-Asset}}
+\subsubsection[{Get\-Pos}]{\setlength{\rightskip}{0pt plus 5cm}vec3 Door\-Asset\-::\-Get\-Pos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classDoorAsset_ae6f877068ee869b5e9e20eb7d75babba}
+Returns the doors position 
+
+Implements \hyperlink{classGameAsset}{Game\-Asset}.
+
+\hypertarget{classDoorAsset_a50a91283e458295ddd01530f212b366a}{\index{Door\-Asset@{Door\-Asset}!New\-Position@{New\-Position}}
+\index{New\-Position@{New\-Position}!DoorAsset@{Door\-Asset}}
+\subsubsection[{New\-Position}]{\setlength{\rightskip}{0pt plus 5cm}void Door\-Asset\-::\-New\-Position (
+\begin{DoxyParamCaption}
+\item[{vec3}]{pos}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classDoorAsset_a50a91283e458295ddd01530f212b366a}
+Sets a new translating position 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/Door\-Asset.\-h\item 
+src/Door\-Asset.\-cpp\end{DoxyCompactItemize}

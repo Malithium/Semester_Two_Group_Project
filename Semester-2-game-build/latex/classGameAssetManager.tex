@@ -1,0 +1,118 @@
+\hypertarget{classGameAssetManager}{\section{Game\-Asset\-Manager Class Reference}
+\label{classGameAssetManager}\index{Game\-Asset\-Manager@{Game\-Asset\-Manager}}
+}
+
+
+{\ttfamily \#include $<$game\-Asset\-Manager.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGameAssetManager_a84d0445928649e0d1e0f8e31ee137b17}{Game\-Asset\-Manager} ()
+\item 
+\hyperlink{classGameAssetManager_a1270bd61ecbcca563f079803e40c9b77}{$\sim$\-Game\-Asset\-Manager} ()
+\item 
+void \hyperlink{classGameAssetManager_ad3de8ff00d55ba04728b1de8213b2349}{Add\-Asset} (std\-::shared\-\_\-ptr$<$ \hyperlink{classGameAsset}{Game\-Asset} $>$)
+\item 
+void \hyperlink{classGameAssetManager_a32837132bd70a9a9ed537323c2d3d886}{Draw} ()
+\item 
+void \hyperlink{classGameAssetManager_ac9dfdde0628476af5b77b60d461041f1}{Move} (int num, glm\-::vec3 pos)
+\item 
+bool \hyperlink{classGameAssetManager_a79e400319fb874ae0301a8b0e7926737}{Collision} (int n1, const shared\-\_\-ptr$<$ \hyperlink{classBounding}{Bounding} $>$ b)
+\item 
+void \hyperlink{classGameAssetManager_a9c2f2b3bae3f4752be16e850e9c45136}{Clear} ()
+\item 
+void \hyperlink{classGameAssetManager_ae7e76a05368ce0887ed72a9ee39329eb}{Intelligence} (int cubes, int diamonds)
+\item 
+void \hyperlink{classGameAssetManager_a2c87c005095eadb1669428dfe3a16423}{Remove} (int num)
+\item 
+int \hyperlink{classGameAssetManager_ae0e0f79e6dbe422ce5d3c4fd5e20d032}{Size} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classGameAssetManager}{Game\-Asset\-Manager} is a container for Game\-Assets. It also provides utility functions to to create a simple Open\-G\-L program that can be used to draw a simple \hyperlink{classGameAsset}{Game\-Asset}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classGameAssetManager_a84d0445928649e0d1e0f8e31ee137b17}{\index{Game\-Asset\-Manager@{Game\-Asset\-Manager}!Game\-Asset\-Manager@{Game\-Asset\-Manager}}
+\index{Game\-Asset\-Manager@{Game\-Asset\-Manager}!GameAssetManager@{Game\-Asset\-Manager}}
+\subsubsection[{Game\-Asset\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Game\-Asset\-Manager\-::\-Game\-Asset\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGameAssetManager_a84d0445928649e0d1e0f8e31ee137b17}
+Creates a \hyperlink{classGameAssetManager}{Game\-Asset\-Manager} to load the correct shaders based on the Application\-Mode. \hypertarget{classGameAssetManager_a1270bd61ecbcca563f079803e40c9b77}{\index{Game\-Asset\-Manager@{Game\-Asset\-Manager}!$\sim$\-Game\-Asset\-Manager@{$\sim$\-Game\-Asset\-Manager}}
+\index{$\sim$\-Game\-Asset\-Manager@{$\sim$\-Game\-Asset\-Manager}!GameAssetManager@{Game\-Asset\-Manager}}
+\subsubsection[{$\sim$\-Game\-Asset\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Game\-Asset\-Manager\-::$\sim$\-Game\-Asset\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGameAssetManager_a1270bd61ecbcca563f079803e40c9b77}
+Deletes the program\-I\-D, the pointer to the shaders 
+
+\subsection{Member Function Documentation}
+\hypertarget{classGameAssetManager_ad3de8ff00d55ba04728b1de8213b2349}{\index{Game\-Asset\-Manager@{Game\-Asset\-Manager}!Add\-Asset@{Add\-Asset}}
+\index{Add\-Asset@{Add\-Asset}!GameAssetManager@{Game\-Asset\-Manager}}
+\subsubsection[{Add\-Asset}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-Asset\-Manager\-::\-Add\-Asset (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Game\-Asset} $>$}]{the\-\_\-asset}
+\end{DoxyParamCaption}
+)}}\label{classGameAssetManager_ad3de8ff00d55ba04728b1de8213b2349}
+Adds a \hyperlink{classGameAsset}{Game\-Asset} to the scene graph. \hypertarget{classGameAssetManager_a9c2f2b3bae3f4752be16e850e9c45136}{\index{Game\-Asset\-Manager@{Game\-Asset\-Manager}!Clear@{Clear}}
+\index{Clear@{Clear}!GameAssetManager@{Game\-Asset\-Manager}}
+\subsubsection[{Clear}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-Asset\-Manager\-::\-Clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGameAssetManager_a9c2f2b3bae3f4752be16e850e9c45136}
+Empties the draw vector, allowing for the next levels cubes to load \hypertarget{classGameAssetManager_a79e400319fb874ae0301a8b0e7926737}{\index{Game\-Asset\-Manager@{Game\-Asset\-Manager}!Collision@{Collision}}
+\index{Collision@{Collision}!GameAssetManager@{Game\-Asset\-Manager}}
+\subsubsection[{Collision}]{\setlength{\rightskip}{0pt plus 5cm}bool Game\-Asset\-Manager\-::\-Collision (
+\begin{DoxyParamCaption}
+\item[{int}]{n1, }
+\item[{const shared\-\_\-ptr$<$ {\bf Bounding} $>$}]{b}
+\end{DoxyParamCaption}
+)}}\label{classGameAssetManager_a79e400319fb874ae0301a8b0e7926737}
+Checks if two objects are colliding \hypertarget{classGameAssetManager_a32837132bd70a9a9ed537323c2d3d886}{\index{Game\-Asset\-Manager@{Game\-Asset\-Manager}!Draw@{Draw}}
+\index{Draw@{Draw}!GameAssetManager@{Game\-Asset\-Manager}}
+\subsubsection[{Draw}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-Asset\-Manager\-::\-Draw (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGameAssetManager_a32837132bd70a9a9ed537323c2d3d886}
+Draws each \hyperlink{classGameAsset}{Game\-Asset} in the scene graph. \hypertarget{classGameAssetManager_ae7e76a05368ce0887ed72a9ee39329eb}{\index{Game\-Asset\-Manager@{Game\-Asset\-Manager}!Intelligence@{Intelligence}}
+\index{Intelligence@{Intelligence}!GameAssetManager@{Game\-Asset\-Manager}}
+\subsubsection[{Intelligence}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-Asset\-Manager\-::\-Intelligence (
+\begin{DoxyParamCaption}
+\item[{int}]{cubes, }
+\item[{int}]{diamonds}
+\end{DoxyParamCaption}
+)}}\label{classGameAssetManager_ae7e76a05368ce0887ed72a9ee39329eb}
+Follows an algorithm which makes the diamond shy away from the player, causing it to retreat in the opposite direction of the player. \hypertarget{classGameAssetManager_ac9dfdde0628476af5b77b60d461041f1}{\index{Game\-Asset\-Manager@{Game\-Asset\-Manager}!Move@{Move}}
+\index{Move@{Move}!GameAssetManager@{Game\-Asset\-Manager}}
+\subsubsection[{Move}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-Asset\-Manager\-::\-Move (
+\begin{DoxyParamCaption}
+\item[{int}]{num, }
+\item[{glm\-::vec3}]{pos}
+\end{DoxyParamCaption}
+)}}\label{classGameAssetManager_ac9dfdde0628476af5b77b60d461041f1}
+Changes the vec3 of an asset, transitioning it \hypertarget{classGameAssetManager_a2c87c005095eadb1669428dfe3a16423}{\index{Game\-Asset\-Manager@{Game\-Asset\-Manager}!Remove@{Remove}}
+\index{Remove@{Remove}!GameAssetManager@{Game\-Asset\-Manager}}
+\subsubsection[{Remove}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-Asset\-Manager\-::\-Remove (
+\begin{DoxyParamCaption}
+\item[{int}]{num}
+\end{DoxyParamCaption}
+)}}\label{classGameAssetManager_a2c87c005095eadb1669428dfe3a16423}
+Removes an asset from the list \hypertarget{classGameAssetManager_ae0e0f79e6dbe422ce5d3c4fd5e20d032}{\index{Game\-Asset\-Manager@{Game\-Asset\-Manager}!Size@{Size}}
+\index{Size@{Size}!GameAssetManager@{Game\-Asset\-Manager}}
+\subsubsection[{Size}]{\setlength{\rightskip}{0pt plus 5cm}int Game\-Asset\-Manager\-::\-Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGameAssetManager_ae0e0f79e6dbe422ce5d3c4fd5e20d032}
+Returns the size of the vector 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/game\-Asset\-Manager.\-h\item 
+src/game\-Asset\-Manager.\-cpp\end{DoxyCompactItemize}

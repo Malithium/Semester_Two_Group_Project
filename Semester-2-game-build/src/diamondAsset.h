@@ -19,6 +19,13 @@
 
 using namespace glm;
 
+/**
+* The design for this GameAsset was to turn the cube 90% and bring the points
+* together, so it becomes a diamond. It follows the same element buffer as the
+* cube, so you'll notice a lot of similarities between this and the CubeAsset 
+* but the points had to be very different.
+*/
+
 class DiamondAsset : public GameAsset {
 	public:
 	  explicit DiamondAsset();

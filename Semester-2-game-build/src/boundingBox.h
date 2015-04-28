@@ -15,6 +15,13 @@
 using namespace std;
 using namespace glm;
 
+/**
+* This class follows an algorithm detect if the position and sizes of the
+* assets clash within each other. The class holds multiple methods to return 
+* and set information for each of the assets. Being able to access this 
+* information makes the algorithm successful. 
+*/
+
 class Bounding {
 	public:
 	  Bounding(const vec3, float, float, float);

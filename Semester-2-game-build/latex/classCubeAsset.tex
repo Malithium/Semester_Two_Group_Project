@@ -1,0 +1,93 @@
+\hypertarget{classCubeAsset}{\section{Cube\-Asset Class Reference}
+\label{classCubeAsset}\index{Cube\-Asset@{Cube\-Asset}}
+}
+
+
+{\ttfamily \#include $<$Cube\-Asset.\-h$>$}
+
+Inheritance diagram for Cube\-Asset\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCubeAsset}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classCubeAsset_a9eb4b26fb2bab2c821cf8566b44dabb8}{{\bfseries Cube\-Asset} (int num)}\label{classCubeAsset_a9eb4b26fb2bab2c821cf8566b44dabb8}
+
+\item 
+virtual void \hyperlink{classCubeAsset_a7396ae86ceb988edd1fb9b21903cdaa4}{Draw} (G\-Luint program\-I\-D, \hyperlink{classCamera}{Camera} player)
+\item 
+virtual void \hyperlink{classCubeAsset_a4a934009bd945ac659b2658400af505d}{New\-Position} (vec3)
+\item 
+virtual bool \hyperlink{classCubeAsset_a4ee70be683d43e15041ee1cfb44cc0f4}{Collides} (const shared\-\_\-ptr$<$ \hyperlink{classBounding}{Bounding} $>$ b)
+\item 
+virtual vec3 \hyperlink{classCubeAsset_a82c603031c83dce2921aa2611e5385c7}{Get\-Pos} ()
+\item 
+virtual std\-::shared\-\_\-ptr$<$ \hyperlink{classBounding}{Bounding} $>$ \hyperlink{classCubeAsset_a8de727c3264ddba5167b2cf453258eb1}{Get\-Box} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The fire \hyperlink{classGameAsset}{Game\-Asset} which reads in an int to determine its x and y factor, meaning that this asset will vary in size. It also uses this int to create a bounding box of a certain size. This change allowed us to make the levels more interesting, and use the varying cube sizes to add further challenge to the game. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classCubeAsset_a4ee70be683d43e15041ee1cfb44cc0f4}{\index{Cube\-Asset@{Cube\-Asset}!Collides@{Collides}}
+\index{Collides@{Collides}!CubeAsset@{Cube\-Asset}}
+\subsubsection[{Collides}]{\setlength{\rightskip}{0pt plus 5cm}bool Cube\-Asset\-::\-Collides (
+\begin{DoxyParamCaption}
+\item[{const shared\-\_\-ptr$<$ {\bf Bounding} $>$}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classCubeAsset_a4ee70be683d43e15041ee1cfb44cc0f4}
+Returns true if two things are colliding 
+
+Implements \hyperlink{classGameAsset}{Game\-Asset}.
+
+\hypertarget{classCubeAsset_a7396ae86ceb988edd1fb9b21903cdaa4}{\index{Cube\-Asset@{Cube\-Asset}!Draw@{Draw}}
+\index{Draw@{Draw}!CubeAsset@{Cube\-Asset}}
+\subsubsection[{Draw}]{\setlength{\rightskip}{0pt plus 5cm}void Cube\-Asset\-::\-Draw (
+\begin{DoxyParamCaption}
+\item[{G\-Luint}]{program\-I\-D, }
+\item[{{\bf Camera}}]{player}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classCubeAsset_a7396ae86ceb988edd1fb9b21903cdaa4}
+Draws the cubes onto the screen 
+
+Implements \hyperlink{classGameAsset}{Game\-Asset}.
+
+\hypertarget{classCubeAsset_a8de727c3264ddba5167b2cf453258eb1}{\index{Cube\-Asset@{Cube\-Asset}!Get\-Box@{Get\-Box}}
+\index{Get\-Box@{Get\-Box}!CubeAsset@{Cube\-Asset}}
+\subsubsection[{Get\-Box}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf Bounding} $>$ Cube\-Asset\-::\-Get\-Box (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classCubeAsset_a8de727c3264ddba5167b2cf453258eb1}
+Obtains the assets B\-B 
+
+Implements \hyperlink{classGameAsset}{Game\-Asset}.
+
+\hypertarget{classCubeAsset_a82c603031c83dce2921aa2611e5385c7}{\index{Cube\-Asset@{Cube\-Asset}!Get\-Pos@{Get\-Pos}}
+\index{Get\-Pos@{Get\-Pos}!CubeAsset@{Cube\-Asset}}
+\subsubsection[{Get\-Pos}]{\setlength{\rightskip}{0pt plus 5cm}vec3 Cube\-Asset\-::\-Get\-Pos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classCubeAsset_a82c603031c83dce2921aa2611e5385c7}
+Returns the cubes position 
+
+Implements \hyperlink{classGameAsset}{Game\-Asset}.
+
+\hypertarget{classCubeAsset_a4a934009bd945ac659b2658400af505d}{\index{Cube\-Asset@{Cube\-Asset}!New\-Position@{New\-Position}}
+\index{New\-Position@{New\-Position}!CubeAsset@{Cube\-Asset}}
+\subsubsection[{New\-Position}]{\setlength{\rightskip}{0pt plus 5cm}void Cube\-Asset\-::\-New\-Position (
+\begin{DoxyParamCaption}
+\item[{vec3}]{pos}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classCubeAsset_a4a934009bd945ac659b2658400af505d}
+Sets a new translating position, as well as a switch to handle B\-B issue 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/Cube\-Asset.\-h\item 
+src/Cube\-Asset.\-cpp\end{DoxyCompactItemize}

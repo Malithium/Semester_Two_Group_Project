@@ -1,0 +1,39 @@
+\hypertarget{classGameAsset}{\section{Game\-Asset Class Reference}
+\label{classGameAsset}\index{Game\-Asset@{Game\-Asset}}
+}
+
+
+{\ttfamily \#include $<$game\-Asset.\-h$>$}
+
+Inheritance diagram for Game\-Asset\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classGameAsset}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classGameAsset_a92268ca0263abe7b9872b77715b50738}{virtual void {\bfseries Draw} (G\-Luint program\-I\-D, \hyperlink{classCamera}{Camera} player)=0}\label{classGameAsset_a92268ca0263abe7b9872b77715b50738}
+
+\item 
+\hypertarget{classGameAsset_a2d2ea486dabaf5f437097d5067fddb2e}{virtual void {\bfseries New\-Position} (glm\-::vec3)=0}\label{classGameAsset_a2d2ea486dabaf5f437097d5067fddb2e}
+
+\item 
+\hypertarget{classGameAsset_aea9cba492bd511d352743aa2ca997987}{virtual bool {\bfseries Collides} (shared\-\_\-ptr$<$ \hyperlink{classBounding}{Bounding} $>$)=0}\label{classGameAsset_aea9cba492bd511d352743aa2ca997987}
+
+\item 
+\hypertarget{classGameAsset_a15c1762c2ece860d861cf03109a06093}{virtual vec3 {\bfseries Get\-Pos} ()=0}\label{classGameAsset_a15c1762c2ece860d861cf03109a06093}
+
+\item 
+\hypertarget{classGameAsset_a1b58e9f5e9603a0e9bd014bc466c30bd}{virtual std\-::shared\-\_\-ptr$<$ \hyperlink{classBounding}{Bounding} $>$ {\bfseries Get\-Box} ()=0}\label{classGameAsset_a1b58e9f5e9603a0e9bd014bc466c30bd}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Creates a standard for the gameassetmanager to create a vector of this types allowing it to store the different cube types, such as diamonds and doors, in a single vector. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/game\-Asset.\-h\end{DoxyCompactItemize}

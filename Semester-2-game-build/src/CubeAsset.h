@@ -19,6 +19,14 @@
 
 using namespace glm;
 
+/**
+* The fire GameAsset which reads in an int to determine its x and y factor, 
+* meaning that this asset will vary in size. It also uses this int to 
+* create a bounding box of a certain size. This change allowed us to make 
+* the levels more interesting, and use the varying cube sizes to add further 
+* challenge to the game. 
+*/
+
 class CubeAsset : public GameAsset {
 	public:
 	  explicit CubeAsset(int num);

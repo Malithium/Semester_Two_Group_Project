@@ -24,6 +24,13 @@
 #include <src/camera.h>
 #include <src/events.h>
 
+/**
+* This class runs the inner loop for all the individual levels, which means
+* receiving inputs, checking collision, drawing the cubes. It is also 
+* responsible reading cube positions, from the .json files and then passing
+* them to the gameassetmanager to manipulate them. 
+*/
+
 class Level  {
   public:
     bool runLevel(int lvl, SDL_Window* window);

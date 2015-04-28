@@ -118,6 +118,7 @@ bool Level::fillVector(int lvl)
 */
 int Level::blockPositions()
 {  
+   glm::vec3 pos;
    int j = 0;
    int num = 0;
    int d = 0;
@@ -133,7 +134,7 @@ int Level::blockPositions()
      switch(j)
      {
         case 0:
-	glm::vec3 pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
+	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
 	// Adds a large cube asset to the asset vector
 	asset_manager->AddAsset(std::make_shared<CubeAsset>(3)); 
 	// Transitions this cube by pos
@@ -143,21 +144,21 @@ int Level::blockPositions()
 	break;
 
 	case 1:
-	glm::vec3 pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2)); 
+	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2)); 
 	asset_manager->AddAsset(std::make_shared<CubeAsset>(2));
 	asset_manager->Move(num, pos);
 	cubes++;
 	break;
 
 	case 2:
-	glm::vec3 pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
+	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
 	asset_manager->AddAsset(std::make_shared<CubeAsset>(1));
 	asset_manager->Move(num, pos);
 	cubes++;
 	break;
 
 	case 3:
-	glm::vec3 pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
+	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
 	asset_manager->AddAsset(std::make_shared<DiamondAsset>());
 	asset_manager->Move(num, pos);
 	// Add +1 to the amount of diamonds
@@ -165,7 +166,7 @@ int Level::blockPositions()
 	break;
 
 	case 4:
-	glm::vec3 pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
+	pos = glm::vec3(cubepositions.at(i), cubepositions.at(i+1), cubepositions.at(i+2));
 	asset_manager->AddAsset(std::make_shared<DoorAsset>());
 	asset_manager->Move(num, pos);
 	// For door position

@@ -7,7 +7,7 @@ glm::mat4 projectionMatrix;
 bool jump, gravity;
 
 //our position vector
-glm::vec3 position = glm::vec3(0, 2, 0); // Collision with (0, 0, 0) cube is an issue
+glm::vec3 position = glm::vec3(0, 2, 0);
 glm::vec3 direction;
 
 //The angles we will be using

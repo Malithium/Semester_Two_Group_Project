@@ -19,6 +19,12 @@
 
 using namespace glm;
 
+/**
+* This GameAsset is the door which the player will use to transition between
+* the levels. Its design is extremely similar to the cube, except that it is
+* rectangular instead of cuboid.   
+*/
+
 class DoorAsset : public GameAsset {
 	public:
 	  explicit DoorAsset();

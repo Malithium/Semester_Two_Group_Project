@@ -8,6 +8,12 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <iostream>
 
+/**
+* This class uses the most mathmatics within our program, following the
+* direction * time * speed algorithm to move the camera around the game
+* world. 
+*/
+
 class Camera
 {
 

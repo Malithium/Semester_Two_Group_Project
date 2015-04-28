@@ -1,0 +1,90 @@
+\hypertarget{classDiamondAsset}{\section{Diamond\-Asset Class Reference}
+\label{classDiamondAsset}\index{Diamond\-Asset@{Diamond\-Asset}}
+}
+
+
+{\ttfamily \#include $<$diamond\-Asset.\-h$>$}
+
+Inheritance diagram for Diamond\-Asset\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classDiamondAsset}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classDiamondAsset_a802d11c439859b048533a94fbe662e96}{Draw} (G\-Luint program\-I\-D, \hyperlink{classCamera}{Camera} player)
+\item 
+virtual void \hyperlink{classDiamondAsset_a266fe301cfa7fc82195d85d29901a6b8}{New\-Position} (vec3)
+\item 
+virtual bool \hyperlink{classDiamondAsset_af6f6a31e3f6c52e1980f270fd153f0ae}{Collides} (const shared\-\_\-ptr$<$ \hyperlink{classBounding}{Bounding} $>$ b)
+\item 
+virtual vec3 \hyperlink{classDiamondAsset_aa387857fb5c62227b671500b28cee4df}{Get\-Pos} ()
+\item 
+virtual std\-::shared\-\_\-ptr$<$ \hyperlink{classBounding}{Bounding} $>$ \hyperlink{classDiamondAsset_acb927e5213c69cf7042bdb80b984b033}{Get\-Box} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The design for this \hyperlink{classGameAsset}{Game\-Asset} was to turn the cube 90\% and bring the points together, so it becomes a diamond. It follows the same element buffer as the cube, so you'll notice a lot of similarities between this and the \hyperlink{classCubeAsset}{Cube\-Asset} but the points had to be very different. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classDiamondAsset_af6f6a31e3f6c52e1980f270fd153f0ae}{\index{Diamond\-Asset@{Diamond\-Asset}!Collides@{Collides}}
+\index{Collides@{Collides}!DiamondAsset@{Diamond\-Asset}}
+\subsubsection[{Collides}]{\setlength{\rightskip}{0pt plus 5cm}bool Diamond\-Asset\-::\-Collides (
+\begin{DoxyParamCaption}
+\item[{const shared\-\_\-ptr$<$ {\bf Bounding} $>$}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classDiamondAsset_af6f6a31e3f6c52e1980f270fd153f0ae}
+Returns true if two things are colliding 
+
+Implements \hyperlink{classGameAsset}{Game\-Asset}.
+
+\hypertarget{classDiamondAsset_a802d11c439859b048533a94fbe662e96}{\index{Diamond\-Asset@{Diamond\-Asset}!Draw@{Draw}}
+\index{Draw@{Draw}!DiamondAsset@{Diamond\-Asset}}
+\subsubsection[{Draw}]{\setlength{\rightskip}{0pt plus 5cm}void Diamond\-Asset\-::\-Draw (
+\begin{DoxyParamCaption}
+\item[{G\-Luint}]{program\-I\-D, }
+\item[{{\bf Camera}}]{player}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classDiamondAsset_a802d11c439859b048533a94fbe662e96}
+Draws the diamonds onto the screen 
+
+Implements \hyperlink{classGameAsset}{Game\-Asset}.
+
+\hypertarget{classDiamondAsset_acb927e5213c69cf7042bdb80b984b033}{\index{Diamond\-Asset@{Diamond\-Asset}!Get\-Box@{Get\-Box}}
+\index{Get\-Box@{Get\-Box}!DiamondAsset@{Diamond\-Asset}}
+\subsubsection[{Get\-Box}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf Bounding} $>$ Diamond\-Asset\-::\-Get\-Box (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classDiamondAsset_acb927e5213c69cf7042bdb80b984b033}
+Obtains the assets B\-B 
+
+Implements \hyperlink{classGameAsset}{Game\-Asset}.
+
+\hypertarget{classDiamondAsset_aa387857fb5c62227b671500b28cee4df}{\index{Diamond\-Asset@{Diamond\-Asset}!Get\-Pos@{Get\-Pos}}
+\index{Get\-Pos@{Get\-Pos}!DiamondAsset@{Diamond\-Asset}}
+\subsubsection[{Get\-Pos}]{\setlength{\rightskip}{0pt plus 5cm}vec3 Diamond\-Asset\-::\-Get\-Pos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classDiamondAsset_aa387857fb5c62227b671500b28cee4df}
+Returns the diamonds position 
+
+Implements \hyperlink{classGameAsset}{Game\-Asset}.
+
+\hypertarget{classDiamondAsset_a266fe301cfa7fc82195d85d29901a6b8}{\index{Diamond\-Asset@{Diamond\-Asset}!New\-Position@{New\-Position}}
+\index{New\-Position@{New\-Position}!DiamondAsset@{Diamond\-Asset}}
+\subsubsection[{New\-Position}]{\setlength{\rightskip}{0pt plus 5cm}void Diamond\-Asset\-::\-New\-Position (
+\begin{DoxyParamCaption}
+\item[{vec3}]{pos}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classDiamondAsset_a266fe301cfa7fc82195d85d29901a6b8}
+Sets a new translating position 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/diamond\-Asset.\-h\item 
+src/diamond\-Asset.\-cpp\end{DoxyCompactItemize}

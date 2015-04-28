@@ -11,6 +11,12 @@
 #include <src/camera.h>
 #include <src/boundingBox.h>
 
+/**
+* Creates a standard for the gameassetmanager to create a vector of this types
+* allowing it to store the different cube types, such as diamonds and doors, in
+* a single vector. 
+*/
+
 class GameAsset {
 	public:
 	 virtual void Draw(GLuint programID, Camera player) = 0;

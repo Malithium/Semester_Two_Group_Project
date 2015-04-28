@@ -1,0 +1,76 @@
+\hypertarget{classBounding}{\section{Bounding Class Reference}
+\label{classBounding}\index{Bounding@{Bounding}}
+}
+
+
+{\ttfamily \#include $<$bounding\-Box.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classBounding_ac7ed2b50effbd595ded655c77dc5a5bc}{{\bfseries Bounding} (const vec3, float, float, float)}\label{classBounding_ac7ed2b50effbd595ded655c77dc5a5bc}
+
+\item 
+float \hyperlink{classBounding_ad1fc6401438da086ae3a74cf5b942d9a}{get\-Width} ()
+\item 
+float \hyperlink{classBounding_a738f0fd593ae4edd83dc73f26f8ea964}{get\-Height} ()
+\item 
+float \hyperlink{classBounding_ac5c3654600a9a21d5eae7f6f84ce6137}{get\-Length} ()
+\item 
+void \hyperlink{classBounding_a276a1ec077a1006cd34a9bd16bbb0fec}{Set\-Centre} (vec3)
+\item 
+bool \hyperlink{classBounding_a95597f66c6d2bb5b018fdd7eb30b0759}{Collides\-With} (const shared\-\_\-ptr$<$ \hyperlink{classBounding}{Bounding} $>$)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classBounding_a5dbd8bfe5d2b3e3e41c2e1e12e53c066}{vec3 {\bfseries pos}}\label{classBounding_a5dbd8bfe5d2b3e3e41c2e1e12e53c066}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class follows an algorithm detect if the position and sizes of the assets clash within each other. The class holds multiple methods to return and set information for each of the assets. Being able to access this information makes the algorithm successful. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classBounding_a95597f66c6d2bb5b018fdd7eb30b0759}{\index{Bounding@{Bounding}!Collides\-With@{Collides\-With}}
+\index{Collides\-With@{Collides\-With}!Bounding@{Bounding}}
+\subsubsection[{Collides\-With}]{\setlength{\rightskip}{0pt plus 5cm}bool Bounding\-::\-Collides\-With (
+\begin{DoxyParamCaption}
+\item[{const shared\-\_\-ptr$<$ {\bf Bounding} $>$}]{b}
+\end{DoxyParamCaption}
+)}}\label{classBounding_a95597f66c6d2bb5b018fdd7eb30b0759}
+Returns true if two objects are colliding -\/ uses an algorithm from commented link \hypertarget{classBounding_a738f0fd593ae4edd83dc73f26f8ea964}{\index{Bounding@{Bounding}!get\-Height@{get\-Height}}
+\index{get\-Height@{get\-Height}!Bounding@{Bounding}}
+\subsubsection[{get\-Height}]{\setlength{\rightskip}{0pt plus 5cm}float Bounding\-::get\-Height (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBounding_a738f0fd593ae4edd83dc73f26f8ea964}
+Returns height \hypertarget{classBounding_ac5c3654600a9a21d5eae7f6f84ce6137}{\index{Bounding@{Bounding}!get\-Length@{get\-Length}}
+\index{get\-Length@{get\-Length}!Bounding@{Bounding}}
+\subsubsection[{get\-Length}]{\setlength{\rightskip}{0pt plus 5cm}float Bounding\-::get\-Length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBounding_ac5c3654600a9a21d5eae7f6f84ce6137}
+Returns length \hypertarget{classBounding_ad1fc6401438da086ae3a74cf5b942d9a}{\index{Bounding@{Bounding}!get\-Width@{get\-Width}}
+\index{get\-Width@{get\-Width}!Bounding@{Bounding}}
+\subsubsection[{get\-Width}]{\setlength{\rightskip}{0pt plus 5cm}float Bounding\-::get\-Width (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBounding_ad1fc6401438da086ae3a74cf5b942d9a}
+Returns width \hypertarget{classBounding_a276a1ec077a1006cd34a9bd16bbb0fec}{\index{Bounding@{Bounding}!Set\-Centre@{Set\-Centre}}
+\index{Set\-Centre@{Set\-Centre}!Bounding@{Bounding}}
+\subsubsection[{Set\-Centre}]{\setlength{\rightskip}{0pt plus 5cm}void Bounding\-::\-Set\-Centre (
+\begin{DoxyParamCaption}
+\item[{vec3}]{v}
+\end{DoxyParamCaption}
+)}}\label{classBounding_a276a1ec077a1006cd34a9bd16bbb0fec}
+Sets a new centre point 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/bounding\-Box.\-h\item 
+src/bounding\-Box.\-cpp\end{DoxyCompactItemize}

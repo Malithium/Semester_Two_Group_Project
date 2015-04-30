@@ -78,7 +78,7 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = x86_64-unknown-linux-gnu
 host_triplet = x86_64-unknown-linux-gnu
-bin_PROGRAMS = shaderexample$(EXEEXT)
+bin_PROGRAMS = CubeJumper$(EXEEXT)
 subdir = src
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/depcomp
@@ -96,12 +96,12 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_shaderexample_OBJECTS = main.$(OBJEXT) level.$(OBJEXT) \
+am_CubeJumper_OBJECTS = main.$(OBJEXT) level.$(OBJEXT) \
 	camera.$(OBJEXT) gameAssetManager.$(OBJEXT) events.$(OBJEXT) \
 	diamondAsset.$(OBJEXT) CubeAsset.$(OBJEXT) DoorAsset.$(OBJEXT) \
 	boundingBox.$(OBJEXT)
-shaderexample_OBJECTS = $(am_shaderexample_OBJECTS)
-shaderexample_LDADD = $(LDADD)
+CubeJumper_OBJECTS = $(am_CubeJumper_OBJECTS)
+CubeJumper_LDADD = $(LDADD)
 AM_V_lt = $(am__v_lt_$(V))
 am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
 am__v_lt_0 = --silent
@@ -140,8 +140,8 @@ AM_V_CXXLD = $(am__v_CXXLD_$(V))
 am__v_CXXLD_ = $(am__v_CXXLD_$(AM_DEFAULT_VERBOSITY))
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
-SOURCES = $(shaderexample_SOURCES)
-DIST_SOURCES = $(shaderexample_SOURCES)
+SOURCES = $(CubeJumper_SOURCES)
+DIST_SOURCES = $(CubeJumper_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -167,13 +167,13 @@ am__define_uniq_tagged_files = \
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/jglp10/Desktop/a/Semester-2-game-build/missing aclocal-1.13
+ACLOCAL = ${SHELL} /home/kt172/Desktop/a/b/missing aclocal-1.13
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AR = ar
-AUTOCONF = ${SHELL} /home/jglp10/Desktop/a/Semester-2-game-build/missing autoconf
-AUTOHEADER = ${SHELL} /home/jglp10/Desktop/a/Semester-2-game-build/missing autoheader
-AUTOMAKE = ${SHELL} /home/jglp10/Desktop/a/Semester-2-game-build/missing automake-1.13
+AUTOCONF = ${SHELL} /home/kt172/Desktop/a/b/missing autoconf
+AUTOHEADER = ${SHELL} /home/kt172/Desktop/a/b/missing autoheader
+AUTOMAKE = ${SHELL} /home/kt172/Desktop/a/b/missing automake-1.13
 AWK = gawk
 BOOST_CPPFLAGS = 
 BOOST_LDPATH = 
@@ -218,7 +218,7 @@ LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/jglp10/Desktop/a/Semester-2-game-build/missing makeinfo
+MAKEINFO = ${SHELL} /home/kt172/Desktop/a/b/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /usr/bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -244,10 +244,10 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = strip
 VERSION = 0.1
-abs_builddir = /home/jglp10/Desktop/a/Semester-2-game-build/src
-abs_srcdir = /home/jglp10/Desktop/a/Semester-2-game-build/src
-abs_top_builddir = /home/jglp10/Desktop/a/Semester-2-game-build
-abs_top_srcdir = /home/jglp10/Desktop/a/Semester-2-game-build
+abs_builddir = /home/kt172/Desktop/a/b/src
+abs_srcdir = /home/kt172/Desktop/a/b/src
+abs_top_builddir = /home/kt172/Desktop/a/b
+abs_top_srcdir = /home/kt172/Desktop/a/b
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
@@ -281,7 +281,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/jglp10/Desktop/a/Semester-2-game-build/install-sh
+install_sh = ${SHELL} /home/kt172/Desktop/a/b/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -304,7 +304,7 @@ top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
 EXTRA_DIST = level.h camera.h gameAssetManager.h gameAsset.h events.h diamondAsset.h CubeAsset.h DoorAsset.h boundingBox.h
-shaderexample_SOURCES = main.cpp level.cpp camera.cpp gameAssetManager.cpp events.cpp diamondAsset.cpp CubeAsset.cpp DoorAsset.cpp boundingBox.cpp
+CubeJumper_SOURCES = main.cpp level.cpp camera.cpp gameAssetManager.cpp events.cpp diamondAsset.cpp CubeAsset.cpp DoorAsset.cpp boundingBox.cpp
 AM_CPPFLAGS = -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES -std=c++11 \
 	$(gl_CFLAGS) $(glew_CFLAGS) $(sdl2_CFLAGS) $(BOOST_CPPFLAGS)
 all: all-am
@@ -391,9 +391,9 @@ clean-binPROGRAMS:
 	echo " rm -f" $$list; \
 	rm -f $$list
 
-shaderexample$(EXEEXT): $(shaderexample_OBJECTS) $(shaderexample_DEPENDENCIES) $(EXTRA_shaderexample_DEPENDENCIES) 
-	@rm -f shaderexample$(EXEEXT)
-	$(AM_V_CXXLD)$(CXXLINK) $(shaderexample_OBJECTS) $(shaderexample_LDADD) $(LIBS)
+CubeJumper$(EXEEXT): $(CubeJumper_OBJECTS) $(CubeJumper_DEPENDENCIES) $(EXTRA_CubeJumper_DEPENDENCIES) 
+	@rm -f CubeJumper$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(CubeJumper_OBJECTS) $(CubeJumper_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)

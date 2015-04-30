@@ -1,0 +1,9 @@
+Must be done in this order!
+
+
+doxygen -g  (creates a new doxygen file)
+
+doxygen  (runs doxygen)
+
+xdg-open html/index.html  (opens the html file)
+ 

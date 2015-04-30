@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['remove',['Remove',['../classGameAssetManager.html#a2c87c005095eadb1669428dfe3a16423',1,'GameAssetManager']]],
-  ['resetpos',['resetPos',['../classCamera.html#a6165c2b248c2675194dd6505b0099cf2',1,'Camera']]],
-  ['runlevel',['runLevel',['../classLevel.html#a09cffeaf0d6f4a583f5a83f1a07cd0ad',1,'Level']]]
+  ['newposition',['NewPosition',['../classCubeAsset.html#a4a934009bd945ac659b2658400af505d',1,'CubeAsset::NewPosition()'],['../classDiamondAsset.html#a266fe301cfa7fc82195d85d29901a6b8',1,'DiamondAsset::NewPosition()'],['../classDoorAsset.html#a50a91283e458295ddd01530f212b366a',1,'DoorAsset::NewPosition()']]]
 ];

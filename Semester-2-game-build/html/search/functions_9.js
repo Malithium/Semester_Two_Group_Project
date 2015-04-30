@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['newposition',['NewPosition',['../classCubeAsset.html#a4a934009bd945ac659b2658400af505d',1,'CubeAsset::NewPosition()'],['../classDiamondAsset.html#a266fe301cfa7fc82195d85d29901a6b8',1,'DiamondAsset::NewPosition()'],['../classDoorAsset.html#a50a91283e458295ddd01530f212b366a',1,'DoorAsset::NewPosition()']]]
+  ['mousemovement',['mouseMovement',['../classCamera.html#a4ec8b9654ae4fa6274920891321899b7',1,'Camera']]],
+  ['move',['Move',['../classGameAssetManager.html#ac9dfdde0628476af5b77b60d461041f1',1,'GameAssetManager']]],
+  ['movebackward',['moveBackward',['../classCamera.html#a3aa8d25c1e36af10fac1f749a1bb420e',1,'Camera']]],
+  ['moveforward',['moveForward',['../classCamera.html#a3be70f5bbcb806eb902a82dbb17e6bc3',1,'Camera']]]
 ];

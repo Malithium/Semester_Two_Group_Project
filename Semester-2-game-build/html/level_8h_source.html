@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: src/level.h Source File</title>
+<title>Cube Jumper: src/level.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Cube Jumper
    </div>
   </td>
  </tr>
@@ -37,6 +37,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -67,7 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -115,24 +116,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classLevel.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="classLevel.html">Level</a>  {</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classLevel.html#a09cffeaf0d6f4a583f5a83f1a07cd0ad">runLevel</a>(<span class="keywordtype">int</span> lvl, SDL_Window* window);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">int</span> blockPositions();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">bool</span> fillVector(<span class="keywordtype">int</span> lvl);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">bool</span> collisionDetection();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classLevel.html#a427e559e6b7dab9867c76cef6eab4185">blockPositions</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classLevel.html#a0d16d2fbefe76a3b5e5bcb2ad4e6a6c2">fillVector</a>(<span class="keywordtype">int</span> lvl);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classLevel.html#a8651318bbd27c04e5105e4bc4593173a">collisionDetection</a>(<span class="keywordtype">int</span> lvl);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classLevel.html#a24eeee2748d12fd613ad3fb86b1557d9">sky</a>();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="classCamera.html">Camera</a> player;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">bool</span> running;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">int</span> cubes, diamonds;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    std::vector&lt;float&gt; cubepositions; <span class="comment">// This vector will read in the XYZ from a .json document with the cube positions which makes the levels easier to edit and manage.</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    std::shared_ptr&lt;GameAssetManager&gt; asset_manager;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    std::shared_ptr&lt;Bounding&gt; Pbbox;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;};</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif //LEVEL_H</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">bool</span> running, decrease;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">float</span> r, g, b;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">int</span> cubes, diamonds;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    std::vector&lt;float&gt; cubepositions; <span class="comment">// This vector will read in the XYZ from a .json document with the cube positions which makes the levels easier to edit and manage.</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    std::shared_ptr&lt;GameAssetManager&gt; asset_manager;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    std::shared_ptr&lt;Bounding&gt; Pbbox;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif //LEVEL_H</span></div>
+<div class="ttc" id="classLevel_html_a427e559e6b7dab9867c76cef6eab4185"><div class="ttname"><a href="classLevel.html#a427e559e6b7dab9867c76cef6eab4185">Level::blockPositions</a></div><div class="ttdeci">int blockPositions()</div><div class="ttdef"><b>Definition:</b> level.cpp:123</div></div>
+<div class="ttc" id="classLevel_html_a8651318bbd27c04e5105e4bc4593173a"><div class="ttname"><a href="classLevel.html#a8651318bbd27c04e5105e4bc4593173a">Level::collisionDetection</a></div><div class="ttdeci">bool collisionDetection(int lvl)</div><div class="ttdef"><b>Definition:</b> level.cpp:192</div></div>
 <div class="ttc" id="classLevel_html_a09cffeaf0d6f4a583f5a83f1a07cd0ad"><div class="ttname"><a href="classLevel.html#a09cffeaf0d6f4a583f5a83f1a07cd0ad">Level::runLevel</a></div><div class="ttdeci">bool runLevel(int lvl, SDL_Window *window)</div><div class="ttdef"><b>Definition:</b> level.cpp:8</div></div>
+<div class="ttc" id="classLevel_html_a0d16d2fbefe76a3b5e5bcb2ad4e6a6c2"><div class="ttname"><a href="classLevel.html#a0d16d2fbefe76a3b5e5bcb2ad4e6a6c2">Level::fillVector</a></div><div class="ttdeci">bool fillVector(int lvl)</div><div class="ttdef"><b>Definition:</b> level.cpp:68</div></div>
 <div class="ttc" id="classLevel_html"><div class="ttname"><a href="classLevel.html">Level</a></div><div class="ttdef"><b>Definition:</b> level.h:34</div></div>
-<div class="ttc" id="classCamera_html"><div class="ttname"><a href="classCamera.html">Camera</a></div><div class="ttdef"><b>Definition:</b> camera.h:16</div></div>
+<div class="ttc" id="classLevel_html_a24eeee2748d12fd613ad3fb86b1557d9"><div class="ttname"><a href="classLevel.html#a24eeee2748d12fd613ad3fb86b1557d9">Level::sky</a></div><div class="ttdeci">void sky()</div><div class="ttdef"><b>Definition:</b> level.cpp:231</div></div>
+<div class="ttc" id="classCamera_html"><div class="ttname"><a href="classCamera.html">Camera</a></div><div class="ttdef"><b>Definition:</b> camera.h:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

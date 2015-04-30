@@ -1,0 +1,63 @@
+Cube Jumper is a tribute to the original 3\-D platformers that were popular during the 90's. It features five levels where the goal is for the player to collect diamonds and reach the door at the end of each level. You, the player, must navigate through the challenging levels and gaze upon the surprise within the final level.
+
+\section*{Prerequisites}
+
+
+\begin{DoxyItemize}
+\item G\-N\-U Autotools
+\item Open\-G\-L 3.\-0
+\item C++11 compiler (tested with G\-C\-C 4.\-8.\-3+)
+\item \href{http://www.boost.org/}{\tt Boost}
+\item \href{http://glew.sourceforge.net/}{\tt G\-L\-E\-W}
+\item \href{https://www.libsdl.org/}{\tt S\-D\-L2}
+\item \href{http://glm.g-truc.net/}{\tt G\-L\-M}
+\end{DoxyItemize}
+
+On Fedora 20 or later you can install these using a single command (as root)\-:
+
+\begin{quotation}
+\$ yum install boost-\/$\ast$ glew-\/devel S\-D\-L2\-\_\-$\ast$ glm-\/devel
+
+\end{quotation}
+
+
+\section*{Building}
+
+After cloning the source code or extracting a distributed archive, change to the directory where the source code is\-:
+
+
+\begin{DoxyItemize}
+\item autoreconf -\/i
+\item ./configure
+\item make
+\end{DoxyItemize}
+
+Alternatively, if you'd like to build the project in debug mode use\-:
+
+\begin{quotation}
+\$ make C\-X\-X\-F\-L\-A\-G\-S=-\/\-D\-D\-E\-B\-U\-G
+
+\end{quotation}
+
+
+\section*{Running}
+
+The build process should create a binary that can be executed as follows\-:
+
+\begin{quotation}
+\$ ./src/\-Cube\-Jumper
+
+\end{quotation}
+
+
+See
+
+\begin{quotation}
+\$ ./src/\-Cube\-Jumper --help
+
+\end{quotation}
+
+
+for usage instructions.
+
+This build process was obtained from\-: \href{https://github.com/AidanDelaney/glex}{\tt https\-://github.\-com/\-Aidan\-Delaney/glex} 

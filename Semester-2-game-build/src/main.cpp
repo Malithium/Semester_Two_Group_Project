@@ -54,11 +54,12 @@ int main(int argc, char *argv[])
 	glDepthFunc(GL_LESS);
 	
 	while (true){
-		if(load.runLevel(lvl, window) == true)
+	bool run = load.runLevel(lvl, window);
+		if(run == true)
 		{
 			lvl++;
 		}
-		else
+		if(run == false || lvl >= 7)
 		{
 			break;
 		}

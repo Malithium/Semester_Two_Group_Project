@@ -9,7 +9,6 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 {
 	running = true;   // Will determine if the level loop is still running
 	bool gravity = false;
-
 	SDL_Event windowEvent; // Setup SDL windowEvent for game loop
 	Events event_handler;
 
@@ -29,8 +28,8 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 	// Creates a bounding box to be redone every frame, as position is always updating
 	Pbbox = make_shared<Bounding>(Bounding(player.GetPos(), 1.0f, 1.0f, 1.0f));
 	
-	glClearColor(0.6f, 1.0f, 1.0f, 0.1f); // Adds a sky blue colour to background, once loading is done
 	do {
+		sky();
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clears current frame, for next frame
 		if (SDL_PollEvent(&windowEvent)) // Handles event input from mouse & keyboard
 		{
@@ -39,7 +38,7 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 		}
 		player.cameraControls(window);   // The camera class
 
-		gravity = collisionDetection();	 // Collision detection
+		gravity = collisionDetection(lvl);	 // Collision detection
 		player.setGravity(gravity);	 // Gravity taking effect
 
 		asset_manager->Intelligence(cubes, diamonds); // Diamond AI
@@ -183,8 +182,9 @@ int Level::blockPositions()
 /**
 * Goes through loops, checking if the player collides with cubes, diamonds and the door. The return
 *  value determines what the boolean gravity is (True or False).
+*  @bug Can collide with inside of the cube.
 */
-bool Level::collisionDetection()
+bool Level::collisionDetection(int lvl)
 {
 	// Because the player moves, the centre needs to be reset every frame
 	Pbbox->SetCentre(player.GetPos());
@@ -204,7 +204,7 @@ bool Level::collisionDetection()
 	// if(player collides with door) running = false;
 	if(asset_manager->Collision(asset_manager->Size(), Pbbox) == true)
 	{
-		if(diamonds == 0)
+		if(diamonds == 0 || lvl == 6)
 			running = false;
 	}
 
@@ -219,3 +219,34 @@ bool Level::collisionDetection()
 
 	return true;
 }
+
+/**
+* Follows some small rules to change the background frame colour from night to day! Uses r g b variables
+*/
+void Level::sky()
+{
+	if(decrease == true)
+	{
+		r -= 0.00005f;
+		g -= 0.00005f;
+		b -= 0.00005f;
+	}
+	else
+	{
+		r += 0.0001f;
+		g += 0.0001f;
+		b += 0.0001f;
+	}
+
+	if(r > 0.6f)
+		r = 0.6f;
+	else if(r <= 0.0f)
+ 		r = 0.0f;
+	if(g >= 1.0f || b >= 1.0f)
+		decrease = true;
+	else if(g <= 0.0f || b <= 0.0f)
+		decrease = false;
+
+	glClearColor(r, g, b, 0.1f); // Adds a sky blue colour to background, once loading is done
+}
+

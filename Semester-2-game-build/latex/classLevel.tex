@@ -9,6 +9,14 @@
 \begin{DoxyCompactItemize}
 \item 
 bool \hyperlink{classLevel_a09cffeaf0d6f4a583f5a83f1a07cd0ad}{run\-Level} (int lvl, S\-D\-L\-\_\-\-Window $\ast$window)
+\item 
+int \hyperlink{classLevel_a427e559e6b7dab9867c76cef6eab4185}{block\-Positions} ()
+\item 
+bool \hyperlink{classLevel_a0d16d2fbefe76a3b5e5bcb2ad4e6a6c2}{fill\-Vector} (int lvl)
+\item 
+bool \hyperlink{classLevel_a8651318bbd27c04e5105e4bc4593173a}{collision\-Detection} (int lvl)
+\item 
+void \hyperlink{classLevel_a24eeee2748d12fd613ad3fb86b1557d9}{sky} ()
 \end{DoxyCompactItemize}
 
 
@@ -16,7 +24,30 @@ bool \hyperlink{classLevel_a09cffeaf0d6f4a583f5a83f1a07cd0ad}{run\-Level} (int l
 This class runs the inner loop for all the individual levels, which means receiving inputs, checking collision, drawing the cubes. It is also responsible reading cube positions, from the .json files and then passing them to the gameassetmanager to manipulate them. 
 
 \subsection{Member Function Documentation}
-\hypertarget{classLevel_a09cffeaf0d6f4a583f5a83f1a07cd0ad}{\index{Level@{Level}!run\-Level@{run\-Level}}
+\hypertarget{classLevel_a427e559e6b7dab9867c76cef6eab4185}{\index{Level@{Level}!block\-Positions@{block\-Positions}}
+\index{block\-Positions@{block\-Positions}!Level@{Level}}
+\subsubsection[{block\-Positions}]{\setlength{\rightskip}{0pt plus 5cm}int Level\-::block\-Positions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classLevel_a427e559e6b7dab9867c76cef6eab4185}
+Adds assets to the gameassetmanager, then translates them by vec3 positions from the cubepositons vector \hypertarget{classLevel_a8651318bbd27c04e5105e4bc4593173a}{\index{Level@{Level}!collision\-Detection@{collision\-Detection}}
+\index{collision\-Detection@{collision\-Detection}!Level@{Level}}
+\subsubsection[{collision\-Detection}]{\setlength{\rightskip}{0pt plus 5cm}bool Level\-::collision\-Detection (
+\begin{DoxyParamCaption}
+\item[{int}]{lvl}
+\end{DoxyParamCaption}
+)}}\label{classLevel_a8651318bbd27c04e5105e4bc4593173a}
+Goes through loops, checking if the player collides with cubes, diamonds and the door. The return value determines what the boolean gravity is (True or False). \begin{DoxyRefDesc}{Bug}
+\item[\hyperlink{bug__bug000001}{Bug}]can collide within the cube. \end{DoxyRefDesc}
+\hypertarget{classLevel_a0d16d2fbefe76a3b5e5bcb2ad4e6a6c2}{\index{Level@{Level}!fill\-Vector@{fill\-Vector}}
+\index{fill\-Vector@{fill\-Vector}!Level@{Level}}
+\subsubsection[{fill\-Vector}]{\setlength{\rightskip}{0pt plus 5cm}bool Level\-::fill\-Vector (
+\begin{DoxyParamCaption}
+\item[{int}]{lvl}
+\end{DoxyParamCaption}
+)}}\label{classLevel_a0d16d2fbefe76a3b5e5bcb2ad4e6a6c2}
+Reads in x, y and z positions from individual .json positions -\/ depending on int level \hypertarget{classLevel_a09cffeaf0d6f4a583f5a83f1a07cd0ad}{\index{Level@{Level}!run\-Level@{run\-Level}}
 \index{run\-Level@{run\-Level}!Level@{Level}}
 \subsubsection[{run\-Level}]{\setlength{\rightskip}{0pt plus 5cm}bool Level\-::run\-Level (
 \begin{DoxyParamCaption}
@@ -24,7 +55,14 @@ This class runs the inner loop for all the individual levels, which means receiv
 \item[{S\-D\-L\-\_\-\-Window $\ast$}]{window}
 \end{DoxyParamCaption}
 )}}\label{classLevel_a09cffeaf0d6f4a583f5a83f1a07cd0ad}
-This method runs the second loop within the game (The level loop). It begins by filling a vector with cube positions, before then passing them into individual game assets. Finally it begins the loop, where it receives inputs, updates then draws. 
+This method runs the second loop within the game (The level loop). It begins by filling a vector with cube positions, before then passing them into individual game assets. Finally it begins the loop, where it receives inputs, updates then draws. \hypertarget{classLevel_a24eeee2748d12fd613ad3fb86b1557d9}{\index{Level@{Level}!sky@{sky}}
+\index{sky@{sky}!Level@{Level}}
+\subsubsection[{sky}]{\setlength{\rightskip}{0pt plus 5cm}void Level\-::sky (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classLevel_a24eeee2748d12fd613ad3fb86b1557d9}
+Follows some small rules to change the background frame colour from night to day! Uses r g b variables 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 

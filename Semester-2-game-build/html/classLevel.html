@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: Level Class Reference</title>
+<title>Cube Jumper: Level Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Cube Jumper
    </div>
   </td>
  </tr>
@@ -37,6 +37,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -70,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -95,10 +96,69 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a09cffeaf0d6f4a583f5a83f1a07cd0ad"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevel.html#a09cffeaf0d6f4a583f5a83f1a07cd0ad">runLevel</a> (int lvl, SDL_Window *window)</td></tr>
 <tr class="separator:a09cffeaf0d6f4a583f5a83f1a07cd0ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a427e559e6b7dab9867c76cef6eab4185"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevel.html#a427e559e6b7dab9867c76cef6eab4185">blockPositions</a> ()</td></tr>
+<tr class="separator:a427e559e6b7dab9867c76cef6eab4185"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d16d2fbefe76a3b5e5bcb2ad4e6a6c2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevel.html#a0d16d2fbefe76a3b5e5bcb2ad4e6a6c2">fillVector</a> (int lvl)</td></tr>
+<tr class="separator:a0d16d2fbefe76a3b5e5bcb2ad4e6a6c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8651318bbd27c04e5105e4bc4593173a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevel.html#a8651318bbd27c04e5105e4bc4593173a">collisionDetection</a> (int lvl)</td></tr>
+<tr class="separator:a8651318bbd27c04e5105e4bc4593173a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24eeee2748d12fd613ad3fb86b1557d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevel.html#a24eeee2748d12fd613ad3fb86b1557d9">sky</a> ()</td></tr>
+<tr class="separator:a24eeee2748d12fd613ad3fb86b1557d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class runs the inner loop for all the individual levels, which means receiving inputs, checking collision, drawing the cubes. It is also responsible reading cube positions, from the .json files and then passing them to the gameassetmanager to manipulate them. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a427e559e6b7dab9867c76cef6eab4185"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Level::blockPositions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Adds assets to the gameassetmanager, then translates them by vec3 positions from the cubepositons vector </p>
+
+</div>
+</div>
+<a class="anchor" id="a8651318bbd27c04e5105e4bc4593173a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Level::collisionDetection </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lvl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Goes through loops, checking if the player collides with cubes, diamonds and the door. The return value determines what the boolean gravity is (True or False). </p>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>can collide within the cube. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0d16d2fbefe76a3b5e5bcb2ad4e6a6c2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Level::fillVector </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lvl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Reads in x, y and z positions from individual .json positions - depending on int level </p>
+
+</div>
+</div>
 <a class="anchor" id="a09cffeaf0d6f4a583f5a83f1a07cd0ad"></a>
 <div class="memitem">
 <div class="memproto">
@@ -123,6 +183,22 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This method runs the second loop within the game (The level loop). It begins by filling a vector with cube positions, before then passing them into individual game assets. Finally it begins the loop, where it receives inputs, updates then draws. </p>
+
+</div>
+</div>
+<a class="anchor" id="a24eeee2748d12fd613ad3fb86b1557d9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Level::sky </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Follows some small rules to change the background frame colour from night to day! Uses r g b variables </p>
 
 </div>
 </div>

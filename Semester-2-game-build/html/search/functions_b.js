@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['setcentre',['SetCentre',['../classBounding.html#a276a1ec077a1006cd34a9bd16bbb0fec',1,'Bounding']]],
-  ['setgravity',['setGravity',['../classCamera.html#aea3ceffb4ff1a209995820e20910f21f',1,'Camera']]],
-  ['setjump',['setJump',['../classCamera.html#a6889ceabc0a2d71fa0eb83268d628b94',1,'Camera']]],
-  ['size',['Size',['../classGameAssetManager.html#ae0e0f79e6dbe422ce5d3c4fd5e20d032',1,'GameAssetManager']]]
+  ['remove',['Remove',['../classGameAssetManager.html#a2c87c005095eadb1669428dfe3a16423',1,'GameAssetManager']]],
+  ['resetpos',['resetPos',['../classCamera.html#a6165c2b248c2675194dd6505b0099cf2',1,'Camera']]],
+  ['runlevel',['runLevel',['../classLevel.html#a09cffeaf0d6f4a583f5a83f1a07cd0ad',1,'Level']]]
 ];

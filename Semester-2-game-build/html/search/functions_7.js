@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jumping',['jumping',['../classCamera.html#a4d12c50b0d5306860f4e1493374e6fc9',1,'Camera']]]
+  ['intelligence',['Intelligence',['../classGameAssetManager.html#ae7e76a05368ce0887ed72a9ee39329eb',1,'GameAssetManager']]]
 ];

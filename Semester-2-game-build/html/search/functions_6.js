@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['intelligence',['Intelligence',['../classGameAssetManager.html#ae7e76a05368ce0887ed72a9ee39329eb',1,'GameAssetManager']]]
+  ['handleevents',['handleEvents',['../classEvents.html#a07e6042ebb51129e7c7fb02bc8289f9d',1,'Events']]]
 ];

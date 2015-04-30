@@ -34,14 +34,18 @@
 class Level  {
   public:
     bool runLevel(int lvl, SDL_Window* window);
-
-  private:
     int blockPositions();
     bool fillVector(int lvl);
-    bool collisionDetection();
+    bool collisionDetection(int lvl);
+    void sky();
 
+  private:
     Camera player;
-    bool running;
+    bool running; 
+	bool decrease = false;
+    float r = 0;
+	float g = 0;
+	float b = 0;
     int cubes, diamonds;
     std::vector<float> cubepositions; // This vector will read in the XYZ from a .json document with the cube positions which makes the levels easier to edit and manage.
     std::shared_ptr<GameAssetManager> asset_manager;

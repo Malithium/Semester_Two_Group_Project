@@ -72,7 +72,7 @@ void GameAssetManager::Intelligence(int cubes, int diamonds) {
 		{
 			for(int y = 0; y < cubes; y++) 
 			{
-				// This loop makes sure that the diamond is colliding with a cube, before moving
+// This loop makes sure that the diamond is colliding with a cube, before moving
 				move = Collision(y, draw_list.at(n1)->GetBox());
 				if(move == true)
 					y = cubes;
@@ -88,7 +88,7 @@ void GameAssetManager::Intelligence(int cubes, int diamonds) {
 		{
 			for(int y = 0; y < cubes; y++) 
 			{
-				// This loop makes sure that the diamond is colliding with a cube, before moving
+// This loop makes sure that the diamond is colliding with a cube, before moving
 				move = Collision(y, draw_list.at(n1)->GetBox());
 				if(move == true)
 					y = cubes;

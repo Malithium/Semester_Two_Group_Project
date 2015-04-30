@@ -42,10 +42,10 @@ class Level  {
   private:
     Camera player;
     bool running; 
-	bool decrease = false;
+    bool decrease = false;
     float r = 0;
-	float g = 0;
-	float b = 0;
+    float g = 0;
+    float b = 0;
     int cubes, diamonds;
     std::vector<float> cubepositions; // This vector will read in the XYZ from a .json document with the cube positions which makes the levels easier to edit and manage.
     std::shared_ptr<GameAssetManager> asset_manager;

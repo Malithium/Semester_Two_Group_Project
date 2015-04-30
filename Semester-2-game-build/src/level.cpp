@@ -11,6 +11,7 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 	bool gravity = false;
 	SDL_Event windowEvent; // Setup SDL windowEvent for game loop
 	Events event_handler;
+	cubes = 0;		// Sets amount of level cubes to 0
 
 	// The method will fill the cubepositions vector, the If statement is for error checking
 	if (fillVector(lvl) == false)
@@ -50,7 +51,6 @@ bool Level::runLevel(int lvl, SDL_Window* window)
 	glClearColor(1.0f, 1.0f, 1.0f, 0.0f); // This should make the screen go black
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	cubes = 0;		// Sets amount of level cubes to 0
 	player.resetPos();	// Resets player position to (0, 0, 0)
 	asset_manager->Clear(); // Empties the vector of assets
 	cubepositions.clear();  // Empties the vector of positions
@@ -227,15 +227,15 @@ void Level::sky()
 {
 	if(decrease == true)
 	{
-		r -= 0.00005f;
-		g -= 0.00005f;
-		b -= 0.00005f;
+		r -= 0.00001f;
+		g -= 0.00001f;
+		b -= 0.00001f;
 	}
 	else
 	{
-		r += 0.0001f;
-		g += 0.0001f;
-		b += 0.0001f;
+		r += 0.00002f;
+		g += 0.00002f;
+		b += 0.00002f;
 	}
 
 	if(r > 0.6f)

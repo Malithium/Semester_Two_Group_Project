@@ -13,12 +13,9 @@ glm::vec3 direction;
 //The angles we will be using
 float horizontalAngle = 0.0f;
 float verticalAngle = 0.0f;
-float decVelocity;
 
 float speed = 3.0f;
 float jumpspeed = 0.0018f;
-float fallingSpeed = 0.0018f;
-float startingVelocity = 0.09;
 float mouseSpeed = 0.0036f;
 
 int xpos, ypos;
@@ -55,6 +52,7 @@ void Camera::moveBackward(float dTime){
 
 /**
 * Uses the mouses position to determine where the camera is looking
+*@bug sometimes the mouse movement will stutter, or momentarily cease moving
 */
 void Camera::mouseMovement(float dTime){
 	SDL_GetMouseState(&xpos, &ypos);

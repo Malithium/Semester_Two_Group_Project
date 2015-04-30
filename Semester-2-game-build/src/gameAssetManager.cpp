@@ -57,6 +57,7 @@ void GameAssetManager::Clear() {
 /**
 * Follows an algorithm which makes the diamond shy away from the player, causing
 * it to retreat in the opposite direction of the player.
+*@bug some of the diamonds do not work as intended, some will flee as intended others will not
 */
 void GameAssetManager::Intelligence(int cubes, int diamonds) {
 	bool move = false;
